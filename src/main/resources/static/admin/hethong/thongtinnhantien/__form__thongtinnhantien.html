@@ -1,0 +1,94 @@
+<div class="row d-flex align-items-center">
+    <div class="container ">
+        <div class="main__center__Display mt-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <a class="url__title" href="" data-target="#list-tab" data-toggle="tab" ng-click="tab(1)">Danh sách thông tin nhận tiền</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <a class="url__title" href="" data-target="#form-tab" data-toggle="tab" ng-click="tab(2)">Thông tin nhận tiền</a>
+                </div>
+                 
+            </div>
+        </div>
+        <!-- Bài đăng -->
+        <div class="col-md-12">
+            <div class="main__center__panel">
+                <div class="main__center__container">
+                   <form action="">
+                   	` <div class="row mt-2">
+                        <div class="col-md-9">
+                            <div class="row  form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">ID:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input ng-model="formBCoinHistory.id" type="text" class="input__nhap">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3  form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Số tài khoản:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input ng-model="formBCoinHistory.stk" type="text" class="input__nhap">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Chủ tài khoản:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" ng-model="formBCoinHistory.user" class="input__nhap">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Ngân hàng:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" ng-model="formBCoinHistory.nganhang" class="input__nhap">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3">
+                                    <div class="col-md-8 offset-4 text-center">
+                                        <a class="button__action" href="" ng-click="save()">Lưu</a>
+                                        <a class="button__action" href="" ng-click="reset()">Làm mới</a>
+                                        <a class="button__action__cancel {{formDataEdit.id==null?'d-none':''}}" data-bs-toggle="modal" data-bs-target="#deleteModal" href="">Xóa</a>
+                                    </div> 
+                                </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <h5>Bạn có chắc muốn xóa?</h5>
+                                                <p>Bạn sẽ không thể khôi phục dữ liệu này nếu xóa</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                                <button type="button" class="btn btn-danger" ng-click="delete()">Đồng ý,
+                                                    Xác nhận xóa!</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+
+                        </div>
+                        <div class="col-md-6">
+                           
+                        </div>
+
+                    </div>
+                   	
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

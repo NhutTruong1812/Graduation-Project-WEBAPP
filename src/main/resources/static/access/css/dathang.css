@@ -1,0 +1,13 @@
+.text__title__dathang {
+    color: #4b7e7d;
+}
+
+.title__text__box__dathang {
+    margin-left: 5%;
+    margin-top: 1%;
+    display: flex;
+}
+
+#list__tab2 {
+    /*  display: none;*/
+}

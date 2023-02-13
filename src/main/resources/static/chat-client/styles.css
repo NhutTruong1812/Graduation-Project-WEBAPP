@@ -1,0 +1,46 @@
+#users {
+    background-color: rgb(209, 206, 201);
+}
+
+.chatframe {
+    display: flex;
+    flex-direction: column;
+}
+
+.send-group {
+    display: flex;
+    flex-direction: row;
+}
+
+#messages {
+    display: flex;
+    flex-direction: column;
+}
+
+.pop {
+    background-color: aqua;
+    width: max-content;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.pop .sender {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pop .content {
+    padding-left: 10px;
+}
+
+.pop .time {
+    font-size: 10px;
+    align-self: flex-end;
+}
+
+.pop.cur {
+    align-self: flex-end;
+}

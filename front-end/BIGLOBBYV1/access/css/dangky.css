@@ -1,0 +1,171 @@
+/* khung bên trái */
+.boder__left__register{
+    position: absolute;
+    width: 24%;
+    height: 550px;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #10605D 100%);
+    border-radius: 10px 0px 0px 10px;
+}
+
+.boder__left__register h1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.boder__left__register .boder__left__h1--text{
+    margin-top: 40%;
+}
+
+.boder__left__register .align-items-center{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+/* khung phải */
+.boder__right__register{
+    position: absolute;
+    left: 47%;
+    width: 30%;
+    height: 550px;
+    background-color: #ffffff;
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: 1px 2px 10px rgba(34, 240, 141, 0.3);
+}
+
+.boder__right__register h1{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 58px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #38AA95;
+    margin-top: 3%;
+}
+
+.boder__right__register input[type=radio]{
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    background: #FFFFFF;
+    border: 2px solid #99A0B6;
+    border-radius: 10px;
+    margin-top: 4%;
+    margin-left: 4%;
+}
+
+.boder__right__register .main__form__lable{
+    color: #62686D;
+    font-weight: 600;
+    margin-top: 15%;
+    width: 100%;
+    text-align: right;
+    margin-left: 30%;
+}
+
+.boder__right__register .boder__right__register__gender{
+    margin-left: 4%;
+}
+
+.form__dangky .input{
+    width: 320px;
+    height: 40px;
+    background: #F9F9F9;
+    border: 2px solid #E9E9E9;
+    border-radius: 10px;
+    margin-top: 3%;
+    margin-left: 15%;
+}
+
+.form__dangky a{
+    text-decoration: none;
+    color: #198783;
+}
+
+.form__dangky .form__dangnhap__icon1{
+    position: absolute;
+    top: 57%;
+    right: 18%;
+}
+
+.form__dangky .form__dangnhap__icon2{
+    position: absolute;
+    top: 67%;
+    right: 18%;
+}
+
+.form__dangky__button{
+    margin-top: 5%;
+    margin-left: 15%;
+    width: 320px;
+    height: 40px;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    border-radius: 30px;
+    border: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.form__dangky__facebook__button{
+    margin-left: 15%;
+    width: 150px;
+    height: 35px;
+    background: #1877F2;
+    box-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    border-radius: 30px;
+    border: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.form__dangky__facebook__button .facebook__img{
+    width: 30px;
+    height: 30px;
+}
+
+.form__dangky__google__button{
+    margin-top: 3%;
+    margin-left: 4%;
+    width: 150px;
+    height: 35px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    border: none;
+    color: #575757;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.form__dangky__google__button .google__img{
+    width: 30px;
+    height: 30px;
+}
+
+.form__dangky .form__dangky__message{
+    margin-left: 25%;
+    margin-top: 2%;
+}
+
+.form__dangky .form__dangky__message .form__dangky__message__Had{
+    font-weight: 600;
+    font-size: 15px;
+    color: #575757;
+}
+
+.form__dangky .form__dangky__message .form__dangky__message__login{
+    font-weight: 600;
+    font-size: 15px;
+    color: #198783;
+    margin-left: 5%;
+}

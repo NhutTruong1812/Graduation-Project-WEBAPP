@@ -1,0 +1,262 @@
+/* .main__center__login{
+    background-color: rgb(242, 242, 242);
+    height: 100%px;
+} */
+
+body {
+    background-color: #F9F9F9 !important;
+}
+
+
+/* Nút đăng nhập */
+
+.main__form__button {
+    margin-left: 15%;
+    width: 150px;
+    height: 35px;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+
+/* khung chính */
+
+.container__login {
+    position: relative;
+    max-width: 800px !important;
+    margin-top: 3%;
+    padding-left: 0px !important;
+    border-radius: 10px;
+}
+
+.form__dangnhap--relative {
+    position: relative;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #10605D 100%);
+}
+
+
+/* khung bên trái */
+
+.boder__left {
+    position: absolute;
+    width: 47%;
+    height: 500px;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #10605D 100%);
+    border-radius: 10px 0px 0px 10px;
+}
+
+.boder__left h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.boder__left .boder__left__h1--text {
+    margin-top: 40%;
+}
+
+.boder__left .align-items-center {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.boder__left__btn {
+    margin-top: 5%;
+    margin-left: 29%;
+    width: 150px;
+    height: 40px;
+    background: none;
+    border: 1.38125px solid #FFFFFF;
+    border-radius: 34.8766px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.boder__left__img__tron {
+    width: 46.27px;
+    height: 46.27px;
+    border-radius: 50px;
+    background: #49ACA8;
+    opacity: 0.2;
+    position: absolute;
+    left: 70px;
+    top: 30px;
+}
+
+.boder__left__img__giac {
+    position: absolute;
+    width: 80.4px;
+    height: 80.4px;
+    left: 230px;
+    top: 70px;
+    background: #49ACA8;
+    opacity: 0.2;
+    transform: rotate(150deg);
+}
+
+
+/* khung phải */
+
+.boder__right {
+    position: absolute;
+    left: 47%;
+    width: 57%;
+    height: 500px;
+    background-color: #ffffff;
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: 1px 2px 10px rgba(34, 240, 141, 0.3);
+}
+
+.boder__right h1 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 58px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #38AA95;
+    margin-top: 20%;
+}
+
+.form__dangnhap .input {
+    width: 320px;
+    height: 40px;
+    background: #F9F9F9;
+    border: 2px solid #E9E9E9;
+    border-radius: 10px;
+    margin-left: 15%;
+}
+
+.form__dangnhap--pos {
+    position: relative;
+}
+
+.form__dangnhap a {
+    text-decoration: none;
+    color: #198783;
+}
+
+.form__dangnhap .form__dangnhap__icon {
+    position: absolute;
+    top: 20%;
+    right: 18%;
+}
+
+.form__dangnhap__remenber {
+    margin-left: 34%;
+}
+
+.form__dangnhap__remenber span {
+    position: absolute;
+    width: 151px;
+    height: 21px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    color: #000000;
+    opacity: 0.3;
+}
+
+.form__dangnhap #remenber {
+    width: 55px;
+    height: 55px;
+}
+
+
+/*.form__dangnhap__forgot{
+    margin-top: 4.3%;
+}*/
+
+.form__dangnhap .form__dangnhap__forgot a {
+    text-decoration: none;
+}
+
+.form__dangnhap__forgot span {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 21px;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.form__dangnhap__button {
+    margin-top: 5%;
+    margin-left: 20%;
+    width: 150px;
+    height: 35px;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.form__dangnhap__google {
+    position: absolute;
+    left: 55%;
+    bottom: 18%;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 40px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid rgba(50, 149, 147, 0.3);
+    box-shadow: 2px 4px 20px rgba(0, 134, 142, 0.1);
+    border-radius: 50px;
+}
+
+.form__dangnhap__google .google__img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50px;
+}
+
+.form__dangnhap__facebook {
+    position: absolute;
+    left: 65%;
+    bottom: 18%;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 40px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid rgba(50, 149, 147, 0.3);
+    box-shadow: 2px 4px 20px rgba(0, 134, 142, 0.1);
+    border-radius: 50px;
+}
+
+.form__dangnhap__facebook .facebook__img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50px;
+}
+
+.form--he {
+    height: 60px;
+}
+
+#message__Login{
+	color: red;
+	margin-left:18%;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: left;
+}

@@ -1,0 +1,162 @@
+<div class="row d-flex align-items-center">
+    <div class="container ">
+        <div class="main__center__Display mt-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <a class="url__title"  href="" data-target="#list-tab" data-toggle="tab" ng-click="tab(1)">Danh sách đơn hàng</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <a class="url__title" href="" data-target="#form-tab" data-toggle="tab" ng-click="tab(2)">svThông tin chi tiết đơn hàng</a>
+                </div>
+
+            </div>
+        </div>
+        <!-- Bài đăng -->
+        <div class="col-md-12">
+            <div class="main__center__panel">
+                <div class="main__center__container">
+                    <form action="" id = "formorder">
+                    		<div class="row text-center">
+                        <div class="col-md-12">
+                            <span class="title__form">Thông tin chi tiết</span>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">ID đơn hàng:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="id" ng-model="formOrder.id" type="text" class="input__nhap text-danger" >
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Danh mục:</span>
+                                </div>
+                                <div class="col-md-8">
+                                     <select class="custom-select my-1 mr-sm-2" > 
+									    <option value="1">Sản phẩm 1</option>
+									    <option value="2">Sản phẩm 2</option> 
+									  </select>
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3  form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Tài khoản mua:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="buyer" ng-model="formOrder.buyer" type="text" class="input__nhap" value="nguyenhue01">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Người mua:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="fullname" ng-model="formOrder.fullname" type="text" class="input__nhap" value="Nguyễn Huệ">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3  form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">SĐT người mua:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="phoneNum" ng-model="formOrder.phoneNum" type="text" class="input__nhap"  >
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <!-- <div class="row mt-3">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Kết quả:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" class="input__nhap text-success" value="Thành công">
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Ngày tạo đơn:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="addDate" ng-model="formOrder.addDate" type="date" class="input__nhap text-danger" >
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Tổng tiền:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="tongtien" readonly="readonly"   type="text" class="input__nhap text-danger" value="2.500.000đ">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Tài khoản bán:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="saler" ng-model="formOrder.saler"  type="text" class="input__nhap" readonly="readonly">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Người bán:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="saler" ng-model="formOrder.saler" type="text" class="input__nhap" value="Lê Thánh Tông">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">SĐT người bán:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input readonly="readonly"  type="text" class="input__nhap" value="0888999000">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row mt-5 mb-3"> 
+                        <div class="col-md-6 offset-3 text-center">
+                            <a class="button__action" href="" data-target="#list-tab" data-toggle="tab" ng-click="tab(1)">OK</a> 
+                        </div> 
+                    </div>
+                    </form>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+<script>
+        Validator({
+            form: '#formorder',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            invalidSelector: '.invalid',
+            rules: [ 
+                Validator.isRequired("#id", 'Vui lòng nhập id!'), 
+                Validator.isRequired("#buyer", 'Vui lòng nhập người mua!'), 
+                Validator.isRequired("#fullname", 'Vui lòng nhập họ tên!'), 
+                Validator.isRequired("#phoneNum", 'Vui lòng nhập số điện thoại!'), 
+                Validator.isRequired("#saler", 'Vui lòng nhập người bán!'),
+                Validator.isRequired("#addDate", 'Vui lòng nhập ngày tạo!'), 
+            ],
+            onSubmit: function(data) {
+                console.log(data);
+            }
+        });
+    </script>

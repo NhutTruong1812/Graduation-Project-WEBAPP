@@ -1,0 +1,38 @@
+
+.pagenavigation .pagination{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagenavigation .pagination .page-item .page-link{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    width: 30px;
+    height: 30px; 
+    color: #1E1E1E;
+    background: #D9D9D9;
+    border-radius: 5px;
+}
+
+.page-link--active:hover, .page-link--active{ 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    width: 30px;
+    height: 30px;   
+    font-weight: 600;  
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -0.732051px 1.4641px 5.85641px rgba(34, 240, 141, 0.3);
+    border-radius: 5px;
+    color: #FFFFFF; 
+}
+.icon__page{ 
+    color: #404040;
+}
+
+

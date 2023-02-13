@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/dstuff/deco.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="user-app">
+    <div ng-controller="lichsumua-ctrl">
+        <h3>MUA: QUÉT QR XÁC NHẬN</h3>
+        <hr>
+        <h3>ĐƠN HÀNG DEMO</h3>
+        <div>
+            <table border="1" style="width: 100%;">
+                <tr>
+                    <th>STT</th>
+                    <th>Người mua</th>
+                    <th>Địa chỉ</th>
+                    <th>Ngày nhận</th>
+                    <th>Trạng thái</th>
+                    <th>Người bán</th>
+                    <th>QR Xác nhận</th>
+                </tr>
+                <tr class="qrmua">
+                    <td class="qrmua2" qrdata="10">11</td>
+                    <td class="qrmua3" qrdata="5">Đức</td>
+                    <td>Cần Thơ</td>
+                    <td>2022-01-01</td>
+                    <td class="qrmua4">DONGYGIAODICH</td>
+                    <td class="qrmua1" qrdata="">Hồ</td>
+                    <td>
+                        <a href="" hreftemp="/demo/xacnhanqr?qrdata=" class="a-btn qrapi">[QUÉT/TẠO]</a>
+                        <button hreftemp="/demo/xacnhanqr?qrdata=" class="a-btn qrapi">[QUÉT/TẠO]</button>
+                    </td>
+                </tr>
+                <tr class="qrmua">
+                    <td class="qrmua2" qrdata="">11</td>
+                    <td class="qrmua3" qrdata="">Đức</td>
+                    <td>Cần Thơ</td>
+                    <td>2022-01-01</td>
+                    <td class="qrmua4">THANHCONG</td>
+                    <td class="qrmua1" qrdata="1">Hồ</td>
+                    <td>
+                        <a href="" hreftemp="/demo/xacnhanqr?qrdata=" class="a-btn qrapi">[QUÉT/TẠO]</a>
+                    </td>
+                </tr>
+                <tr class="qrmua">
+                    <td class="qrmua2" qrdata="">11</td>
+                    <td class="qrmua3" qrdata="">Đức</td>
+                    <td>Cần Thơ</td>
+                    <td>2022-01-01</td>
+                    <td class="qrmua4">HUY</td>
+                    <td class="qrmua1" qrdata="1">Hồ</td>
+                    <td>
+                        <a href="" hreftemp="/demo/xacnhanqr?qrdata=" class="a-btn qrapi">[QUÉT/TẠO]</a>
+                    </td>
+                </tr>
+                <tr class="qrmua">
+                    <td class="qrmua2" qrdata="3">11</td>
+                    <td class="qrmua3" qrdata="77">Đức</td>
+                    <td>Cần Thơ</td>
+                    <td>2022-01-01</td>
+                    <td class="qrmua4">DONGYGIAODICH</td>
+                    <td class="qrmua1" qrdata="">Hồ</td>
+                    <td>
+                        <a href="" hreftemp="/demo/xacnhanqr?qrdata=" class="a-btn qrapi">[QUÉT/TẠO]</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="wrapfull-cvr">
+            <div class="onfull-cvr">
+                <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                    <h1>QUÉT QR XÁC NHẬN</h1>
+                    <h2>
+                        <span id="demo" apitemp=""></span>
+                    </h2>
+                    <div style="width: 500px" id="reader"></div>
+                </div>
+            </div>
+            <div class="full-cvr full-cvr2"> </div>
+        </div>
+    </div>
+    <script src="/assets/dstuff/html5-qrcode.min.js"></script>
+</body>
+
+</html>

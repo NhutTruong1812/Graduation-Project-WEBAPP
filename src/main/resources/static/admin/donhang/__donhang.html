@@ -1,0 +1,108 @@
+<div class="row d-flex align-items-center">
+    <div class="container ">
+        <div class="main__center__Display">
+            <a href="" data-target="#list-tab" data-toggle="tab" ng-click="tab(1)">
+                <span>Danh sách đơn hàng</span>
+            </a>
+        </div>
+
+        <!-- Bài đăng -->
+        <div class="col-md-12">
+            <div class="main__center__panel">
+                <div class="main__center__container">
+                    <div class="main__center__container__menu">
+                        <div class="row mt-2">
+                            <form>
+                                <div class="col-md-12 form-group">
+                                    <input class="form-input" type="text" ng-model="f.keySearch" onkeypress="angular.element(this).scope().goSearchA(this)">
+                                </div>
+                            </form>
+                            <div class="col-md-12">
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item">
+                                        <a class="{{listActive==1?'active':''}} {{listActive==-1?'active':''}} nav-link " aria-current="page" href="" ng-click="changeTabPanelLink(1)"><span>Tất
+													cả</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{listActive==2?'active':''}} {{listActive==-2?'active':''}}" aria-current="page" href="" ng-click="changeTabPanelLink(2)"><span>Chờ xác nhận</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{listActive==3?'active':''}} {{listActive==-3?'active':''}}" aria-current="page" href="" ng-click="changeTabPanelLink(3)"><span>Đồng ý giao dịch</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{listActive==4?'active':''}} {{listActive==-4?'active':''}}" aria-current="page" href="" ng-click="changeTabPanelLink(4)"><span>Thành Công</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{listActive==5?'active':''}} {{listActive==-5?'active':''}}" aria-current="page" href="" ng-click="changeTabPanelLink(5)"><span>Đã hủy</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table id="customers">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <th>Người bán</th>
+                                <th>Người mua</th>
+                                <th>SĐT</th>
+                                <th>Địa chỉ</th>
+                                <th>Ngày tạo</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                            <tr ng-repeat="item in listOrder">
+                                <td>{{item.id}}</td>
+                                <td>{{item.saler.fullname}}</td>
+                                <td>{{item.fullname}}</td>
+                                <td>{{item.phonenum}}</td>
+                                <td>{{item.address}}</td>
+                                <td>{{item.addDate | date: 'dd-MM-yyyy'}}</td>
+                                <td>{{item.status.status}}</td>
+                                <td>
+                                    <a class="customers__table__btn__sua" href="" ng-click="edit(item)">Sửa</a>
+                                    <a class="customers__table__btn__sua text-danger" href="" data-bs-toggle="modal" data-bs-target="#deleteModal" ng-click="goDeleteFromTable(item)">Xóa</a>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <h5>Bạn có chắc muốn xóa?</h5>
+                                                    <!--  <p>Bạn sẽ không thể khôi phục dữ liệu này nếu xóa</p> -->
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                                    <button type="button" class="btn btn-danger" ng-click="delete(obj_order_delete)">Đồng ý,
+	                                                    Xác nhận khôi phục!</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt-2 pagenavigation">
+                <nav class="col-md-12" aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li><a ng-click="goPage(APage-1)"><i
+								class="fa-sharp fa-solid fa-caret-left icon__page"></i></a></li>
+                        <span ng-repeat="pg in listButton">
+							<li class="page-item"><a
+								class="{{pg===APage?'page-link--active':'page-link'}} {{pg}}"
+								ng-click="goPage(pg)">{{pg}}</a></li>
+						</span>
+                        <li><a ng-click="goPage(APage+1)"><i
+								class="fa-sharp fa-solid fa-caret-right icon__page"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+    </div>
+</div>

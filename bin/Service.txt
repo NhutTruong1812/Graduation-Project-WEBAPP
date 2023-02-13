@@ -1,0 +1,2 @@
+Dịch vụ ưu tiên gợi ý khi tìm kiểm
+Gợi ý dựa phụ thuộc vào 80% do người dùng đánh giá và 20% do dịch vụ của biglobby

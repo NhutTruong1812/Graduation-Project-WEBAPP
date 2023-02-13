@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+	<!-- Container START -->
+	<div class="container">
+		<div class="row">
+
+			<!-- Sidenav START -->
+			<div class="col-lg-3">
+				<div ng-include="'/layout/user/left/_menu_left_index.html'"></div>
+			</div>
+			<!-- Sidenav END -->
+
+			<!-- Main content START -->
+			<div class="col-lg-6 vstack gap-4">
+				<!-- Setting Tab content START -->
+				<div class="tab-content py-0 mb-0">
+					<!-- Account setting tab START -->
+					<div class="tab-pane show active fade" id="nav-setting-tab-1">
+						<!-- Account settings START -->
+						<div class="card mb-4 mt-2">
+
+							<!-- Title START -->
+							<div class="card-header border-0 pb-0">
+								<h1 class="h5 card-title">Hồ sơ của tôi</h1>
+								<p class="mb-0">Quản lý thông tin hồ sơ để bảo mật tài khoản.</p>
+							</div>
+							<!-- Card header START -->
+							<!-- Card body START -->
+							<div class="card-body">
+								<!-- Form settings START -->
+								<form class="row g-3" id="formThongTin" enctype="multipart/form-data">
+									<!-- Upload Photos or Videos -->
+									<div class="fallback">
+										<label class="form-label">Tải ảnh của bạn lên</label>
+										<div class="main_avatar__register--boder"  style="max-width: 100%">
+											<img class="avatar__register__logo" alt="{{form.user.avatar}}"
+												ng-src="{{'../'+form.user.avatar}}">
+											<input class="input_file_image_post" type="file" ng-model="form.user.avatar"
+												name="avatar" id="avatar"
+												onchange="angular.element(this).scope().imageChanged(this.files)"
+												fileInput="form.user.avatar">
+										</div>
+									</div>
+									<!-- First name -->
+									<div class="col-sm-6 col-lg-4">
+										<label class="form-label">Họ tên</label>
+										<input type="text" name="fullname" id="fullname" ng-value="form.user.fullname"
+											ng-model="form.user.fullname" class="form-control" placeholder="">
+									</div>
+									<!-- Additional name -->
+									<div class="col-sm-6 col-lg-4">
+										<label class="form-label">Email</label>
+										<input type="text" name="email" id="email" ng-value="form.user.email"
+											ng-model="form.user.email" class="form-control" placeholder="">
+									</div>
+									<!-- Phone number -->
+									<div class="col-sm-6 col-lg-4">
+										<label class="form-label">Số điện thoại</label>
+										<input type="text" name="phonenum" id="phonenum" ng-value="form.user.phonenum"
+											ng-model="form.user.phonenum" class="form-control" placeholder="">
+									</div>
+									<!--Gender-->
+									<div class="form-group">
+										<div class="col-sm-6 col-lg-6">
+											<label class="form-label">Giới tính:</label>
+											<input type="radio" id="gender" ng-model="form.user.gender" ng-value="true"
+												name="gender">Nam
+											<input type="radio" id="gender" ng-model="form.user.gender" ng-value="false"
+												name="gender">Nữ
+										</div>
+										<span class="form-message"></span>
+									</div>
+									<!-- Phone number -->
+									<div class="col-sm-6">
+										<label class="form-label">Địa chỉ</label>
+										<input type="text" name="location" id="location" ng-value="form.location"
+											ng-model="form.location" class="form-control" placeholder="">
+									</div>
+									<!-- Phone number -->
+									<div class="col-sm-6">
+										<label class="form-label">Giới thiệu</label>
+										<textarea class="form-control ng-pristine ng-valid ng-empty ng-touched"
+											style="width: 100%;" cols="10" rows="5" ng-value="form.intro"
+											ng-model="form.intro"></textarea>
+									</div>
+									<!-- Button  -->
+									<div class="col-12 text-end">
+										<button ng-click="update()" type="submit"
+											class="btn btn-sm btn-primary mb-0">Lưu thay đổi</button>
+									</div>
+								</form>
+								<!-- Settings END -->
+							</div>
+							<!-- Card body END -->
+						</div>
+						<!-- Account settings END -->
+
+						<!-- Change your password START -->
+						<div class="card">
+							<!-- Title START -->
+							<div class="card-header border-0 pb-0">
+								<h5 class="card-title">Thay đổi mật khẩu của bạn</h5>
+								<p class="mb-0">Tuyệt đối không chia sẽ mật khẩu cho bất kì ai</p>
+							</div>
+							<!-- Title START -->
+							<div class="card-body">
+								<!-- Settings START -->
+								<form class="row g-3" id="changeForm">
+									<span id="message__Login"></span>
+									<!-- Current password -->
+									<div class="form-group">
+										<div class="col-12">
+											<label class="form-label">Mật khẩu hiện tại</label>
+											<input id="password" name="password" rules="required"
+												placeholder="Nhập mật khẩu hiện tại" type="password"
+												class="form-control">
+										</div>
+										<span class="form-message"></span>
+									</div>
+
+									<!-- New password -->
+									<div class="col-12">
+										<label class="form-label">Mật khẩu mới</label>
+										<!-- Input group -->
+										<div class="form-group">
+											<div class="input-group">
+												<input class="form-control fakepassword" type="password"
+													name="newpassword" id="newpassword" rules="required"
+													placeholder="Nhập mật khẩu mới" placeholder="Enter new password">
+												<span class="input-group-text p-0">
+													<i onclick="ShowPass2()"
+														class="fakepasswordicon fa-solid fa-eye-slash cursor-pointer p-2 w-40px"></i>
+												</span>
+											</div>
+											<span class="form-message"></span>
+										</div>
+										<!-- Pswmeter -->
+										<div id="pswmeter" class="mt-2"></div>
+										<div id="pswmeter-message" class="rounded mt-1"></div>
+									</div>
+									<!-- Confirm password -->
+									<div class="form-group">
+										<div class="col-12">
+											<label class="form-label">Nhập lại mật khẩu</label>
+											<input type="password" name="confirmpassword" id="confirmpassword"
+												rules="required" placeholder="Nhập lại mật khẩu mới"
+												class="form-control">
+										</div>
+										<span class="form-message"></span>
+									</div>
+
+									<!-- Button  -->
+									<div class="col-12 text-end">
+										<button ng-click="changePass()" type="submit" class="btn btn-primary mb-0">Cập
+											nhật mật khẩu</button>
+									</div>
+								</form>
+								<!-- Settings END -->
+							</div>
+						</div>
+						<!-- Card END -->
+					</div>
+					<!-- Account setting tab END -->
+				</div>
+				<!-- Setting Tab content END -->
+			</div>
+
+		</div>
+		<!-- Row END -->
+	</div>
+	<!-- Container END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->

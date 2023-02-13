@@ -1,0 +1,117 @@
+ 
+    <!-- begin main -->
+    <div class="main">
+        <div class="row no-gutters">
+            <!-- left -->
+            <div class="col-md-3">
+                <div class="row main__left"> 
+                    <div ng-include="'../layout/user/__menu__left__1.html'"></div>
+                    
+                </div>
+                
+            </div>
+
+            <!-- center -->
+            <div class="col-md-9 main__center--height">
+                <div class="row d-flex align-items-center">
+                    <div class="container">
+                        <div class="row main__center__form">
+                            <div class="col-md-6 offset-1">
+                                <h1>Hồ sơ của tôi</h1>
+                                <span>Quản lý thông tin hồ sơ để bảo mật tài khoản</span>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="main__form__lable">Họ tên:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" name="hoten" placeholder="Nguyễn văn an">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="main__form__lable">Email:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" name="email" placeholder="abc***@gmail.com">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="main__form__lable">Giới tính:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="radio" name="gioitinh" checked> Nam
+                                            <input type="radio" name="gioitinh"> Nữ
+                                            <input type="radio" name="gioitinh"> Khách
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="main__form__lable__sdt">Số điện thoại:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" name="sdt" placeholder="0911785647">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="main__form__lable">Ngày sinh:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Ngày</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Tháng</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Năm</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="main__form__lable">Giới thiệu:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <textarea class="main__form__gioithieu" placeholder="Đây là giới thiệu" name="gioithieu"></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="main__form__button">Lưu</button>
+                                    
+                                </form>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="main_avatar--boder">
+                                    <img class="avatar__logo" src="../access/images/user1.png" alt="">
+                                </div>
+                                <div class="btn_upload_file text_post_form">
+                                    <span>Chọn ảnh</span>
+                                <input class="input_file_image_post"
+                                    type="file" name="" id="">
+                            </div>
+                                <!-- <input type="file" name="upload" id="upload" class="main_avatar__btn"><br> -->
+                                <div class="main_avatar--text">
+                                    <span>Dung lượng tối đa 1md</span><br>
+                                    <span>Định dạng: .jpeg, .png</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end main -->
+ 

@@ -1,0 +1,174 @@
+/*Chia sẻ*/
+
+.modal-content {
+    position: relative;
+}
+
+.sharePost {
+    margin-top: 10%;
+}
+
+.sharePost__text {
+    width: 465px
+}
+
+.sharePost--boder {
+    width: 55px;
+    height: 56px;
+    margin-top: 5%;
+    border-radius: 50px;
+    background: #D9D9D9;
+    border: 2px solid rgba(54, 161, 160, 0.5);
+}
+
+.sharePost--boder .avatar__sharePost {
+    margin-bottom: 30%;
+    width: 51px;
+    height: 53px;
+    text-align: center;
+}
+
+.sharePost__user__text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    position: absolute;
+    left: 18%;
+    top: 6%;
+}
+
+.sharePost__public {
+    position: absolute;
+    top: 15%;
+    left: 18%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.modal-content .btn-primary {
+    width: 200px;
+    margin-left: 50%;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+}
+
+.modal-footer {
+    position: relative;
+}
+
+.btn__sharePost {
+    position: absolute;
+    right: 60%;
+    bottom: 17%;
+    font-size: 20px;
+    color: black;
+}
+
+.modal-footer a:hover {
+    text-decoration: none;
+    color: #38aa95;
+}
+
+.main__center__panel__icon a:hover {
+    text-decoration: none;
+    color: #269390;
+}
+
+.main__center__panel__icon a {
+    color: #95979d;
+}
+
+
+/* Báo cáo */
+
+.modal-content {
+    position: relative;
+}
+
+.reportPost {
+    margin-top: 3%;
+}
+
+.reportPost__text {
+    width: 465px
+}
+
+.reportPost .fa-rectangle-xmark {
+    font-size: 30px;
+    color: red;
+}
+
+.reportPost__user__text {
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 38px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    padding-bottom: 2%;
+}
+
+.report__content span {
+    color: #050505;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.report__content p {
+    color: #65676b;
+    font-size: 15px;
+    line-height: 19.9995px;
+}
+
+.report__option {
+    height: 60px;
+}
+
+.report__option .report__checkbox {
+    width: 30px;
+    height: 30px;
+}
+
+.report__option span {
+    color: #050505;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 20.0005px;
+    text-align: left;
+}
+
+.modal-content .btn-primary {
+    width: 200px;
+    margin-left: 50%;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+}
+
+.modal-footer {
+    position: relative;
+}
+
+.btn__reportPost {
+    position: absolute;
+    right: 60%;
+    bottom: 17%;
+    font-size: 20px;
+    color: black;
+}
+
+.modal-footer a:hover {
+    text-decoration: none;
+    color: #38aa95;
+}

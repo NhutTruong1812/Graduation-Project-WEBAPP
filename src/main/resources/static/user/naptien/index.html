@@ -1,0 +1,161 @@
+  <!-- **************** MAIN CONTENT START **************** -->
+  <main>
+    <!-- Container START -->
+    <div class="container">
+      <div class="row g-4">
+
+       <!-- Sidenav START -->
+			<div class="col-lg-3">
+				<div ng-include="'/layout/user/left/_menu_left_index.html'"></div>
+			</div>
+			<!-- Sidenav END -->
+        <!-- Main content START -->
+        <div class="col-md-8 col-lg-6 vstack gap-4">
+          <!-- Card START -->
+          <div class="card">
+            <a href="#!" role="button" class="btn btn-sm btn-loader btn-primary-soft m-1" data-bs-toggle="button"
+              aria-pressed="true" style="width: fit-content;">
+              <span class="load-text"> Nạp xu </span>
+              <div class="load-icon">
+                <div class="spinner-grow spinner-grow-sm" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- Card END -->
+
+          <!-- Card START -->
+          <div class="card">
+            <div class="card-header border-0 pb-0">
+              <h5 class="card-title"> Cửa hàng xu BLB</h5>
+              <p>
+                Cẩn thận lừa đảo! <br>
+                Đây là kênh duy nhất nạp xu BLB, không nên trao đổi, <br>
+                mua bán xu BLB qua bất cứ kênh nào khác. Tất cả khuyến mãi đều được hiển thị tại đây.
+              </p>
+              <h5>
+                Xu BLB dùng để
+              </h5>
+              <p>
+                1. Trả phí trưng bày sản phẩm <br>
+                2. Mua gói quảng cáo sản phẩm <br>
+                3. Trả trước thanh toán đơn hàng
+              </p>
+            </div>
+
+            <!-- Card body START -->
+            <div class="card-body pt-0">
+              <!-- Album Tab content START -->
+              <div class="tab-content mb-0 pt-0 pb-0">
+                <!-- Card Connections START -->
+                <div class="card">
+                  <div class="card-header border-0 pb-0">
+                    <h5 class="card-title"> Chọn số lượng xu bạn muốn nạp </h5>
+                  </div>
+
+                  <!-- Card body START -->
+                  <div class="card-body pt-0">
+                    <div class="table-responsive-md border-0">
+                      <form action="/napxu" id="frmCreateOrder" method="post">
+                        <!-- Table START -->
+                        <table class="table align-middle p-4 mb-0">
+                          <!-- Table body START -->
+                          <tbody class="border-top-0">
+                            <!-- Table item -->
+                            <tr>
+                              <td>
+                                <span class="text-body">
+                                  <label for="d-rdo1" class="d-rdo-grp"> <input id="d-rdo1" type="radio" name="soxu"
+                                      class="soxu" value="10">
+                                    <div>10 BLB</div>
+                                    <div>10.000 VND</div>
+                                  </label>
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span class="text-body">
+                                  <label for="d-rdo2" class="d-rdo-grp"> <input id="d-rdo2" type="radio" name="soxu"
+                                      class="soxu" value="20">
+                                    <div>20 BLB</div>
+                                    <div>20.000 VND</div>
+                                  </label>
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span class="text-body">
+                                  <label for="d-rdo3" class="d-rdo-grp"> <input id="d-rdo3" type="radio" name="soxu"
+                                      class="soxu" value="50">
+                                    <div>50 BLB</div>
+                                    <div>50.000 VND</div>
+                                  </label>
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span class="text-body">
+                                  <label for="d-rdo4" class="d-rdo-grp"> <input id="d-rdo4" type="radio" name="soxu"
+                                      class="soxu" value="100">
+                                    <div>100 BLB</div>
+                                    <div>100.000 VND</div>
+                                  </label>
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span class="text-body">
+                                  <label for="d-rdo5" class="d-rdo-grp"> <input id="d-rdo5" type="radio" name="soxu"
+                                      class="soxu" value="200">
+                                    <div>200 BLB</div>
+                                    <div>200.000 VND</div>
+                                  </label>
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span class="text-body">
+                                  <label for="d-rdo6" class="d-rdo-grp"> <input id="d-rdo6" type="radio" name="soxu"
+                                      class="soxu" value="500" checked>
+                                    <div>500 BLB</div>
+                                    <div>500.000 VND</div>
+                                  </label>
+                                </span>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <!-- Table body END -->
+                        </table>
+						<div>
+							<input id="nguoinap" name="nguoinap" type="hidden" value="3">
+						</div>
+                        <!-- Table END -->
+                        <div class="text-center card-body pb-0">
+                          <button class="btn btn-success mb-4" onclick="napxuClick()"> NẠP </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- Card body END -->
+                </div>
+                <!-- Card Connections END -->
+              </div>
+
+              <!-- Album Tab content END -->
+            </div>
+            <!-- Card body END -->
+          </div>
+          <!-- Card END -->
+        </div>
+      </div> <!-- Row END -->
+    </div>
+    <!-- Container END -->
+
+  </main>
+  <!-- **************** MAIN CONTENT END **************** -->

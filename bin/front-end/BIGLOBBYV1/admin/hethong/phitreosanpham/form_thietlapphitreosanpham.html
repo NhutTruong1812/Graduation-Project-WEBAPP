@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiết lập giá treo sản phẩm</title>
+
+    <!-- Link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link Style -->
+    <link rel="stylesheet" href="../access/css/style.css">
+    <link rel="stylesheet" href="../access/css/baidang.css">
+    <link rel="stylesheet" href="../access/css/table.css">
+    <link rel="stylesheet" href="../access/css/pagenavigation.css">
+    <link rel="stylesheet" href="../access/css/admin/cauhinhhethong.css">
+    <link rel="stylesheet" href="../access/css/admin/thietlapphitreosanpham.css">
+
+    <!-- Link jquery -->
+    <!-- Thư viện hỗ trợ java script -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <!--Link bootstrap  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!--
+       * Quy tắc đặt tên : C C C (B E M)
+        Cha__Con--Cá tính
+       *
+
+    -->
+    <!-- Quy tắc phân vùng -->
+    <!--begin  ttt -->
+    <!-- Code -->
+    <!--end  ttt -->
+
+</head>
+
+<body class="container-fluid">
+
+    <!-- begin header -->
+    <div class="header">
+        <div class="row mt-1 no-gutters d-flex align-items-center">
+            <!--Left  -->
+            <div class="col-md-3 ">
+                <div class="row d-flex align-items-center">
+
+                    <!-- Logo Bigluppy -->
+                    <div class="col-md-3 offset-md-1">
+                        <img class="header__logo_admin" src="../access/images/logo/Vector.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- center -->
+            <div class="col-md-6 header__menu">
+                <div class="row no-gutters">
+                    <div class="row header__search--bgwhite">
+                        <div class="col-md-9 header__search">
+                            <input class="header__search__input header__search__input--bgwhite" type="text"
+                                name="search" id="search" placeholder="Tìm kiếm Biglobby">
+                        </div>
+
+                        <div class="col-md-2 offset-md-1 header__search__icon">
+                            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--  right-->
+            <div class="col-md-3">
+                <div class="row">
+                    <!-- Tài khoản-->
+                    <div class="col-md-8 dropdown message__header__admin" id="dropdown__list">
+                        <div class="row d-flex align-items-center" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="col-md-2 offset-1">
+                                <div class="border__header__admin">
+                                    <img class="header__admin__avatar"
+                                        src="https://www.facebook.com/images/fb_icon_325x325.png" alt="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="row col-md-12 header__menu__label">
+                                    <span class=" dropdown-toggle"> Nguyễn Văn An </span>
+                                </div>
+
+                                <div class="row col-md-12 header__menu__label">
+                                    <span>Admin</span>
+                                </div>
+                            </div>
+                            <div class="row dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Trang chủ</a>
+                                <a class="dropdown-item" href="#">Đăng xuất</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end header -->
+
+    <div class="header__cover_admin"></div>
+
+    <!-- begin main -->
+    <div class="main">
+        <div class="row no-gutters">
+            <!-- left -->
+            <div class="col-md-3 main__left__admin_he">
+                <div class="row main__left">
+                    <div class="">
+                        <div class="row ">
+                            <div class="col-md-9 offset-1 parent__drop">
+                                <ul class="main__left__list__dropdown">
+                                    <!--Cấu hình hệ thống -->
+                                    <li class="dropdown">
+                                        <a class="" data-bs-toggle="collapse" href="#multiCollapseExample" role="button"
+                                            aria-expanded="false" aria-controls="multiCollapseExample1">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                </div>
+                                                <div class="col-md-11 main__left__list__admin__text"><i
+                                                        class="fa-sharp fa-solid fa-gear"></i> <span>Hệ thống</span>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <ul class="collapse multi-collapse" id="multiCollapseExample">
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <span>Giao diện hệ thống</span>
+                                                </a>
+                                            </li>
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <span>Phí treo sản phẩm</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <span>Thông tin nhận tiền</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <span>Lịch sử nạp tiền</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <!--Thống báo -->
+                                    <li class="dropdown">
+                                        <a class="" data-bs-toggle="collapse" href="#multiCollapseExample2"
+                                            role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                </div>
+                                                <div class="col-md-11 main__left__list__admin__text"><i
+                                                        class="fa-regular fa-bell"></i> <span>Thống báo</span>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <ul class="collapse multi-collapse" id="multiCollapseExample2">
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <span>Thông báo</span>
+                                                </a>
+                                            </li>
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <span>Quản lý thông báo</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--Dịch vụ -->
+                                    <li class="dropdown">
+                                        <a class="" data-bs-toggle="collapse" href="#multiCollapseExample3"
+                                            role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                </div>
+                                                <div class="col-md-11 main__left__list__admin__text"><i
+                                                        class="fa-brands fa-servicestack"></i> <span>Dịch vụ</span>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <ul class="collapse multi-collapse" id="multiCollapseExample3">
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <span>Quản lý dịch vụ</span>
+                                                </a>
+                                            </li>
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <span>Lịch sử mua dịch vụ</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--Danh mục -->
+                                    <li class="dropdown">
+                                        <a class="" data-bs-toggle="collapse" href="#multiCollapseExample4"
+                                            role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                </div>
+                                                <div class="col-md-11 main__left__list__admin__text"><i
+                                                        class="fa-solid fa-bars"></i> <span>Danh mục</span>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <ul class="collapse multi-collapse" id="multiCollapseExample4">
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <span>Quản lý danh mục</span>
+                                                </a>
+                                            </li>
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <span>Duyệt danh mục</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--Sản phẩm -->
+                                    <li class="dropdown">
+                                        <a class="" data-bs-toggle="collapse" href="#multiCollapseExample5"
+                                            role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                </div>
+                                                <div class="col-md-11 main__left__list__admin__text"><i
+                                                        class="fa-solid fa-cart-flatbed-suitcase"></i> <span>Sản
+                                                        phẩm</span>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <ul class="collapse multi-collapse" id="multiCollapseExample5">
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <span>Quản lý sản phẩm</span>
+                                                </a>
+                                            </li>
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <span>Duyệt sản phẩm</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <span>Sản phẩm vi phạm</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--Bài viết -->
+                                    <li class="dropdown">
+                                        <a class="" data-bs-toggle="collapse" href="#multiCollapseExample6"
+                                            role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                </div>
+                                                <div class="col-md-11 main__left__list__admin__text"><i
+                                                        class="fa-solid fa-signs-post"></i> <span>Bài viết</span>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <ul class="collapse multi-collapse" id="multiCollapseExample6">
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <span>Quản lý bài viết</span>
+                                                </a>
+                                            </li>
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <span>Bài viết vi phạm</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--Đối tác -->
+                                    <li class="dropdown">
+                                        <a class="" data-bs-toggle="collapse" href="#multiCollapseExample7"
+                                            role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                </div>
+                                                <div class="col-md-11 main__left__list__admin__text"><i
+                                                        class="fa-solid fa-handshake"></i> <span>Đối tác</span>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <ul class="collapse multi-collapse" id="multiCollapseExample7">
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <span>Quản lý đối tác</span>
+                                                </a>
+                                            </li>
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <span>Quản lý báo cáo vi phạm</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--Đơn hàng -->
+                                    <li class="dropdown">
+                                        <a class="" data-bs-toggle="collapse" href="#multiCollapseExample8"
+                                            role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                </div>
+                                                <div class="col-md-11 main__left__list__admin__text"><i
+                                                        class="fa-solid fa-box-open"></i> <span>Đơn hàng</span>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <ul class="collapse multi-collapse" id="multiCollapseExample8">
+                                            <li class="main__left__list">
+                                                <a href="">
+                                                    <span>Quản lý đơn hàng</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- center -->
+            <div class="col-md-9 main__center">
+                <div class="row d-flex align-items-center">
+                    <div class="container ">
+                        <div class="main__center__Display mt-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a class="url__title" href="#">Thiết lập phí treo sản phẩm</a>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                    <a class="url__title" href="#">Thêm phí treo</a>
+                                </div>
+                                 
+                            </div>
+                        </div>
+                        <!-- Bài đăng -->
+                        <div class="col-md-12">
+                            <div class="main__center__panel">
+                                <div class="main__center__container">
+                                    <div class="row mt-2">
+                                        <div class="col-md-9">
+                                            <div class="row">
+                                                <div class="col-md-4 text-right">
+                                                    <span class="name__span">ID:</span>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="input__nhap">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-4 text-right">
+                                                    <span class="name__span">Giá bắt đầu:</span>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="input__nhap">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-4 text-right">
+                                                    <span class="name__span">Giá kết thúc:</span>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="input__nhap">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-4 text-right">
+                                                    <span class="name__span">Phí treo sản phẩm:</span>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="input__nhap">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <div class="col-md-4 text-right">
+                                                    <span class="name__span">Mô tả:</span>
+                                                </div>
+                                                <div class="col-md-8"> 
+                                                    <textarea name="" class="input__nhap" id="" cols="30" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row mt-3"> 
+                                                <div class="col-md-8 offset-4 text-center">
+                                                    <a class="button__action" href="">Lưu</a> 
+                                                    <a class="button__action" href="">Làm mới</a>  
+                                                    <a class="button__action__cancel" href="">Xóa</a> 
+                                                </div> 
+                                            </div>
+                                            
+
+                                        </div>
+                                        <div class="col-md-6">
+                                           
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end main -->
+
+
+    <!-- begin javascript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <!-- end javascript -->
+</body>
+
+</html>

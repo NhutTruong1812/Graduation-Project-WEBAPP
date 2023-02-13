@@ -1,0 +1,309 @@
+<div id="message" style="position: fixed; right:0; z-index: 5000;">
+	<div class="alert alert-{{ResponseModel.ResponseType}}" alert-dismissible ng-show="ResponseModel.ResponseAlert">
+		<a href="" class="close" ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+		<strong> {{ResponseModel.ResponseMessage}} </strong>
+	</div>
+</div>
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+  
+	<!-- Container START -->
+	<div class="container">
+	  <div class="row g-4">
+  
+	          <!-- Sidenav START -->
+          <div class="col-lg-3">
+ 				<div ng-include="'/layout/user/left/_menu_left_index.html'"></div>
+          </div>
+          <!-- Sidenav END -->
+		<!-- Main content START -->
+		<div class="col-md-8 col-lg-6 vstack gap-4">
+			<!-- Card START -->
+			<div class="card">
+			  <!-- Card header START -->
+			  <div class="card-header border-0 pb-0">
+				<div class="row g-2">
+				  <div class="col-lg-3">
+					<!-- Card title -->
+					<h1 class="h4 card-title mb-lg-0">Sản phẩm của bạn</h1>
+				  </div>
+				  <div class="col-sm-6 col-lg-3 ms-lg-auto">
+				  </div>
+					<div class="col-sm-6 col-lg-3">
+					<!-- Button modal -->
+					<a class="btn btn-primary-soft ms-auto w-100" href="#" data-bs-toggle="modal" data-bs-target="#postModel" ng-click="changeAddOrEdit(1)"> <i class="fa-solid fa-plus pe-1"></i> Đăng sản phẩm</a>
+				  </div>
+				</div>
+			  </div>
+			  <!-- Card header START -->
+			  <!-- Card body START -->
+			  <div class="card-body">
+				<!-- Tab nav line -->
+				<ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+				  <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1" ng-click="changeTabPanelLink(1)">Tất cả</a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2" ng-click="changeTabPanelLink(2)">Đang hoạt động</a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-3" ng-click="changeTabPanelLink(3)">Đã ẩn</a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-4" ng-click="changeTabPanelLink(4)">Chờ duyệt</a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-5" ng-click="changeTabPanelLink(5)">vi phạm</a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-6" ng-click="changeTabPanelLink(6)">Hết hạng</a> </li>
+				</ul>
+				
+				<div class="nav-item w-100 mt-4">
+                <form class="rounded position-relative">
+                  <input class="form-control ps-5 bg-light" type="search" placeholder="Tìm kiếm theo tên người mua..." aria-label="Search" id="keywords"
+									ng-keypress="$event.keyCode == 13 && goSearchA($event)">
+                  <button class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
+                    type="submit"><i class="bi bi-search fs-5"> </i></button>
+                </form>
+              </div>
+				
+				<div class="tab-content mb-0 pb-0">
+  
+				  <!-- Friends groups tab START -->
+				  <div class="tab-pane fade show active" id="tab-1">
+					<div class="row g-4">
+					  <div class="card">
+						<div class="card-body">
+						  <div class="table-responsive-md border-0">
+							<!-- Table START -->
+							<table class="table align-middle p-4 mb-0">
+							  <!-- Table head -->
+							  <thead class="border-0">
+								<tr class="border-top-0 table-border-color">
+								  <th scope="col">Thể loại</th>
+								  <th scope="col">Tên sản phẩm</th>
+								  <th scope="col">Tổng tiền</th>
+								  <th scope="col">Số lượng </th>
+								  <th scope="col">Trạng thái </th>
+								  <th scope="col">Thao tác </th>
+								</tr>
+							  </thead>
+		
+							  <!-- Table body START -->
+							  <tbody class="border-top-0">
+								<!-- Table item -->
+								<tr ng-repeat="item in productCard">
+								  <!-- Table data -->
+								  <td> <span class="text-body"> {{item.category.category}} </span> </td>
+								  <td> <span class="text-body"> {{item.product}} </span> </td>
+								  <td> <span class="text-body"> {{item.price}} </span> </td>
+								  <td> <span class="text-body"> {{item.available}} </span> </td>
+								  <td ng-if="item.card.status.status == 'SANSANG'" class="row__text text-success">Đang hoạt động</td>
+                                  <td ng-if="item.card.status.status == 'HUYBAN'" class="row__text text-danger">Đã ẩn</td>
+                                  <td ng-if="item.card.status.status == 'DANGDUYET'" class="row__text text-warning">Chờ duyệt</td>
+                                  <td ng-if="item.card.status.status == 'VIPHAM'" class="row__text text-info">Vi phạm</td>
+                                  <td ng-if="item.card.status.status == 'HETHANG'" class="row__text text-secondary">Hết hàng</td>
+								  <td> <span class="text-body">
+									<div class="me-3 mb-3 mb-md-0">
+									  <div class="ms-md-auto d-flex">
+										<button class="btn btn-primary-soft btn-sm mb-0 me-2" ng-click="showDetail(item)">Xem</button>
+										<button class="btn btn-danger-soft btn-sm mb-0 me-2" ng-click="edit(item); changeAddOrEdit(2)" data-bs-toggle="modal" data-bs-target="#postModel">Sửa</button>
+										<button ng-if="item.card.status.status == 'SANSANG'" href="" class="btn btn-warning-soft btn-sm mb-0 me-2" ng-click="updateStatus9(item)">Ẩn</button>
+                                        <button ng-if="item.card.status.status == 'HUYBAN'" href="" class="btn btn-success-soft btn-sm mb-0 me-2" ng-click="updateStatus3(item)">Hiện</button>
+									  </div>
+									</div>
+								  </span> </td>
+								</tr>
+		
+							  </tbody>
+							  <!-- Table body END -->
+							</table>
+							<!-- Table END -->
+  
+							<!-- Pagination -->
+							<div class="d-flex justify-content-center mt-4">
+		                      <!-- Load more button START -->
+		                      <a href="#!" ng-click="goPage(APage-1)" role="button" class="btn btn-sm btn-loader btn-primary-soft m-1"
+		                        data-bs-toggle="button" aria-pressed="true" style="width: fit-content;">
+		                        <i class="fa-sharp fa-solid fa-caret-left icon__page"></i>
+		                      </a>
+		                      <span ng-repeat="pg in listButton">
+		                      	<a href="#!" role="button" class="btn btn-sm btn-loader btn-primary-soft m-1 {{pg===APage?'activePage':''}} {{pg}}"
+			                        data-bs-toggle="button" aria-pressed="true" style="width: fit-content;" ng-click="goPage(pg)">
+			                        {{pg}}
+			                      </a>
+		                      </span>
+		                      
+		                      <a href="#!" ng-click="goPage(APage+1)" role="button" class="btn btn-sm btn-loader btn-primary-soft m-1"
+		                        data-bs-toggle="button" aria-pressed="true" style="width: fit-content;">
+		                        <i class="fa-sharp fa-solid fa-caret-right icon__page"></i>
+		                      </a>
+		                      <!-- Load more button END -->
+		                    </div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<!-- Friends' groups tab END -->
+				  </div>
+				  
+				  <!-- start modal category -->
+	<div class="modal fade" id="modalCreateFeedd" tabindex="-1" aria-labelledby="modalLabelCreateFeed" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				    <div class="modal-content" style="max-height: none;">
+				    <form>
+				      <!-- Modal feed header START -->
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="modalLabelCreateFeed">Đề xuất danh mục mới cho BigLobby</h5>
+				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <!-- Modal feed header END -->
+				
+				      <!-- Modal feed body START -->
+				      <div class="modal-body">
+				            <textarea id="offerCategory__inp" class="form-control pe-4 fs-3 lh-1 border-0" rows="4" placeholder="Nhập đề xuất của bạn" autofocus></textarea>
+				          	<span id="message__category" class="form-message col-md-12 " style="color: red;"></span>
+				      </div>
+				      <!-- Modal feed body END -->
+				
+				      <!-- Modal feed footer -->
+				      <div class="modal-footer row justify-content-between">
+				        <!-- Select -->
+				        <div class="col-lg-3">
+				        </div>
+				        <!-- Button -->
+				        <div class="col-lg-8 text-sm-end">
+				          <button type="button" data-bs-dismiss="modal" class="btn btn-danger-soft me-2"> Hủy</button>
+				          <button ng-click="offerCategory()" type="submit" class="btn btn-success-soft">Gửi đề xuất</button>
+				        </div>
+				      </div>
+				      <!-- Modal feed footer -->
+						</form>
+				    </div>
+				     
+				  </div>
+				</div>
+				
+				<!-- end modal category -->
+  				
+  				<!-- Modal create group START -->
+				<div class="modal fade mt-5" id="postModel" tabindex="-1" role="dialog" aria-labelledby="postModel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				      <div class="modal-content">
+				          <div class="modal-header modal-header__he">
+				              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+				                  <li class="nav-item" role="presentation">
+				                      <button class="nav-link active btn__tab" id="pills-product-tab" data-bs-toggle="pill" data-bs-target="#pills-product" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Sản phẩm</button>
+				                  </li>
+				              </ul>
+				              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				          </div>
+				          <form enctype="multipart/form-data" id="formCard">
+				              <div class="modal-body">
+				                  <div class="tab-content" id="pills-tabContent">
+				                      <!--end bài viết-->
+				                      <div class="tab-pane fade show active" id="pills-product" role="tabpanel" aria-labelledby="pills-product-tab">
+				                          <div class="row">
+				                              <div class="col-md-3">
+				                                  <span class="text_post_form">Quyền xem:</span>
+				                              </div>
+				                              <div class="col-md-9 form-group">
+				                                  <select class="form-control" ng-model="product.card.hidden" style="width:100%" id="hiddenProduct" rules="required">
+				                                    <option ng-model="product.card.hidden" ng-value="false">Công khai</option>
+													<option ng-model="product.card.hidden" ng-value="true">Không công khai</option>
+				                                  </select>
+				
+				                              </div>
+				                          </div>
+				                          <div class="row mt-2">
+				                              <div class="col-md-3">
+				                                  <span class="text_post_form">Sản phẩm:</span>
+				                              </div>
+				                              <div class="col-md-9 form-group">
+				                                  <input class="form-control" type="text" ng-model="product.product" id="productName" rules="required">
+				                                  <span class="form-message"></span>
+				                              </div>
+				                          </div>
+				                          <div class="row mt-2">
+				                              <div class="col-md-3">
+				                                  <span class="text_post_form">Danh mục:</span>
+				                              </div>
+				                              <div class="col-md-9 form-group">
+				                                  <select class="form-control" name="category" ng-model="product.category.id" style="width:100%" id="category" rules="required">
+				                                    <option ng-repeat="cate in itemCates" ng-value="cate.id">{{cate.category}}</option>
+				                                  </select>
+				                                  <span class="form-message"></span>
+				                              </div>
+				                          </div>
+				                          <div class="row mt-2">
+				                              <div class="col-md-3">
+				                                  <span class="text_post_form">Giá:</span>
+				                              </div>
+				                              <div class="col-md-9 form-group">
+				                                  <input class="form-control"  type="number" ng-model="product.price" id="price" rules="required">
+				                                  <span class="form-message"></span>
+				                              </div>
+				                          </div>
+				                          <div class="row mt-2">
+				                              <div class="col-md-3">
+				                                  <span class="text_post_form">Số lượng:</span>
+				                              </div>
+				                              <div class="col-md-9 form-group">
+				                                  <input class="form-control" type="number" ng-model="product.available" id="available" rules="required">
+				                                  <span class="form-message"></span>
+				                              </div>
+				                          </div>
+				                          <div class="row mt-2">
+				                              <div class="col-md-3">
+				                                  <span class="text_post_form">Mô tả:</span>
+				                              </div>
+				                              <div class="col-md-9 form-group">
+				                                  <textarea class="form-control" style="width: 100%;" cols="10" rows="5" ng-model="product.description"></textarea>
+				                              </div>
+				                          </div>
+				                          
+				                          <!-- Upload Photos or Videos -->
+				                          <div>
+				                            <label class="form-label">Tải ảnh đính kèm</label>
+				                            <div class="dropzone dropzone-default card shadow-none" data-dropzone='{"maxFiles":2}'>
+				                            <input class="input_file_image_post" ng-model="product.banner" multiple type="file" name="banner" id="banner"
+													onchange="angular.element(this).scope().imageChangedProduct(this.files)">
+				                              <div class="dz-message">
+				                                <i class="bi bi-file-earmark-text display-3"></i>
+				                                <p ng-if="checkAddOrEdit == 1">{{resultTabProduct}}</p>
+				                                <p ng-if="checkAddOrEdit == 2">{{product.banner}}</p>
+				                              </div>
+				                            </div>
+				                          </div>
+				                          <!--  
+				                          <div class="btn_upload_file text_post_form btn_upload_file_product">
+												<i style="font-size: 25px;" class="fa-solid fa-image mr-2"></i>
+												<span>Thêm ảnh</span> 
+											    <input class="input_file_image_post" ng-model="product.banner" multiple type="file" name="banner" id="banner"
+													onchange="angular.element(this).scope().imageChangedProduct(this.files)">
+										  </div>
+										 <div class="col-md-6 offset-3 mt-2" style="text-align: center">
+											<span style="color: #62686D;">{{resultTabProduct}}</span>
+										</div>-->
+										<span style="color: red" class="messageResultBannerProduct"></span>
+				                  </div>
+				                  <div class="modal-footer">
+				                    <button type="button" class="btn btn-danger-soft me-2" data-bs-dismiss="modal"> Hủy</button>
+				                    <button type="button" class="btn btn-warning-soft" data-bs-toggle="modal" data-bs-target="#modalCreateFeedd">Đề xuất danh mục</button>
+				                    <button ng-if="product.available == null" type="submit" ng-click="updateProduct()" class="btn btn-success-soft">Đăng ngay</button>
+				                  <button ng-if="product.available != null" type="submit" ng-click="updateProduct()" class="btn btn-success-soft">Lưu thay đổi</button>
+				                  </div>
+				              </div>
+				          </form>
+				      </div>
+				  </div>
+				</div>
+				
+				<!-- end modal -->
+				
+				
+  				
+			  </div>
+			</div>
+			<!-- Card body END -->
+		  </div>
+		  <!-- Card END -->
+		</div>
+		<!-- Right sidebar END -->
+  
+	  </div> <!-- Row END -->
+	</div>
+	<!-- Container END -->
+  
+  </main>
+  <!-- **************** MAIN CONTENT END **************** -->

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/dstuff/deco.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="user-app">
+    <div ng-controller="quanlyhoadon-ctrl">
+        <h3>BÁN: x QR XÁC NHẬN</h3>
+        <div>
+            <table border="1" style="width: 100%;">
+                <tr>
+                    <th>STT</th>
+                    <th>Người mua</th>
+                    <th>Địa chỉ</th>
+                    <th>Ngày nhận</th>
+                    <th>Trạng thái</th>
+                    <th>Người bán</th>
+                    <th>QR Xác nhận</th>
+                </tr>
+                <tr class="qrban">
+                    <td class="qrban2" qrdata="">11</td>
+                    <td class="qrban3" qrdata="">Đức</td>
+                    <td>Cần Thơ</td>
+                    <td>2022-01-01</td>
+                    <td class="qrban4">đang giao dịch</td>
+                    <td class="qrban1" qrdata="1">Hồ</td>
+                    <td>
+                        <a href="" hreftemp="/demo/xacnhanqr?qrdata=" class="a-btn qrapi">[QUÉT/x]</a>
+                    </td>
+                </tr>
+                <tr class="qrban">
+                    <td class="qrban2" qrdata="">11</td>
+                    <td class="qrban3" qrdata="">Đức</td>
+                    <td>Cần Thơ</td>
+                    <td>2022-01-01</td>
+                    <td class="qrban4">THANHCONG</td>
+                    <td class="qrban1" qrdata="1">Hồ</td>
+                    <td>
+                        <a href="" hreftemp="/demo/xacnhanqr?qrdata=" class="a-btn qrapi">[QUÉT/x]</a>
+                    </td>
+                </tr>
+                <tr class="qrban">
+                    <td class="qrban2" qrdata="">11</td>
+                    <td class="qrban3" qrdata="">Đức</td>
+                    <td>Cần Thơ</td>
+                    <td>2022-01-01</td>
+                    <td class="qrban4">HUY</td>
+                    <td class="qrban1" qrdata="1">Hồ</td>
+                    <td>
+                        <a href="" hreftemp="/demo/xacnhanqr?qrdata=" class="a-btn qrapi">[QUÉT/x]</a>
+                    </td>
+                </tr>
+                <tr class="qrban">
+                    <td class="qrban2" qrdata="">11</td>
+                    <td class="qrban3" qrdata="">Đức</td>
+                    <td>Cần Thơ</td>
+                    <td>2022-01-01</td>
+                    <td class="qrban4">Đang giao dịch</td>
+                    <td class="qrban1" qrdata="99">Hồ</td>
+                    <td>
+                        <a href="" hreftemp="/demo/xacnhanqr?qrdata=" class="a-btn qrapi">[QUÉT/x]</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="wrapfull-cvr">
+            <div class="onfull-cvr">
+                <div class="qrdiv">
+                    <h2>QR XÁC NHẬN</h2>
+                    <img id="qrban-img" src="" alt="qrxacnhan"
+                        tempapi="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=">
+                    <div class="btn-cvr">
+                        <a class="a-btn" href="quetqr.html?qrdata=1xacnhan">ĐÃ XONG! <br> VỀ TRANG QUẢN LÝ ĐƠN HÀNG...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="full-cvr">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/assets/dstuff/ngapp.js"></script>
+
+</html>

@@ -1,0 +1,98 @@
+<!-- Right sidebar START -->
+<div class="row g-4">
+    <!-- Card follow START -->
+    <div class="card overflow-hidden">
+        <!-- Card body START -->
+        <div class="card-body pt-0">
+            <div class="text-center">
+                <!-- Avatar -->
+                <div class="avatar avatar-lg mb-3">
+                    <img class="avatar-img rounded-circle border border-white border-3" src="{{'../'+register.user.avatar}}">
+                </div>
+                <!-- Info -->
+                <h5 class="mb-0"> {{register.user.fullname}} </h5>
+                <!--  <small>{{shop[0].intro}}</small> -->
+
+                <!-- User stat START -->
+                <!--  <div class="hstack gap-2 gap-xl-3 justify-content-center">
+                  User stat item
+                  <div>
+                    <h6 class="mb-0">256</h6>
+                    <small>Post</small>
+                  </div>
+                  Divider
+                  <div class="vr"></div>
+                  User stat item
+                  <div>
+                    <h6 class="mb-0">2.5K</h6>
+                    <small>Followers</small>
+                  </div>
+                  Divider
+                  <div class="vr"></div>
+                  User stat item
+                  <div>
+                    <h6 class="mb-0">365</h6>
+                    <small>Following</small>
+                  </div>
+                </div> -->
+                <!-- User stat END -->
+            </div>
+
+            <!-- Divider -->
+            <hr>
+
+            <!-- Side Nav START -->
+            <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+                <li class="nav-item">
+                    <a class="nav-link" ng-if="obj_follow.id == null" href="" ng-click="Follow()"> <img class="me-2 h-20px fa-fw" src="assets/images/icon/add-user.png" alt=""><span>Theo dõi </span></a>
+                    <a class="nav-link" ng-if="obj_follow.id != null" href="" ng-click="unFollow()"> <img class="me-2 h-20px fa-fw" src="assets/images/icon/add-user.png" alt=""><span>Ngừng theo dõi </span></a>
+
+                </li>
+               <li class="nav-item" ng-if="register.user.id != userview" ng-click="initChat(register.user.username)">
+                    <a class="nav-link" href=""> <img class="me-2 h-20px fa-fw" src="assets/images/icon/chat.png" alt=""><span>Nhắn tin </span></a>
+                </li>
+
+            </ul>
+            <!-- Side Nav END -->
+        </div>
+
+    </div>
+    <!-- Card follow START -->
+
+    <!-- Card News START -->
+    <div class="col-sm-6 col-lg-12 card overflow-hidden">
+        <!-- Card header START -->
+        <div class="card-header pb-0 border-0">
+            <h5 class="card-title mb-0">Giới thiệu</h5>
+        </div>
+        <!-- Card header END -->
+        <!-- Card body START -->
+        <div class="card-body">
+            <!-- News item -->
+            <div class="mb-3">
+                <small class="mb-0">{{s.intro}}</small>
+            </div>
+            <hr>
+            <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+                <li class="nav-item">
+                   <img class="me-2 h-20px fa-fw" src="assets/images/icon/check.png" alt=""><span>Có
+              <strong class="text-danger">{{pageFollowShopALl.totalElements}}</strong> người theo dõi </span>
+                </li>
+                <li class="nav-item">
+                    <img class="me-2 h-20px fa-fw" src="assets/images/icon/package.png" alt=""><span>Có <strong class="text-danger">{{pageProductActiveShop.totalElements}}</strong> sản phẩm đang
+              bán </span>
+                </li>
+                <li class="nav-item">
+                    <img class="me-2 h-20px fa-fw" src="assets/images/icon/sold.png" alt=""><span>Đã bán <strong class="text-danger">{{sumQuantitySaleOfShop}}</strong> sản phẩm </span>
+                </li>
+                <li class="nav-item">
+                    <img class="me-2 h-20px fa-fw" src="assets/images/icon/support.png" alt=""><span>Tham gia </span> <strong class="text-danger">{{register.registerDate | date:
+              'dd-MM-yyyy'}}</strong>
+                </li>
+            </ul>
+        </div>
+        <!-- Card body END -->
+    </div>
+    <!-- Card News END -->
+</div>
+<!-- Right sidebar END -->

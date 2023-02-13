@@ -1,0 +1,231 @@
+<div class="row d-flex align-items-center">
+    <div class="container ">
+        <div class="main__center__Display mt-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <a class="url__title"  href="" data-target="#list-tab" data-toggle="tab" ng-click="tab(1)">Danh sách đối tác</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                   <a class="url__title" href="" data-target="#form-tab" data-toggle="tab" ng-click="tab(2)">Thông tin chi tiết đối tác</a>
+                </div>
+                 
+            </div>
+        </div>
+        <!-- Bài đăng -->
+        <div class="col-md-12">
+            <div class="main__center__panel">
+                <div class="main__center__container">
+                    <form action="" id="">
+                    	<div class="row">
+                        <div class="col-md-6">
+                            <div class="row text-center">
+                                <div class="col-md-12">
+                                    <span class="title__form">Thông tin chi tiết</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">ID:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="id" ng-model="formBanner.id" class="input__nhap">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Email:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="email" ng-model="formBanner.email" type="text" class="input__nhap">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Trạng thái:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="status" ng-model="formBanner.status" type="text" class="input__nhap">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                             
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Nội dung vi phạm:</span>
+                                </div>
+                                <div class="col-md-8"> 
+                                    <textarea name=""  class="input__nhap" id="" cols="30" rows="4"></textarea>
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div> 
+
+                        </div>
+                        <div class="col-md-6 "> 
+                            <div class="row mt-3 form-group">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Ngày tạo:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="addDate" ng-model="formBanner.addDate" type="text" class="input__nhap">
+                                </div>
+                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4 text-right">
+                                    <span class="name__span">Thời gian hoạt động gần nhất:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" class="input__nhap">
+                                </div>
+                                
+                            </div>
+                            <div class="row mt-3"> 
+                                <div class="col-md-8 offset-4 text-center">
+                                      <a class="button__action__cancel {{formeditBanner.id==null?'d-none':''}}" data-bs-toggle="modal" data-bs-target="#deleteModalf" href="">Khôi Phục</a>
+                                </div> 
+                                <!-- Modal -->
+                                <div class="modal fade" id="deleteModalf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <h5>Bạn có chắc muốn xóa?</h5>
+                                                <p>Bạn sẽ không thể khôi phục dữ liệu này nếu xóa</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                                <button type="button" class="btn btn-danger" ng-click="khoiphuc()">Đồng ý,
+                                                    Xác nhận xóa!</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="title__small">Thông tin hoạt động</span>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="main__center__panel">
+                                <div class="main__center__container">
+                                    <div class="main__center__container__menu">
+
+                                    </div>
+                                    <div class="row main__center__table__admin mt-2">
+                                        <div class="col-md-12">
+                                            <ul class="nav nav-pills">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" aria-current="page" href=" "><span>Dịch Vụ</span></a>
+                                                </li>
+                                                 <li class="nav-item">
+                                                    <a class="nav-link " aria-current="page" href=" "><span>Sản Phẩm</span></a>
+                                                </li>
+                                                
+                                                 <li class="nav-item">
+                                                    <a class="nav-link" aria-current="page" href=" "><span>Bài Viết</span></a>
+                                                </li>
+                                                
+                                                 <li class="nav-item">
+                                                    <a class="nav-link" aria-current="page" href=" "><span>Đơn hàng</span></a>
+                                                </li>
+                                                
+                                                 <li class="nav-item">
+                                                    <a class="nav-link" aria-current="page" href=" "><span>Tương Tác</span></a>
+                                                </li>
+                                                
+                                                 <li class="nav-item">
+                                                    <a class="nav-link" aria-current="page" href=" "><span>Thông Tin Nạp Tiền</span></a>
+                                                </li>
+                                                
+                                                 <li class="nav-item">
+                                                    <a class="nav-link" aria-current="page" href=" "><span>Khác</span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <table id="customers">
+                                        <tbody>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Người bán</th>
+                                                <th>Người mua</th>
+                                                <th>Ngày tạo</th>
+                                                <th>Trạng thái</th>
+                                                <th>Kết quả</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Lê Thánh Tông</td>
+                                                <td>Nguyễn Huệ</td>
+                                                <td>07-10-2022</td>
+                                                <td class="text-danger">Đã hủy</td>
+                                                <td class="text-danger">Thất bại</td>
+                                                <td><a class="customers__table__btn__xem" href="#">Xem</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Lê Thánh Tông</td>
+                                                <td>Nguyễn Huệ</td>
+                                                <td>07-10-2022</td>
+                                                <td class="text-success">Đã xác nhận</td>
+                                                <td class="text-secondary">Chưa giao dịch</td>
+                                                <td><a class="customers__table__btn__xem" href="#">Xem</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Lê Thánh Tông</td>
+                                                <td>Nguyễn Huệ</td>
+                                                <td>07-10-2022</td>
+                                                <td class="text-success">Đã xác nhận</td>
+                                                <td class="text-success">Thành công</td>
+                                                <td><a class="customers__table__btn__xem" href="#">Xem</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Lê Thánh Tông</td>
+                                                <td>Nguyễn Huệ</td>
+                                                <td>07-10-2022</td>
+                                                <td class="text-success">Đã xác nhận</td>
+                                                <td class="text-danger">Thất bại</td>
+                                                <td><a class="customers__table__btn__xem" href="#">Xem</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Lê Thánh Tông</td>
+                                                <td>Nguyễn Huệ</td>
+                                                <td>07-10-2022</td>
+                                                <td class="text-warning">Chưa xác nhận</td>
+                                                <td class="text-secondary">Chưa giao dịch</td>
+                                                <td><a class="customers__table__btn__xem" href="#">Xem</a></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row mt-2 pagenavigation">
+                                <nav class="col-md-12" aria-label="Page navigation example">
+                                    <ul class="pagination pagination__right">
+                                        <li><a href=""><i class="fa-sharp fa-solid fa-caret-left icon__page"></i></a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link--active" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li><a href=""><i class="fa-sharp fa-solid fa-caret-right icon__page"></i></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

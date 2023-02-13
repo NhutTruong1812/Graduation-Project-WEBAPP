@@ -1,0 +1,680 @@
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+	<!-- Container START -->
+	<div class="container">
+		<div class="row g-4">
+
+			<!-- Sidenav START -->
+			<div class="col-lg-3">
+				<div ng-include="'/layout/user/left/_menu_left_index.html'"></div>
+			</div>
+			<!-- Sidenav END -->
+			<!-- Main content START -->
+			<div class="col-md-8 col-lg-6 vstack gap-4">
+				<!-- Card START -->
+				<div class="card">
+					<!-- Card header START -->
+					<div class="card-header border-0 pb-0">
+						<div class="row g-2">
+							<div class="col-lg-6">
+								<!-- Card title -->
+								<h1 class="h4 card-title mb-lg-0">Chọn móc thời gian muốn thống kê</h1>
+							</div>
+						</div>
+						<div class="row g-2">
+							<div class="mx-auto bg-mode shadow rounded p-4 mt-5">
+								<!-- Form START -->
+								<form class="row align-items-end g-4">
+									<!-- Date -->
+									<div class="col-sm-6 col-lg-3">
+										<label class="form-label">Ngày bắt đầu</label>
+										<input type="date" id="startDate" name="startDate"
+											class="form-control flatpickr">
+
+									</div>
+									<!-- Time -->
+									<div class="col-sm-6 col-lg-3">
+										<label class="form-label">Ngày kết thúc</label>
+										<input type="date" id="endDate" name="endDate" class="form-control flatpickr">
+									</div>
+									<!-- Time -->
+									<div class="col-sm-6 col-lg-3">
+										<a class="btn btn-success w-100" href="" ng-click="initialize()">Thống kê</a>
+									</div>
+								</form>
+								<!-- Form END -->
+							</div>
+						</div>
+					</div>
+					<!-- Card header START -->
+					<!-- Card body START -->
+					<div class="card-body">
+
+						<!-- Friends groups tab START -->
+						<div class="tab-pane fade show active" id="tab-1">
+							<div class="row g-4">
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="bi bi-cart-fill"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Đơn hàng</a> </h5>
+											<small>{{formStatistical[0]}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-success-soft btn-sm" href=""
+												ng-click="changeTabPanelLink(2)"> Chi tiết </a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="fa-solid fa-boxes-stacked"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Đơn thành công</a> </h5>
+											<small>{{formStatistical[1]}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-success-soft btn-sm" href=""
+												ng-click="changeTabPanelLink(3)"> Chi tiết </a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="bi bi-cart-check-fill"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Hàng bán được</a> </h5>
+											<small>{{formStatistical[2]}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-success-soft btn-sm" href=""
+												ng-click="changeTabPanelLink(4)"> Chi tiết </a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="fa-solid fa-chart-simple"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Doanh thu</a> </h5>
+											<small>{{currencyFormat(formStatistical[3])}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-white-soft btn-sm thongke__margin" href=""> </a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+
+							</div>
+							<br>
+							<div class="row g-4">
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="fa-solid fa-bullhorn"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Phí quảng cáo</a> </h5>
+											<small>{{currencyFormat(formStatistical[4])}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-white-soft btn-sm thongke__margin" href=""></a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="fa-solid fa-coins"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Phí trưng bày</a> </h5>
+											<small>{{currencyFormat(formStatistical[5])}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-white-soft btn-sm thongke__margin" href=""> </a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="fa-solid fa-building-columns"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Lợi nhận</a> </h5>
+											<small>{{currencyFormat(formStatistical[6])}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-white-soft btn-sm thongke__margin" href=""> </a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="bi bi-box2-fill"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Hàng tồn</a> </h5>
+											<small>{{formStatistical[7]}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-success-soft btn-sm" href=""
+												ng-click="changeTabPanelLink(5)"> Chi tiết </a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+
+
+							</div>
+							<br>
+							<div class="row g-4">
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="fa-solid fa-user-group"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Tổng khách hàng</a> </h5>
+											<small>{{formStatistical[8]}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-success-soft btn-sm" href=""
+												ng-click="changeTabPanelLink(6)"> Chi tiết </a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="fa-solid fa-user-tag"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Khách hàng quay lại</a> </h5>
+											<small>{{formStatistical[9]}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-success-soft btn-sm" href=""
+												ng-click="changeTabPanelLink(7)"> Chi tiết </a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="bi bi-person-check"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Khách hàng mới</a> </h5>
+											<small>{{formStatistical[10]}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-success-soft btn-sm" href=""
+												ng-click="changeTabPanelLink(8)"> Chi tiết </a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+								<div class="col-sm-6 col-lg-3">
+									<!-- Card START -->
+									<div class="card w-200px">
+										<div class="h-40px rounded-top"
+											style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+										</div>
+										<!-- Card body START -->
+										<div class=" text-center pt-0">
+											<!-- Avatar -->
+											<div class="avatar avatar-lg mt-n5 avatar-lg--he">
+												<a class="btn btn-success w-100" href=""><i
+														class="fa-solid fa-user-plus"></i></a>
+											</div>
+											<!-- Info -->
+
+											<h5> <a href="">Theo dõi mới</a> </h5>
+											<small>{{formStatistical[11]}}</small>
+										</div>
+										<!-- Card body END -->
+										<!-- Card Footer START -->
+										<div class="card-footer text-center card-footer--text">
+											<a class="btn btn-success-soft btn-sm" href=""
+												ng-click="changeTabPanelLink(9)"> Chi tiết </a>
+										</div>
+										<!-- Card Footer END -->
+									</div>
+									<!-- Card END -->
+								</div>
+							</div>
+						</div>
+						<br>
+						<!-- Friends' groups tab END -->
+						<div class="card">
+							<div class="card-body">
+
+
+								<!-- Table ĐƠN HÀNG START -->
+								<div class="table-responsive-md border-0"
+									ng-if="checkClickStatisticalTab==0 || checkClickStatisticalTab==1 || checkClickStatisticalTab==2">
+									<h1 class="h4 card-title mb-lg-0">CHI TIẾT ĐƠN HÀNG</h1>
+									<table class="table align-middle p-4 mb-0 mt-2">
+										<!-- Table head -->
+										<thead class="border-0">
+											<tr class="border-top-0 table-border-color">
+												<th scope="col">ID Đơn hàng</th>
+												<th scope="col">Ngày tạo đơn</th>
+												<th scope="col">Tổng tiền</th>
+												<th scope="col">Người mua</th>
+												<th scope="col">Trạng thái</th>
+											</tr>
+										</thead>
+
+										<tbody class="border-top-0">
+											<tr ng-repeat="item in formStatisticalDetails">
+												<td> <span class="text-body">{{item[0]}}</span> </td>
+												<td> <span class="text-body">{{item[1] | date: 'dd/MM/yyyy'}}</span>
+												</td>
+												<td> <span class="text-body">{{currencyFormat(item[2])}}</span> </td>
+												<td> <span class="text-body">{{item[3]}}</span> </td>
+												<td ng-if="item[4]=='THANHCONG'"> <span class="text-success">Thành
+														công</span> </td>
+												<td ng-if="item[4]=='DONGYGIAODICH'"> <span class="text-warning">Đang
+														giao dịch</span> </td>
+												<td ng-if="item[4]=='DANGXACNHAN'"> <span class="text-body">Chờ xác
+														nhận</span> </td>
+												<td ng-if="item[4]=='HUYBAN' || item[4]=='HUYMUA' "> <span
+														class="text-danger">Đã hủy</span> </td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- Table ĐƠN HÀNG END -->
+
+								<!-- Table ĐƠN THÀNH CÔNG START -->
+								<div class="table-responsive-md border-0" ng-if="checkClickStatisticalTab==3">
+									<h1 class="h4 card-title mb-lg-0">CHI TIẾT ĐƠN THÀNH CÔNG</h1>
+									<table class="table align-middle p-4 mb-0 mt-2">
+										<!-- Table head -->
+										<thead class="border-0">
+											<tr class="border-top-0 table-border-color">
+												<th scope="col">ID Đơn hàng</th>
+												<th scope="col">Ngày tạo đơn</th>
+												<th scope="col">Tổng tiền</th>
+												<th scope="col">Người mua</th>
+												<th scope="col">Trạng thái</th>
+											</tr>
+										</thead>
+
+										<tbody class="border-top-0">
+											<tr ng-repeat="item in formStatisticalDetails">
+												<td> <span class="text-body">{{item[0]}}</span> </td>
+												<td> <span class="text-body">{{item[1] | date: 'dd/MM/yyyy'}}</span>
+												</td>
+												<td> <span class="text-body">{{currencyFormat(item[2])}}</span> </td>
+												<td> <span class="text-body">{{item[3]}}</span> </td>
+												<td ng-if="item[4]=='THANHCONG'"> <span class="text-success">Thành
+														công</span> </td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- Table ĐƠN THÀNH CÔNG END -->
+
+								<!-- Table HÀNG BÁN ĐƯỢC START -->
+								<div class="table-responsive-md border-0" ng-if="checkClickStatisticalTab==4">
+									<h1 class="h4 card-title mb-lg-0">CHI TIẾT HÀNG BÁN ĐƯỢC</h1>
+									<table class="table align-middle p-4 mb-0 mt-2">
+										<!-- Table head -->
+										<thead class="border-0">
+											<tr class="border-top-0 table-border-color">
+												<th scope="col">ID Sản phẩm</th>
+												<th scope="col">Sản phẩm</th>
+												<th scope="col">Danh mục</th>
+												<th scope="col">Giá</th>
+												<th scope="col">Số lượng bán</th>
+											</tr>
+										</thead>
+
+										<tbody class="border-top-0">
+											<tr ng-repeat="item in formStatisticalDetails">
+												<td> <span class="text-body">{{item[0]}}</span> </td>
+												<td> <span class="text-body">{{item[1]}}</span>
+												</td>
+												<td> <span class="text-body">{{item[2]}}</span> </td>
+												<td> <span class="text-body">{{currencyFormat(item[3])}}</span> </td>
+												<td> <span class="text-body">{{item[4]}}</span> </td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- Table HÀNG BÁN ĐƯỢC END -->
+
+								<!-- Table HÀNG TỒN START -->
+								<div class="table-responsive-md border-0" ng-if="checkClickStatisticalTab==5">
+									<h1 class="h4 card-title mb-lg-0">CHI TIẾT HÀNG TỒN</h1>
+									<table class="table align-middle p-4 mb-0 mt-2">
+										<!-- Table head -->
+										<thead class="border-0">
+											<tr class="border-top-0 table-border-color">
+												<th scope="col">ID Sản phẩm</th>
+												<th scope="col">Sản phẩm</th>
+												<th scope="col">Danh mục</th>
+												<th scope="col">Giá</th>
+												<th scope="col">Trạng thái</th>
+												<th scope="col">Số lượng tồn</th>
+											</tr>
+										</thead>
+
+										<tbody class="border-top-0">
+											<tr ng-repeat="item in formStatisticalDetails">
+												<td> <span class="text-body">{{item[0]}}</span> </td>
+												<td> <span class="text-body">{{item[1]}}</span>
+												</td>
+												<td> <span class="text-body">{{item[2]}}</span> </td>
+												<td> <span class="text-body">{{currencyFormat(item[3])}}</span> </td>
+												<td ng-if="item[4]=='VIPHAM'"> <span class="text-danger">Vi phạm</span>
+												</td>
+												<td ng-if="item[4]=='SANSANG'"> <span class="text-success">Bình
+														thường</span> </td>
+												<td ng-if="item[4]=='HETHANG'"> <span class="text-body">Hết hàng</span>
+												</td>
+												<td class="row__text">{{item[5]}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- Table HÀNG TỒN START -->
+
+								<!-- Table TỔNG KHÁCH HÀNG START -->
+								<div class="table-responsive-md border-0" ng-if="checkClickStatisticalTab==6">
+									<h1 class="h4 card-title mb-lg-0">CHI TIẾT TỔNG KHÁCH HÀNG</h1>
+									<table class="table align-middle p-4 mb-0 mt-2">
+										<!-- Table head -->
+										<thead class="border-0">
+											<tr class="border-top-0 table-border-color">
+												<th scope="col">Khách hàng</th>
+												<th scope="col">Tổng số lượng sản phẩm đã mua</th>
+												<th scope="col">Tổng tiền đã mua</th>
+											</tr>
+										</thead>
+
+										<tbody class="border-top-0">
+											<tr ng-repeat="item in formStatisticalDetails">
+												<td> <span class="text-body">{{item[0]}}</span> </td>
+												<td> <span class="text-body">{{item[1]}}</span>
+												</td>
+												<td> <span class="text-body">{{currencyFormat(item[2])}}</span> </td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- Table HÀNG TỒN START -->
+
+								<!-- Table KHÁCH HÀNG QUAY LẠI START -->
+								<div class="table-responsive-md border-0" ng-if="checkClickStatisticalTab==7">
+									<h1 class="h4 card-title mb-lg-0">CHI TIẾT KHÁCH HÀNG QUAY LẠI</h1>
+									<table class="table align-middle p-4 mb-0 mt-2">
+										<!-- Table head -->
+										<thead class="border-0">
+											<tr class="border-top-0 table-border-color">
+												<th scope="col">Khách hàng</th>
+												<th scope="col">Tổng số lượng sản phẩm đã mua</th>
+												<th scope="col">Tổng tiền đã mua</th>
+											</tr>
+										</thead>
+
+										<tbody class="border-top-0">
+											<tr ng-repeat="item in formStatisticalDetails">
+												<td> <span class="text-body">{{item[0]}}</span> </td>
+												<td> <span class="text-body">{{item[1]}}</span>
+												</td>
+												<td> <span class="text-body">{{currencyFormat(item[2])}}</span> </td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- Table KHÁCH HÀNG QUAY LẠI START -->
+
+								<!-- Table KHÁCH HÀNG MỚI START -->
+								<div class="table-responsive-md border-0" ng-if="checkClickStatisticalTab==8">
+									<h1 class="h4 card-title mb-lg-0">CHI TIẾT KHÁCH HÀNG MỚI</h1>
+									<table class="table align-middle p-4 mb-0 mt-2">
+										<!-- Table head -->
+										<thead class="border-0">
+											<tr class="border-top-0 table-border-color">
+												<th scope="col">Khách hàng</th>
+												<th scope="col">Tổng số lượng sản phẩm đã mua</th>
+												<th scope="col">Tổng tiền đã mua</th>
+											</tr>
+										</thead>
+
+										<tbody class="border-top-0">
+											<tr ng-repeat="item in formStatisticalDetails">
+												<td> <span class="text-body">{{item[0]}}</span> </td>
+												<td> <span class="text-body">{{item[1]}}</span>
+												</td>
+												<td> <span class="text-body">{{currencyFormat(item[2])}}</span> </td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- Table KHÁCH HÀNG MỚI START -->
+
+								<!-- Table THEO DÕI MỚI START -->
+								<div class="table-responsive-md border-0" ng-if="checkClickStatisticalTab==9">
+									<h1 class="h4 card-title mb-lg-0">CHI TIẾT THEO DÕI MỚI</h1>
+									<table class="table align-middle p-4 mb-0 mt-2">
+										<!-- Table head -->
+										<thead class="border-0">
+											<tr class="border-top-0 table-border-color">
+												<th scope="col">Khách hàng</th>
+												<th scope="col">Ngày theo dõi</th>
+											</tr>
+										</thead>
+
+										<tbody class="border-top-0">
+											<tr ng-repeat="item in formStatisticalDetails">
+												<td> <span class="text-body">{{item[0]}}</span> </td>
+												<td> <span class="text-body">{{item[1] | date: 'dd/MM/yyyy'}}</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- Table THEO DÕI MỚI START -->
+
+
+								<div class="d-flex justify-content-center mt-4">
+									<!-- Load more button START -->
+									<a href="#!" ng-click="goPage(APage-1)" role="button"
+										class="btn btn-sm btn-loader btn-primary-soft m-1" data-bs-toggle="button"
+										aria-pressed="true" style="width: fit-content;">
+										<i class="fa-sharp fa-solid fa-caret-left icon__page"></i>
+									</a>
+									<span ng-repeat="pg in listButton">
+										<a href="#!" role="button"
+											class="btn btn-sm btn-loader btn-primary-soft m-1 {{pg===APage?'activePage':''}} {{pg}}"
+											data-bs-toggle="button" aria-pressed="true" style="width: fit-content;"
+											ng-click="goPage(pg)">
+											{{pg}}
+										</a>
+									</span>
+
+									<a href="#!" ng-click="goPage(APage+1)" role="button"
+										class="btn btn-sm btn-loader btn-primary-soft m-1" data-bs-toggle="button"
+										aria-pressed="true" style="width: fit-content;">
+										<i class="fa-sharp fa-solid fa-caret-right icon__page"></i>
+									</a>
+									<!-- Load more button END -->
+								</div>
+
+
+
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- Card body END -->
+			</div>
+			<!-- Card END -->
+		</div>
+		<!-- Right sidebar END -->
+
+	</div> <!-- Row END -->
+	</div>
+	<!-- Container END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->

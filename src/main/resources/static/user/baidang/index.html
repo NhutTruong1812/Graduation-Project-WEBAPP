@@ -1,0 +1,748 @@
+<div id="message" style="position: fixed; right:0; z-index: 5000;">
+	<div class="alert alert-{{ResponseModel.ResponseType}}" alert-dismissible ng-show="ResponseModel.ResponseAlert">
+		<a href="" class="close" ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+		<strong> {{ResponseModel.ResponseMessage}} </strong>
+	</div>
+</div>
+<!-- **************** MAIN CONTENT START **************** -->
+<main id="main__center__scrollbar" onscroll="angular.element(this).scope().scrollaction(this)">
+
+	<!-- Container START -->
+	<div class="container">
+		<div class="row g-4">
+
+			<!-- Sidenav START -->
+			<div class="col-lg-3">
+				<div ng-include="'/layout/user/left/_menu_left_index.html'"></div>
+			</div>
+			<!-- Sidenav END -->
+			<!-- Main content START -->
+			<div class="col-md-8 col-lg-6 vstack gap-4">
+
+
+				<!-- Share feed START -->
+				<div class="card card-body">
+					<div class="d-flex mb-3">
+						<!-- Avatar -->
+						<div class="avatar avatar-xs me-2">
+							<a href="#"> <img class="avatar-img rounded-circle" src="{{'../'+userLogin.avatar}}" alt="">
+							</a>
+						</div>
+						<!-- Post input -->
+						<form class="w-100">
+							<textarea class="form-control pe-4 border-0" data-bs-toggle="modal"
+								data-bs-target="#postModel" rows="2" data-autoresize
+								placeholder="Ä�Äƒng má»™t cÃ¡i gÃ¬ Ä‘Ã³..."></textarea>
+						</form>
+					</div>
+					<!-- Share feed toolbar START -->
+					<ul class="nav nav-pills nav-stack small fw-normal">
+						<li class="nav-item">
+							<a href="#" class="nav-link bg-light py-1 px-2 mb-0" data-bs-toggle="modal"
+								data-bs-target="#postModel">
+								<i class="bi bi-calendar2-event-fill text-danger pe-2"></i>BÃ i viáº¿t/sáº£n pháº©m</a>
+						</li>
+					</ul>
+					<!-- Share feed toolbar END -->
+				</div>
+				<!-- Share feed END -->
+
+				<!-- Modal -->
+				<div class="modal fade" id="postModel" tabindex="-1" role="dialog" aria-labelledby="postModel"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header modal-header__he">
+								<ul class="nav nav-pills" id="pills-tab" role="tablist">
+									<li class="nav-item" role="presentation">
+										<button ng-click="changeClick(1)" class="nav-link active btn__tab"
+											id="pills-post-tab" data-bs-toggle="pill" data-bs-target="#pills-post"
+											type="button" role="tab" aria-controls="pills-home" aria-selected="true">BÃ i
+											viáº¿t</button>
+									</li>
+									<li class="nav-item" role="presentation">
+										<button ng-click="changeClick(2)" class="nav-link btn__tab"
+											id="pills-product-tab" data-bs-toggle="pill" data-bs-target="#pills-product"
+											type="button" role="tab" aria-controls="pills-profile"
+											aria-selected="false">Sáº£n
+											pháº©m</button>
+									</li>
+								</ul>
+							</div>
+							<form enctype="multipart/form-data" id="formCard">
+								<div class="modal-body">
+									<div class="tab-content" id="pills-tabContent">
+										<div class="tab-pane fade show active" id="pills-post" role="tabpanel"
+											aria-labelledby="pills-post-tab">
+											<form class="row g-4">
+												<!-- Quyá»�n xem -->
+												<div class="row mt-2">
+													<div class="col-md-3">
+														<span class="text_post_form">Quyá»�n xem:</span>
+													</div>
+													<div class="col-md-9 form-group">
+														<select class="form-control" ng-model="form.hiddenPost"
+															style="width:100%" id="hiddenPost" rules="required">
+															<option ng-value="0">CÃ´ng khai</option>
+															<option ng-value="1">KhÃ´ng cÃ´ng khai</option>
+														</select>
+
+													</div>
+												</div>
+												<!-- TiÃªu dá»� -->
+												<div class="row mt-2">
+													<div class="col-md-3">
+														<span class="text_post_form">TiÃªu Ä‘á»�:</span>
+													</div>
+													<div class="col-md-9 form-group">
+														<input class="form-control" style="width: 100%;" type="text"
+															ng-model="form.title" id="title" rules="required">
+														<span class="form-message"></span>
+													</div>
+												</div>
+												<!-- Ná»™i dung -->
+												<div class="row mt-2">
+													<div class="col-md-3">
+														<span class="text_post_form">Ná»™i dung:</span>
+													</div>
+													<div class="col-md-9 form-group">
+														<textarea class="form-control" style="width: 100%;" cols="10"
+															rows="5" ng-model="form.contentPost"
+															id="contentPost"></textarea>
+														<span class="form-message"></span>
+													</div>
+												</div>
+
+												<!-- ThÃªm áº£nh -->
+												<div class="row mt-2">
+													<div class="col-md-3">
+													</div>
+													<div class="col-md-9 form-group">
+														<div class="btn_upload_file"><i style="font-size: 25px;"
+																class="fa-solid fa-image mr-2"></i><span>ThÃªm
+																áº£nh</span>
+															<input class="input_file_image_post" multiple type="file"
+																name="banner" id="banner"
+																onchange="angular.element(this).scope().imageChanged(this.files)">
+														</div>
+														<div class="col-md-6" style="text-align: center">
+															<span>{{result}}</span>
+														</div>
+													</div>
+												</div>
+
+											</form>
+
+										</div>
+										<!--end bÃ i viáº¿t-->
+										<div class="tab-pane fade" id="pills-product" role="tabpanel"
+											aria-labelledby="pills-product-tab">
+											<div class="row">
+												<div class="col-md-3">
+													<span class="text_post_form">Quyá»�n xem:</span>
+												</div>
+												<div class="col-md-9 form-group">
+													<select class="form-control" ng-model="form.hiddenProduct"
+														style="width:100%" id="hiddenProduct" rules="required">
+														<option ng-value="0">CÃ´ng khai</option>
+														<option ng-value="1">KhÃ´ng cÃ´ng khai</option>
+													</select>
+
+												</div>
+											</div>
+											<div class="row mt-2">
+												<div class="col-md-3">
+													<span class="text_post_form">Sáº£n pháº©m:</span>
+												</div>
+												<div class="col-md-9 form-group">
+													<input class="form-control" style="width: 100%;" type="text"
+														ng-model="form.productName" id="productName" rules="required">
+													<span class="form-message"></span>
+												</div>
+											</div>
+											<div class="row mt-2">
+												<div class="col-md-3">
+													<span class="text_post_form">Danh má»¥c:</span>
+												</div>
+												<div class="col-md-9 form-group">
+													<select class="form-control" name="category"
+														ng-model="form.category" style="width:100%" id="category"
+														rules="required">
+														<option ng-repeat="cate in itemCates" ng-value="cate.id">
+															{{cate.category}}
+														</option>
+													</select>
+													<span class="form-message"></span>
+												</div>
+											</div>
+											<div class="row mt-2">
+												<div class="col-md-3">
+													<span class="text_post_form">GiÃ¡:</span>
+												</div>
+												<div class="col-md-9 form-group">
+													<input class="form-control" style="width: 100%;" type="number"
+														ng-model="form.price" id="price" rules="required">
+													<span class="form-message"></span>
+												</div>
+											</div>
+											<div class="row mt-2">
+												<div class="col-md-3">
+													<span class="text_post_form">Sá»‘ lÆ°á»£ng:</span>
+												</div>
+												<div class="col-md-9 form-group">
+													<input class="form-control" style="width: 100%;" type="number"
+														ng-model="form.available" id="available" rules="required">
+													<span class="form-message"></span>
+												</div>
+											</div>
+											<div class="row mt-2">
+												<div class="col-md-3">
+													<span class="text_post_form">MÃ´ táº£:</span>
+												</div>
+												<div class="col-md-9 form-group">
+													<textarea class="form-control" style="width: 100%;" cols="10"
+														rows="5" ng-model="form.description"></textarea>
+												</div>
+											</div>
+
+											<!-- ThÃªm áº£nh -->
+											<div class="row mt-2">
+												<div class="col-md-3">
+												</div>
+												<div class="col-md-9 form-group">
+													<div class="btn_upload_file text_post_form"><i
+															style="font-size: 25px;"
+															class="fa-solid fa-image mr-2"></i><span>ThÃªm
+															áº£nh</span>
+														<input class="input_file_image_post" multiple type="file"
+															name="banner" id="banner"
+															onchange="angular.element(this).scope().imageChangedProduct(this.files)">
+													</div>
+													<div class="col-md-6" style="text-align: center">
+														<span>{{resultTabProduct}}</span>
+													</div>
+													<span class="messageResultBannerProduct"></span>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger-soft me-2" data-bs-dismiss="modal"
+											id="btn_close">
+											Há»§y</button>
+										<button type="submit" class="btn btn-success-soft" ng-click="createCard()">Ä�Äƒng
+											ngay</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<!-- Card feed item START -->
+				<div class="card" ng-repeat="post in listPost">
+					<!-- Card header START -->
+					<div class="card-header border-0 pb-0">
+						<div class="d-flex align-items-center justify-content-between">
+							<div class="d-flex align-items-center">
+								<!-- Avatar -->
+								<div class="avatar avatar-story me-2">
+									<a href=""> <img class="avatar-img rounded-circle" src="{{'../'+userLogin.avatar}}"
+											alt=""> </a>
+								</div>
+								<!-- Info -->
+								<div>
+									<div class="nav nav-divider">
+										<h6 class="nav-item card-title mb-0"> <a href="">{{post.card.user.fullname}}</a>
+										</h6>
+									</div>
+									<p class="mb-0 small">NgÃ y Ä‘Äƒng: {{post.card.postAt | date: 'dd/MM/yyyy'}}</p>
+								</div>
+							</div>
+							<!-- Card feed action dropdown START -->
+							<div class="dropdown">
+								<a href="#" class="text-secondary btn btn-secondary-soft-hover py-1 px-2"
+									id="cardFeedAction" data-bs-toggle="dropdown" aria-expanded="false">
+									<i class="bi bi-three-dots" ng-click="getPost(post.id)"></i>
+								</a>
+								<!-- Card feed action dropdown menu -->
+								<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cardFeedAction">
+									<li><a class="dropdown-item" href="" data-bs-toggle="modal"
+											data-bs-target="#editPostModal" ng-click="showEditPost()"> <i
+												class="bi bi-pencil-square fa-fw pe-2"></i>Chá»‰nh sá»­a</a></li>
+									<li><a class="dropdown-item" href="" data-bs-toggle="modal"
+											data-bs-target="#deleteModal"> <i class="bi bi-trash fa-fw pe-2"></i>XÃ³a bÃ i
+											Ä‘Äƒng
+										</a></li>
+									<li><a class="dropdown-item" href=""  data-bs-toggle="modal"
+											data-bs-target="#hidePostModal"> <i
+												class="bi bi-x-circle fa-fw pe-2"></i>áº¨n bÃ i Ä‘Äƒng</a></li>
+								</ul>
+							</div>
+							<!-- Card feed action dropdown END -->
+						</div>
+					</div>
+					<!-- Card header END -->
+					<!-- Card body START -->
+					<div class="card-body">
+						<h6>{{post.title}}</h6>
+						<p>{{post.content}}</p>
+						<!-- Card img -->
+						<img class="card-img" ng-if="post.banner != null && post.banner != ''"
+							ng-src="{{'../'+post.banner}}">
+						<!-- Feed react START -->
+						<ul class="nav nav-stack py-3 small">
+							<li class="nav-item btnlike" ng-model="likes[post.card.id].length" ng-click="likeAction($event, post.card.id)">
+								<a class="likeActive {{post.card.liked==true ? 'active':''}}" href="" > 
+									<i class="bi bi-hand-thumbs-up-fill pe-1"></i>Thích ( <span ng-bind="post.card.like.count"></span> ) 
+								</a> 
+							</li>
+							<li class="nav-item btncomment" ng-model="comments[post.card.id]" ng-click="loadMoreComment(post.card.id)">
+								<a href=""> <i class="bi bi-chat-fill pe-1"></i>Bình luận ( <span ng-bind="post.card.comment.count"></span> ) </a>
+							</li>
+							<!-- Card share action START -->
+							<li class="nav-item dropdown ms-sm-auto">
+								<a class="nav-link mb-0" href="" id="cardShareAction" data-bs-toggle="modal"
+									data-bs-target="#modalCreateFeed" ng-click="getPost(post)">
+									<i class="bi bi-reply-fill flip-horizontal ps-1" data-bs-toggle="modal"
+										data-bs-target="#modalCreateFeed"></i>Chia sẻ
+								</a>
+							</li>
+							<!-- Card share action END -->
+						</ul>
+						<!-- Feed react END -->
+
+						<!-- share -->
+						<div class="modal fade" id="modalCreateFeed" tabindex="-1"
+							aria-labelledby="modalLabelCreateFeed" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+								<div class="modal-content">
+									<!-- Modal feed header START -->
+									<div class="modal-header">
+										<h5 class="modal-title" id="modalLabelCreateFeed">Chia sáº» bÃ i Ä‘Äƒng</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<!-- Modal feed header END -->
+
+									<!-- Modal feed body START -->
+									<div class="modal-body">
+										<!-- Add Feed -->
+										<div class="d-flex mb-3">
+											<!-- Avatar -->
+											<div class="avatar avatar-xs me-2">
+												<img class="avatar-img rounded-circle" src="{{'../'+userLogin.avatar}}"
+													alt="">
+											</div>
+											<!-- Feed box  -->
+											<form class="w-100">
+												<textarea id="share_content"
+													class="form-control pe-4 fs-3 lh-1 border-0" rows="4"
+													placeholder="HÃ£y viáº¿t gÃ¬ Ä‘Ã³..." autofocus></textarea>
+											</form>
+										</div>
+									</div>
+									<!-- Modal feed body END -->
+
+									<!-- Modal feed footer -->
+									<div class="modal-footer row justify-content-between">
+										<!-- Select -->
+										<div class="col-lg-5">
+											<select class="form-select" id="share_hidden" rules="required">
+												<option value="false">CÃ´ng khai</option>
+												<option value="true">KhÃ´ng cÃ´ng khai</option>
+											</select>
+										</div>
+										<!-- Button -->
+										<div class="col-lg-6 text-sm-end">
+											<button type="button" id="close_sharePost" data-bs-dismiss="modal"
+												aria-label="Close" class="btn btn-danger-soft me-2">
+												Há»§y</button>
+											<button type="button" class="btn btn-success-soft"
+												ng-click="shareCard(post)">Chia sáº»</button>
+										</div>
+									</div>
+									<!-- Modal feed footer -->
+
+								</div>
+							</div>
+						</div>
+						<!--end share-->
+
+						<!-- Add comment -->
+						<div class="d-flex mb-3">
+							<!-- Avatar -->
+							<div class="avatar avatar-xs me-2">
+								<a href=""> <img class="avatar-img rounded-circle" src="{{'../'+currentUser.avatar}}"
+										alt=""> </a>
+							</div>
+							<!-- Comment box  -->
+							<form class="w-100">
+								<input data-autoresize class="form-control pe-4 bg-light" id="comment--text"
+									placeholder="Viết bình luận..." type="text" ng-keypress="$event.keyCode == 13 && addComment($event, post.card.id)">
+							</form>
+						</div>
+						<!-- Comment wrap START -->
+						<ul class="comment-wrap list-unstyled list__comment">
+							<!-- Comment item START -->
+							<li class="comment-item" ng-show="post.card.comment.show==true" ng-hide="post.card.comment.show==false" ng-repeat="comment in comments[post.card.id]">
+								<div class="d-flex position-relative">
+									<!-- Avatar -->
+									<div class="avatar avatar-xs">
+										<a href="#!"><img class="avatar-img rounded-circle"
+												src="{{'../'+comment.user.avatar}}" alt=""></a>
+									</div>
+									<div class="ms-2">
+										<!-- Comment by -->
+										<div class="bg-light rounded-start-top-0 p-3 rounded">
+											<div class="d-flex justify-content-between">
+												<h6 class="mb-1"> <a href="#!"> {{comment.user.fullname}} </a></h6>
+												<small class="ms-2">{{comment.commentDate | date:'dd-MM-yyyy'}}</small>
+											</div>
+											<p class="small mb-0">
+												{{comment.content}}
+											</p>
+											
+											<div class="d-flex mt-3 repcmtzz">
+												<!-- Avatar -->
+												<div class="avatar avatar-xs me-2">
+													<a href="#!"> <img class="avatar-img rounded-circle" src="{{'../'+currentUser.avatar}}"
+															alt=""> </a>
+												</div>
+												<!-- Comment box  -->
+												<div class="w-100" >
+													<input data-autoresize class="form-control pe-4 bg-light"
+															placeholder="Viết bình luận..." type="text" ng-keydown="$event.keyCode == 13 && addReply($event, comment.id)">
+												</div>
+											</div>
+										</div>
+										<!-- Comment react -->
+										<ul class="nav nav-divider py-2 small">
+										</ul>
+										
+										<div class="card-footer border-0 pt-0">
+											<!-- Load more comments -->
+											<a href="#!" role="button" class="btn btn-link btn-link-loader btn-sm text-secondary d-flex align-items-center" ng-hide="replys[comment.id].length == 0"
+												data-bs-toggle="button" aria-pressed="true" ng-click="showReply(post.card.id, comment.id)">
+												<div class="spinner-dots me-2">
+													<span class="spinner-dot"></span>
+													<span class="spinner-dot"></span>
+													<span class="spinner-dot"></span>
+												</div>
+												Xem thêm bình luận (<span ng-bind="replys[comment.id].length"></span>)
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<!-- Comment item nested START -->
+								<ul class="comment-item-nested list-unstyled" ng-show="comment.showReply==true" ng-repeat="reply in replys[comment.id]">
+									<!-- Comment item START -->
+									<li class="comment-item">
+										<div class="d-flex">
+											<!-- Avatar -->
+											<div class="avatar avatar-xs">
+												<a href="#!"><img class="avatar-img rounded-circle"
+														src="{{'../'+reply.user.avatar}}" alt=""></a>
+											</div>
+											<!-- Comment by -->
+											<div class="ms-2">
+												<div class="bg-light p-3 rounded">
+													<div class="d-flex justify-content-between">
+														<h6 class="mb-1"> <a href="#!"> {{reply.user.fullname}} </a> </h6>
+														<small class="ms-2">{{reply.commentDate | date:'dd-MM-yyyy'}}</small>
+													</div>
+													<p class="small mb-0">
+														{{reply.content}}
+													</p>
+														
+												<div class="d-flex mt-3">
+													<!-- Avatar -->
+													<div class="avatar avatar-xs me-2">
+														<a href="#!"> <img class="avatar-img rounded-circle" src="{{'../'+reply.user.avatar}}"
+																alt=""> </a>
+													</div>
+													<!-- Comment box  -->
+													<form class="w-100">
+														<input data-autoresize class="form-control pe-4 bg-light"
+										placeholder="Viết bình luận..." type="text" ng-keypress="$event.keyCode == 13 && addComment($event, post.card.id)">
+													</form>
+												</div>
+												</div>
+												<!-- Comment react -->
+												<ul class="nav nav-divider py-2 small">
+												</ul>
+											</div>
+										</div>
+									</li>
+									<!-- Comment item END -->
+								</ul>
+							</li>
+							<!-- Comment item END -->
+						</ul>
+						<!-- Comment wrap END -->
+					</div>
+					<!-- Card body END -->
+					<!-- Card footer START -->
+					<div class="card-footer border-0 pt-0">
+						<!-- Load more comments -->
+						<a href="#!" role="button" class="btn btn-link btn-link-loader btn-sm text-secondary d-flex align-items-center" ng-model="comments[post.card.id]" ng-click="loadMoreComment(post.card.id)"
+							data-bs-toggle="button" aria-pressed="true">
+							<div class="spinner-dots me-2">
+								<span class="spinner-dot"></span>
+								<span class="spinner-dot"></span>
+								<span class="spinner-dot"></span>
+							</div>
+							Xem thêm bình luận
+						</a>
+					</div>
+					<!-- Card footer END -->
+				</div>
+				<!-- Card feed item END -->
+
+			</div>
+			<!-- Main content END -->
+
+			<!-- Right sidebar START -->
+			<div class="col-lg-3">
+				<div class="row g-4">
+					<!-- Card follow START -->
+					<div class="card overflow-hidden">
+						<!-- Card body START -->
+						<div class="text-center">
+							<!-- Avatar -->
+							<div class="avatar avatar-lg mb-3 mt-3">
+								<a href="#!"><img class="avatar-img rounded-circle border border-white border-3"
+										src="{{'../'+userLogin.avatar}}" alt=""></a>
+							</div>
+							<!-- Info -->
+							<h5 class="mb-0">{{userLogin.fullname}}</h5>
+						</div>
+						<hr>
+
+						<!-- Card News START -->
+						<div class="col-sm-6 col-lg-12 overflow-hidden">
+							<!-- Card header START -->
+							<div class="card-header pb-0 border-0">
+								<h5 class="card-title mb-0">Giá»›i thiá»‡u</h5>
+							</div>
+							<!-- Card header END -->
+							<!-- Card body START -->
+							<div class="card-body">
+								<small>{{myShop.intro}}</small>
+								<hr>
+								<ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+									<li class="nav-item">
+										<img class="me-2 h-20px fa-fw" src="assets/images/icon/check.png"
+											alt=""><span>CÃ³ <strong
+												class="text-danger">{{currencyBcoinFormat(myShopStatistical[0])}}</strong>
+											ngÆ°á»�i theo dÃµi </span>
+									</li>
+									<li class="nav-item">
+										<img class="me-2 h-20px fa-fw" src="assets/images/icon/package.png"
+											alt=""><span>CÃ³ <strong
+												class="text-danger">{{currencyBcoinFormat(myShopStatistical[1])}}</strong>
+											sáº£n pháº©m Ä‘ang bÃ¡n </span>
+									</li>
+									<li class="nav-item">
+										<img class="me-2 h-20px fa-fw" src="assets/images/icon/sold.png" alt=""><span>Ä�Ã£
+											bÃ¡n <strong
+												class="text-danger">{{currencyBcoinFormat(myShopStatistical[2])}}</strong>
+											sáº£n
+											pháº©m </span>
+									</li>
+									<li class="nav-item">
+										<img class="me-2 h-20px fa-fw" src="assets/images/icon/support.png"
+											alt=""><span>Tham gia vÃ o <strong
+												class="text-danger">{{myRegisteractive.registerDate | date:
+												'dd/MM/yyyy'}}</strong> </span>
+									</li>
+								</ul>
+							</div>
+							<!-- Card body END -->
+						</div>
+						<!-- Card News END -->
+					</div>
+					<!-- Card follow START -->
+				</div>
+			</div>
+			<!-- Right sidebar END -->
+		</div>
+	</div>
+	<!-- Container END -->
+
+	<!-- Edit Post Modal -->
+	<div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-labelledby="postModel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header modal-header__he">
+					<ul class="nav nav-pills" id="pills-tab" role="tablist">
+						<li class="nav-item" role="presentation">
+							<button ng-click="changeClick(1)" class="nav-link active btn__tab" id="pills-post-tab"
+								data-bs-toggle="pill" data-bs-target="#pills-post" type="button" role="tab"
+								aria-controls="pills-home" aria-selected="true">Chá»‰nh sá»­a bÃ i viáº¿t</button>
+						</li>
+					</ul>
+				</div>
+				<form enctype="multipart/form-data" id="formEditPost">
+					<div class="modal-body">
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active" id="pills-post" role="tabpanel"
+								aria-labelledby="pills-post-tab">
+								<form class="row g-4">
+									<!-- Quyá»�n xem -->
+									<div class="row mt-2">
+										<div class="col-md-3">
+											<span class="text_post_form">Quyá»�n xem:</span>
+										</div>
+										<div class="col-md-9 form-group">
+											<select class="form-control" id="hiddenPost" rules="required"
+												ng-model="formEditPost.card.hidden">
+												<option ng-value="false">CÃ´ng khai</option>
+												<option ng-value="true">KhÃ´ng cÃ´ng khai</option>
+											</select>
+
+										</div>
+									</div>
+									<!-- TiÃªu dá»� -->
+									<div class="row mt-2">
+										<div class="col-md-3">
+											<span class="text_post_form">TiÃªu Ä‘á»�:</span>
+										</div>
+										<div class="col-md-9 form-group">
+											<input class="form-control" style="width: 100%;" type="text"
+												ng-model="formEditPost.title" id="title" rules="required">
+											<span class="form-message"></span>
+										</div>
+									</div>
+									<!-- Ná»™i dung -->
+									<div class="row mt-2">
+										<div class="col-md-3">
+											<span class="text_post_form">Ná»™i dung:</span>
+										</div>
+										<div class="col-md-9 form-group">
+											<textarea class="form-control" style="width: 100%;" cols="10" rows="5"
+												ng-model="formEditPost.content" id="contentPost"></textarea>
+											<span class="form-message"></span>
+										</div>
+									</div>
+
+									<!-- ThÃªm áº£nh -->
+									<div class="row mt-2">
+										<div class="col-md-3">
+										</div>
+										<div class="col-md-9 form-group">
+											<div class="btn_upload_file"><i style="font-size: 25px;"
+													class="fa-solid fa-image mr-2"></i><span>ThÃªm
+													áº£nh</span>
+												<input class="input_file_image_post" multiple type="file" name="banner"
+													id="banner"
+													onchange="angular.element(this).scope().imageChangedEditPost(this.files)">
+											</div>
+											<div class="col-md-6" style="text-align: center">
+												<span>{{showAllImagePostEdit}}</span>
+											</div>
+										</div>
+									</div>
+
+								</form>
+
+							</div>
+							<!--end bÃ i viáº¿t-->
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger-soft me-2" data-bs-dismiss="modal"
+								id="btn_close_editPost">
+								Há»§y</button>
+							<button type="submit" class="btn btn-success-soft" ng-click="editPost()">Chá»‰nh sá»­a</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- End Edit Post Modal -->
+
+	<!-- Delete Post Modal -->
+	<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="modalLabelCreateFeed" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<!-- Modal feed header START -->
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalLabelCreateFeed">XÃ³a bÃ i Ä‘Äƒng</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<!-- Modal feed header END -->
+
+				<!-- Modal feed body START -->
+				<div class="modal-body">
+					<h5 class="text-danger">Báº¡n cÃ³ cháº¯c muá»‘n xÃ³a?</h5>
+					<p>Dá»¯ liá»‡u sau khi xÃ³a sáº½ khÃ´ng thá»ƒ khÃ´i phá»¥c.</p>
+				</div>
+				<!-- Modal feed body END -->
+
+				<!-- Modal feed footer -->
+				<div class="modal-footer row justify-content-between">
+					<div class="col-lg-5">
+					</div>
+					<!-- Button -->
+					<div class="col-lg-6 text-sm-end">
+						<button type="button" id="btn_delete_close" data-bs-dismiss="modal" aria-label="Close"
+							class="btn btn-secondary-soft me-2">
+							Há»§y</button>
+						<button type="button" class="btn btn-danger-soft" ng-click="deletePost()">XÃ¡c nháº­n
+							xÃ³a</button>
+					</div>
+				</div>
+				<!-- Modal feed footer -->
+
+			</div>
+		</div>
+	</div>
+	<!-- Delete Post Modal -->
+
+	<!-- Confirm Hide Post Modal -->
+	<div class="modal fade" id="hidePostModal" tabindex="-1" aria-labelledby="modalLabelCreateFeed"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<!-- Modal feed header START -->
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalLabelCreateFeed">áº¨n bÃ i Ä‘Äƒng
+					</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<!-- Modal feed header END -->
+
+				<!-- Modal feed body START -->
+				<div class="modal-body">
+					<h5 class="text-danger">Báº¡n cÃ³ cháº¯c muá»‘n áº©n bÃ i Ä‘Äƒng nÃ y?</h5>
+					<p>BÃ i Ä‘Äƒng sau khi áº©n sáº½ khÃ´ng xuáº¥t hiá»‡n á»Ÿ báº£ng tin cá»§a báº¡n ná»¯a, Báº¡n cÃ³ thá»ƒ khÃ´i phá»¥c á»Ÿ pháº§n "BÃ i Ä‘Äƒng bá»‹ áº©n"!</p>
+				</div>
+				<!-- Modal feed body END -->
+
+				<!-- Modal feed footer -->
+				<div class="modal-footer row justify-content-between">
+					<div class="col-lg-5">
+					</div>
+					<!-- Button -->
+					<div class="col-lg-6 text-sm-end">
+						<button type="button" id="btn_hideCard_confirm" data-bs-dismiss="modal" aria-label="Close"
+							class="btn btn-secondary-soft me-2">
+							Há»§y</button>
+						<button type="button" class="btn btn-danger-soft" ng-click="hiddenCard()">áº¨n bÃ i Ä‘Äƒng
+						</button>
+					</div>
+				</div>
+				<!-- Modal feed footer -->
+
+			</div>
+		</div>
+	</div>
+	<!-- Confirm Hide Post Modal -->
+
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="/assets/dstuff/deco.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
+</head>
+
+<body ng-app="myappzz">
+	<div>
+		<div ng-controller="myctrlzz">
+			<h1>NẠP XU BIGLOBBY (BLB) 2</h1>
+			<p>Cẩn thận lừa đảo! Đây là kênh duy nhất nạp xu BLB, không nên
+				trao đổi, mua bán xu BLB qua bất cứ kênh nào khác. Tất cả khuyến mãi
+				đều được hiển thị tại đây.</p>
+			<h2>CÔNG DỤNG CỦA XU BIGLOBBY</h2>
+			<h2>1> Trả phí trưng bày sản phẩm</h2>
+			<h2>2> Mua gói quảng cáo sản phẩm</h2>
+			<h2>3> Trả trước thanh toán đơn hàng</h2>
+			<div>
+				<!-- <form action="/blb/napxu/{iduser}/{sotien}" actiontemp="/blb/napxu/"  method="post"> -->
+				<form action="/napxu" id="frmCreateOrder" method="post">
+					<h2>CHỌN SỐ XU BẠN MUỐN NẠP</h2>
+					<div>
+						<div>
+							<label for="rdo1zz" class="rdo-grpzz"> <input id="rdo1zz" type="radio" name="soxuzz" value="10">
+								<div>10 BLB</div>
+								<div>10.000 VND</div>
+							</label>
+						</div>
+						<div>
+							<label for="rdo2zz" class="rdo-grpzz"> <input id="rdo2zz"
+								type="radio" name="soxuzz" value="20">
+								<div>20 BLB</div>
+								<div>20.000 VND</div>
+							</label>
+						</div>
+						<div>
+							<label for="rdo3zz" class="rdo-grpzz"> <input id="rdo3zz"
+								type="radio" name="soxuzz" value="55">
+								<div>50 BLB</div>
+								<div>50.000 VND</div>
+							</label>
+						</div>
+						<div>
+							<label for="rdo4zz" class="rdo-grpzz"> <input id="rdo4zz"
+								type="radio" name="soxuzz" value="111">
+								<div>100 BLB</div>
+								<div>100.000 VND</div>
+							</label>
+						</div>
+						<div>
+							<label for="rdo5zz" class="rdo-grpzz"> <input id="rdo5zz"
+								type="radio" name="soxuzz" value="222">
+								<div>200 BLB</div>
+								<div>200.000 VND</div>
+							</label>
+						</div>
+						<div>
+							<label for="rdo6zz" class="rdo-grpzz"> <input id="rdo6zz"
+								type="radio" name="soxuzz" checked value="555">
+								<div>500 BLB</div>
+								<div>500.000 VND</div>
+							</label>
+						</div>
+						<div>
+							<input name="nguoinap" type="hidden" value="15">
+							<input name="donnap" type="hidden" value="1">
+						</div>
+					</div>
+					<div class="btn-cvrzz">
+						<button>NẠP NGAY</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="/assets/dstuff/jquery-1.11.3.min.js"></script>
+	<script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
+	<script type="text/javascript">
+		$("#frmCreateOrder").submit(function() {
+			var postData = $("#frmCreateOrder").serialize();
+			var submitUrl = $("#frmCreateOrder").attr("action");
+			$.ajax({
+				type : "POST",
+				url : submitUrl,
+				data : postData,
+				dataType : 'JSON',
+				success : function(x) {
+					if (x.code === '00') {
+						if (window.vnpay) {
+							vnpay.open({
+								width : 768,
+								height : 600,
+								url : x.data
+							});
+						} else {
+							location.href = x.data;
+						}
+						return false;
+					} else {
+						alert(x.Message);
+					}
+				}
+			});
+			return false;
+		});
+	</script>
+</body>
+
+</html>

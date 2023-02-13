@@ -1,0 +1,295 @@
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+	<!-- Container START -->
+	<div class="container">
+		<div class="row g-4">
+			
+			 <!-- Sidenav START -->
+       <div class="col-lg-3">
+        <div ng-include="'/layout/user/left/_menu_left_index.html'"></div>
+         </div>
+         <!-- Sidenav END -->
+			
+			
+			<!-- Main content START -->
+			<div class="col-md-8 col-lg-6 vstack gap-4">
+				<div id="message">
+				<div class="alert alert-{{ResponseModel.ResponseType}}"
+					alert-dismissible ng-show="ResponseModel.ResponseAlert">
+					<a href="" class="close"
+						ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+					<strong> {{ResponseModel.ResponseMessage}} </strong>
+				</div>
+			</div>	
+				<!-- Card START -->
+				<div class="card">
+					<!-- Card header START -->
+					<div
+						class="card-header d-sm-flex align-items-center justify-content-between border-0 pb-0">
+						<h1 class="h4 card-title">Xác nhận đặt hàng</h1>
+					</div>
+					<!-- Card header START -->
+
+					<!-- Card body START -->
+					<div class="card-body">
+						<div class="duc-row-head d-none d-md-block d-xl-block mb-3">
+							<div class="row">
+								<div class="d-none d-md-block d-xl-block col-md-1 col-xl-1">
+									Ảnh</div>
+								<div class="d-none d-md-block d-xl-block col-md-3 col-xl-3">
+									Sản phẩm</div>
+								<div class="d-none d-md-block d-xl-block col-md-2 col-xl-2">
+									Loại hàng</div>
+								<div class="d-none d-md-block d-xl-block col-md-2 col-xl-2">
+									Giá bán</div>
+								<div class="d-none d-md-block d-xl-block col-md-2 col-xl-2">
+									Số lượng</div>
+								<div class="d-none d-md-block d-xl-block col-md-2 col-xl-2">
+									Thao tác</div>
+							</div>
+						</div>
+						<hr>
+						<div ng-repeat="item in listshop">
+							<div class="duc-row-body mb-3" ng-repeat="sanpham in item.product">
+								<div class="row">
+									<div class="col-sm-12 col-md-1 col-xl-1">
+										<img src="/{{sanpham.product.banner}}" alt="">
+									</div>
+									<div class="col-sm-12 col-md-3 col-xl-3">{{sanpham.product.product}}</div>
+									<div class="col-sm-12 col-md-2 col-xl-2">
+										<span class="d-md-none d-xl-none"> Danh mục: </span> <span>
+											{{sanpham.product.category.category}}</span>
+									</div>
+									<div class="col-sm-6 col-md-2 col-xl-2">
+										<span class="d-md-none d-xl-none"> Giá bán: </span> <span> {{sanpham.product.price}}</span>
+									</div>
+									<div class="col-sm-6 col-md-2 col-xl-2">
+										<span class="d-md-none d-xl-none"> SL: </span> <span> <input
+											class="form-control inp__ls__cart d-inline-block mb-2"
+											type="number"id="quantity{{sanpham.id}}" style="text-align: center;" ng-mouseup="changeQuantity(sanpham)" ng-value="sanpham.quantity" ng-keyup="changeQuantity(sanpham)" ng-model="sanpham.quantity" >
+										</span>
+									</div>
+									<div class="col-sm-12 col-md-2 col-xl-2">
+										<button class="btn btn-danger-soft btn__delete__cart mb-2" ng-click="deleteCart(sanpham)">Xóa
+										</button>
+									</div>
+								</div>
+
+							</div>
+							<div class="duc-row-more">
+								<div class="row">
+									<div class="col-12 col-md-8 col-xl-8">Sản phẩm của cửa
+										hàng</div>
+									<div class="col-4 col-md-1 col-xl-1">
+										<img src="/{{item.user.avatar}}" alt="">
+									</div>
+									<div class="col-8 col-md-3 col-xl-3">{{item.user.fullname}}</div>
+								</div>
+
+							</div>
+							<hr>
+						</div>
+
+
+						<div class="tab-content mb-0 pb-0 pt-0">
+							<br>
+							<!-- main -->
+							<div class="tab-pane fade show active" id="tab-1">
+
+								<!-- thông tin đặt hàng -->
+								<div class="row g-3 mb-3">
+									<div class="mx-auto bg-mode shadow rounded p-4 ">
+										<!-- Form START -->
+										<div class="row align-items-end g-4">
+											<!-- Date -->
+											<div class="col-sm-9 col-lg-9 {{addressdefault.id==null?'':'d-none'}}" >
+												<label class="form-label cart__product__text">Bạn
+													chưa có địa chỉ nhận hàng, vui lòng chọn địa chỉ nhận hàng!</label>
+													
+											</div>
+											<div class="col-sm-9 col-lg-9 {{addressdefault.id!=null?'':'d-none'}}">
+
+												<label class="form-label address__name">{{addressdefault.fullname}}</label>
+												<label class="form-label">| {{addressdefault.phonenum}}</label> <br>
+												<label class="form-label address__note">{{addressdefault.address}}</label><br>
+												<span class="macdinh {{ad.id===addressdefault.id?'btn-outline-warning':'d-none'}}">{{ad.id===addressdefault.id?'mặc
+													định':''}}</span>
+
+											</div>
+											<!-- Time -->
+											<div class="col-sm-3 col-lg-3">
+												<button class="btn btn-warning-soft btn__delete__cart"
+													type="button" data-bs-toggle="modal"
+													data-bs-target="#modalCreateVideo">Chọn địa chỉ</button>
+											</div>
+										</div>
+										 
+										<!-- Form END -->
+										<hr>
+										<!-- Form START -->
+										<form class="row align-items-end g-4">
+											<!-- Date -->
+											<div class="col-sm-2 col-lg-2">
+												<label class="form-label cart__product__text">Ghi
+													chú:</label>
+											</div>
+											<!-- Time -->
+											<div class="col-sm-10 col-lg-10">
+												<textarea class="form-control" ng-model="formcheckout.notebuyer"></textarea>
+											</div>
+										</form>
+										<!-- Form END -->
+									</div>
+								</div>
+
+								<!--Dịa chỉ giao-->
+								<div class="modal fade" id="modalCreateVideo" tabindex="-1"
+									aria-labelledby="modalLabelCreateVideo" aria-hidden="true">
+									<div class="modal-dialog address__cart">
+										<div class="modal-content modal-content-v2">
+											<!-- Modal Title -->
+											<div class="modal-header">
+												<h5 class="modal-title" id="modalLabelCreateVideo">Địa
+													chỉ Của tôi</h5>
+												<button type="button" class="btn-close"
+													data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="tab-content">
+												<div id="message">
+													<div class="alert alert-{{ResponseModel.ResponseType}}"
+														alert-dismissible ng-show="ResponseModel.ResponseAlert">
+														<a href="" class="close"
+															ng-click="ResponseModel.ResponseAlert = false"
+															aria-label="close">&times;</a> <strong>
+															{{ResponseModel.ResponseMessage}} </strong>
+													</div>
+												</div>
+												<div id="list__tab1" class="tab-pane {{Atab==1?'active show':''}}">
+													<div class="modal-body">
+														<!-- Form START -->
+														<form>
+															<!-- Title -->
+															<div class="row mb-3" ng-repeat="ad in listaddress">
+																<div class="col-md-6 ">
+																	<label class="form-label address__name">{{ad.fullname}}</label>
+																	<label class="form-label">| {{ad.phonenum}}</label> <br>
+																	<label class="form-label address__note">{{ad.address}}</label><br>
+																	<span
+																		class="macdinh {{ad.id===addressdefault.id?'btn-outline-warning':'d-none'}}">{{ad.id===addressdefault.id?'mặc
+																		định':''}}</span>
+																</div>
+																<div class="col-md-6">
+																	<span class="d-flex justify-content-end">
+																		<button type="submit" class="btn btn-success-soft "
+																			ng-click="chooseaddress(ad)" class="btn-close"
+													data-bs-dismiss="modal" aria-label="Close" >Chọn</button>
+																		<button type="submit" class="btn btn-warning-soft "
+																			ng-click="editaddress(ad)">Sửa</button>
+																		<button type="submit" class="btn btn-danger-soft "
+																			ng-click="deleteaddress(ad)">Xóa</button>
+																	</span>
+																</div>
+															</div>
+															<hr>
+														</form>
+														<!-- Form END -->
+													</div>
+													<!-- Modal footer -->
+													<div class="modal-footer">
+														<button type="button" class="btn btn-success-soft" data-target="#list__tab2" data-toggle="tab" ng-click="tab(2)">Thêm địa
+															chỉ</button>
+													</div>
+												</div>
+												<div id="list__tab2" class="tab-pane {{Atab==2?'active show':''}}">
+													<div class="modal-body">
+														<!-- Form START -->
+														<form  id="formaddress">
+															<!-- Title -->
+															<div class="mb-3 form-group">
+																<label  class="form-label">Họ Tên</label> <input id="fullname"
+																	type="text" class="form-control" ng-model="formaddress.fullname">
+																	<span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+															</div>
+															<!-- Title -->
+															<div class="mb-3 form-group">
+																<label   class="form-label">Số điện thoại</label> <input id="phonenum"
+																	type="text" class="form-control" ng-model="formaddress.phonenum">
+																	<span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+															</div>
+															<!-- Description -->
+															<div class="mb-3 form-group">
+																<label class="form-label">Địa chỉ</label>
+																<textarea  id="address" class="form-control" rows="3" ng-model="formaddress.address"></textarea>
+																<span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+															</div>
+														</form>
+														<!-- Form END -->
+													</div>
+													<!-- Modal footer -->
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary-soft" data-target="#list__tab1" data-toggle="tab" ng-click="tab(1)">Quay
+															lại danh sách</button>
+														<button type="button" class="btn btn-primary-soft" ng-click="reloadformaddress()">Làm
+															mới</button>
+														<button type="button" class="btn btn-success-soft" ng-click="createaddress(formaddress.id)">Lưu</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+ 
+
+
+								<!-- tổng tiền -->
+								<div class="row g-3">
+									<div class="p-4 sumCart m-0">
+										<!-- Form START -->
+										<form class="row align-items-end g-4">
+											<!-- Time -->
+											<div class="col-sm-12 col-lg-12">
+												<label class="form-label sumcart__text text-success">Tổng
+													tiền: {{sumPrice.toLocaleString('vi-VN', {style : 'currency', currency : 'VND'})}}</label>
+												<button type="submit"
+													class="btn btn-success-soft btn__sumcart" ng-click="checkout()">Đặt hàng</button>
+											</div>
+										</form>
+										<!-- Form END -->
+									</div>
+								</div>
+								<!-- end shop -->
+							</div>
+							<!-- Home tab END -->
+
+						</div>
+					</div>
+					<!-- Card body END -->
+
+				</div>
+				<!-- Card END -->
+			</div>
+			<!-- Main content END -->
+
+		</div>
+		<!-- Row END -->
+	</div>
+	<!-- Container END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+<script>
+        Validator({
+            form: '#formaddress',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            invalidSelector: '.invalid',
+            rules: [ 
+                Validator.isRequired("#fullname", 'Vui lòng nhập họ tên người nhận!'), 
+                Validator.isRequired("#phonenum", 'Vui lòng nhập số điện thoại nhận hàng!'), 
+                Validator.isRequired("#address", 'Vui lòng nhập địa chỉ người tạo!'),   
+            ],
+            onSubmit: function(data) {
+                //console.log(data);
+            }
+        });
+    </script>

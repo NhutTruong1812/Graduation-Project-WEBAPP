@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content">
+
+	<!-- Start Content-->
+	<div class="row">
+		<div class="col-12">
+			<div class="page-title-box">
+				<div class="page-title-right">
+					<ol class="breadcrumb m-0">
+						<li class="breadcrumb-item"><a href="javascript: void(0);">Bài viết</a></li>
+						<li class="breadcrumb-item active">Quản lý bài viết</li>
+					</ol>
+				</div>
+				<h4 class="page-title">Quản lý bài viết</h4>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-body">
+
+					<ul class="nav nav-tabs nav-bordered mb-3">
+						<li class="nav-item">
+							<a href="" data-bs-toggle="tab" aria-expanded="true" class="nav-link active"
+								ng-click="changeTabPanelLink(1)">
+								<span class="d-md-none d-block">Tất cả</span>
+								<span class="d-none d-md-block">Tất cả</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="" data-bs-toggle="tab" aria-expanded="false" class="nav-link"
+								ng-click="changeTabPanelLink(3)">
+								<span class="d-md-none d-block">Bình thường</span>
+								<span class="d-none d-md-block">Bình thường</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="" data-bs-toggle="tab" aria-expanded="false" class="nav-link"
+								ng-click="changeTabPanelLink(2)">
+								<span class="d-md-none d-block">Vi phạm</span>
+								<span class="d-none d-md-block">Vi phạm</span>
+							</a>
+						</li>
+					</ul>
+
+					<div class="row mb-2">
+						<div class="col-xl-8">
+							<form
+								class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+								<div class="col-auto">
+									<label for="inputPassword2" class="visually-hidden">Search</label>
+									<input type="search" class="form-control" placeholder="Tìm kiếm..." id="keywords"
+										ng-keypress="$event.keyCode == 13 &amp;&amp; goSearchA($event)">
+								</div>
+							</form>
+						</div>
+
+					</div>
+
+
+
+					<div class="table-responsive">
+						<table class="table table-centered table-nowrap mb-0">
+							<thead class="table-light">
+								<tr>
+									<th>Id</th>
+									<th>Tiêu đề</th>
+									<th>Người đăng</th>
+									<th>Ngày đăng</th>
+									<th>Chế độ</th>
+									<th>Trạng thái</th>
+									<th>Thao tác</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in pageData">
+									<td>{{item.id}}</td>
+									<td>{{item.title}}</td>
+									<td>{{item.card.user.fullname}}</td>
+									<td>{{item.card.postAt | date : 'dd/MM/yyyy'}}</td>
+
+									<td ng-if="item.card.hidden == false"><span class="badge badge-info-lighten">Công
+											khai</span></td>
+									<td ng-if="item.card.hidden == true"><span
+											class="badge badge-secondary-lighten">Không công khai</span></td>
+
+									<td ng-if="item.card.status.id == 3"><span class="badge badge-success-lighten">Bình
+											thường</span></td>
+									<td ng-if="item.card.status.id == 2"><span class="badge badge-danger-lighten">Vi
+											phạm</span></td>
+									<td>
+										<a ng-click="view(item)" href="javascript:void(0);" class="action-icon"
+											data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Xem"> <i
+												class="mdi mdi-eye" data-bs-toggle="modal"
+												data-bs-target="#view-modal"></i></a>
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div> <!-- end card-body-->
+
+				<!-- Standard modal content -->
+				<div id="view-modal" class="modal fade" tabindex="-1" role="dialog"
+					aria-labelledby="standard-modalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="standard-modalLabel">Chi tiết bài viết
+									#{{formViewPost.id}}
+								</h4>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<form action="">
+
+									<!-- INPUT -->
+									<div class="mb-3 position-relative row" id="datepicker1">
+										<div class="col-3"><label class="form-label">Tiêu đề</label></div>
+										<div class="col-9"><input type="text" class="form-control"
+												data-provide="datepicker" data-date-container="#datepicker1" readonly
+												ng-value="formViewPost.title"></div>
+									</div>
+
+									<!-- INPUT -->
+									<div class="mb-3 position-relative row" id="datepicker1">
+										<div class="col-3"><label class="form-label">Người đăng</label></div>
+										<div class="col-9"><input type="text" class="form-control"
+												data-provide="datepicker" data-date-container="#datepicker1" readonly
+												ng-value="formViewPost.card.user.fullname"></div>
+									</div>
+
+									<!-- INPUT -->
+									<div class="mb-3 position-relative row" id="datepicker1">
+										<div class="col-3"><label class="form-label">Ngày đăng</label></div>
+										<div class="col-9"><input type="text" class="form-control"
+												data-provide="datepicker" data-date-container="#datepicker1" readonly
+												ng-value="formViewPost.card.postAt | date:'dd/MM/yyyy'"></div>
+									</div>
+
+									<!-- INPUT -->
+									<div class="mb-3 position-relative row" id="datepicker1">
+										<div class="col-3"><label class="form-label">Chế độ</label></div>
+										<div class="col-9"><input type="text" class="form-control"
+												data-provide="datepicker" data-date-container="#datepicker1" readonly
+												ng-value="formViewPost.card.hidden == false ? 'Công khai' : 'Không công khai'">
+										</div>
+									</div>
+
+									<!-- INPUT -->
+									<div class="mb-3 position-relative row" id="datepicker1">
+										<div class="col-3"><label class="form-label">Trạng thái</label></div>
+										<div class="col-9"><input type="text" class="form-control"
+												data-provide="datepicker" data-date-container="#datepicker1" readonly
+												ng-value="formViewPost.card.status.id == 3 ? 'Bình thường' : 'Vi phạm'">
+										</div>
+									</div>
+
+
+									<div class="mb-3 position-relative row" id="datepicker1">
+										<div class="col-3"><label class="form-label">Nội dung</label></div>
+										<div class="col-9"><textarea class="form-control" id="example-textarea" rows="5"
+												ng-value="formViewPost.content" readonly></textarea></div>
+									</div>
+
+									<div class="mb-3 row">
+										<div class="col-3">Ảnh bài viết</div>
+										<div class="col-9">
+											<!-- Product image -->
+											<div>
+												<a href="javascript: void(0);">
+													<img src="assets/images/products/product-1.jpg"
+														class="img-fluid img-thumbnail" style="max-width: 70px;" />
+												</a>
+												<a href="javascript: void(0);">
+													<img src="assets/images/products/product-6.jpg"
+														class="img-fluid img-thumbnail" style="max-width: 70px;" />
+												</a>
+												<a href="javascript: void(0);">
+													<img src="assets/images/products/product-3.jpg"
+														class="img-fluid img-thumbnail" style="max-width: 70px;" />
+												</a>
+												<a href="javascript: void(0);">
+													<img src="assets/images/products/product-3.jpg"
+														class="img-fluid img-thumbnail" style="max-width: 70px;" />
+												</a>
+												<a href="javascript: void(0);">
+													<img src="assets/images/products/product-3.jpg"
+														class="img-fluid img-thumbnail" style="max-width: 70px;" />
+												</a>
+												<a href="javascript: void(0);">
+													<img src="assets/images/products/product-3.jpg"
+														class="img-fluid img-thumbnail" style="max-width: 70px;" />
+												</a>
+											</div>
+										</div> <!-- end col -->
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+
+				<div class="col-sm-12 col-md-7 offset-5">
+					<div class="dataTables_paginate paging_simple_numbers" id="products-datatable_paginate">
+						<ul class="pagination pagination-rounded">
+							<li class="paginate_button page-item previous disabled" id="products-datatable_previous"
+								ng-click="goPage(APage-1)"><a href="" aria-controls="products-datatable" data-dt-idx="0"
+									tabindex="0" class="page-link"><i class="mdi mdi-chevron-left"></i></a></li>
+							<li class="paginate_button page-item {{pg===APage?'active':''}} "
+								ng-repeat="pg in listButton" ng-click="goPage(pg)"><a href=""
+									aria-controls="products-datatable" data-dt-idx="1" tabindex="0"
+									class="page-link">{{pg}}</a></li>
+
+							<li class="paginate_button page-item next" id="products-datatable_next"
+								ng-click="goPage(APage+1)"><a href="" aria-controls="products-datatable" data-dt-idx="3"
+									tabindex="0" class="page-link"><i class="mdi mdi-chevron-right"></i></a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div> <!-- end card-->
+		</div> <!-- end col -->
+
+	</div>
+
+
+	<!-- container -->
+
+</div>
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->

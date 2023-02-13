@@ -1,0 +1,33 @@
+.container__box__message {
+    width: 380px!important;
+}
+
+
+
+
+
+.line__hr {
+    border-bottom: 1px solid linear-gradient(90deg, #FFFFFF 0%, #DBDBDB 49.1%, #FFFFFF 100%); 
+    border-radius: 5px;
+}
+
+.a__showall{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px; 
+    padding-bottom: 5%;
+    text-align: center;
+    letter-spacing: -0.02em;
+
+    color: #4F88BD;
+}
+
+.text__small__thongbao{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px; 
+    display: flex;
+    align-items: flex-end; 
+    color: #4E7AA4;
+}

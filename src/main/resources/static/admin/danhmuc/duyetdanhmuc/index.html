@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<div id="message">
+ <div class="alert alert-{{ResponseModel.ResponseType}}" alert-dismissible ng-show="ResponseModel.ResponseAlert">
+	<a href="" class="close" ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+	<strong> {{ResponseModel.ResponseMessage}} </strong>
+ </div>
+</div> 
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Danh mục</a></li>
+                                <li class="breadcrumb-item active">Duyệt danh mục</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Duyệt danh mục</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col-xl-8">
+                                    <form
+                                        class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+                                        <div class="col-auto">
+                                            <label for="inputPassword2" class="visually-hidden">Search</label>
+                                            <input type="text" class="form-control" aria-describedby="emailHelp" aria-label="Search" placeholder="Tìm kiếm" type="search" id="keywords" onkeypress="angular.element(this).scope().goSearchA(this)">
+                                        </div>
+                                    </form>
+                                </div><!-- end col-->
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-centered table-nowrap mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Danh mục</th>
+                                            <th>Người yêu cầu</th>
+                                            <th>Ngày yêu cầu</th>
+                                            <th>Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in pageData">
+                                            <td><a href="apps-ecommerce-orders-details.html"
+                                                    class="text-body fw-bold">#{{item.id}}</a> </td>
+                                            <td>
+                                               {{item.category}}
+                                            </td>
+                                            <td>
+                                                <h5><span class="badge badge-info-lighten">{{item.addBy.fullname}}</span></h5>
+                                            </td>
+                                            <td>
+                                                <h5><span class="badge badge-success-lighten">{{item.addDate | date:'dd-MM-yyyy'}}</span></h5>
+                                            </td>
+                                            <td>
+                                                <a ng-click="edit(item)" href="" data-bs-toggle="modal" data-bs-target="#standard-modal" class="action-icon"> 
+                                                	<i class="mdi mdi-eye" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Xem"></i>
+                                                </a>
+                                                <a ng-click="setId(item)" href="javascript:void(0);" class="action-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Từ chối duyệt"> 
+                                                	<i class="mdi mdi-basket-remove" data-bs-toggle="modal" data-bs-target="#block-modal"></i>
+                                                </a>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> <!-- end card-body-->
+                        <!-- Standard modal content -->
+                        <div id="standard-modal" class="modal fade" tabindex="-1" role="dialog"
+                            aria-labelledby="standard-modalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="standard-modalLabel">Chi tiết đề xuất danh mục
+                                            #1</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="">
+
+                                            <!-- INPUT -->
+                                            <div class="mb-3 position-relative row" id="datepicker1">
+                                                <div class="col-3"><label class="form-label">Danh mục</label></div>
+                                                <div class="col-9">
+                                                <input type="text" class="form-control" data-provide="datepicker" data-date-container="#datepicker1"
+                                                        readonly value="{{formCategory.category}}"></div>
+                                            </div>
+
+                                            <!-- INPUT -->
+                                            <div class="mb-3 position-relative row" id="datepicker1">
+                                                <div class="col-3"><label class="form-label">Người yêu cầu</label>
+                                                </div>
+                                                <div class="col-9"><input type="text" class="form-control"
+                                                        data-provide="datepicker" data-date-container="#datepicker1"
+                                                        readonly value="{{formCategory.addBy.fullname}}"></div>
+                                            </div>
+
+                                            <!-- INPUT -->
+                                            <div class="mb-3 position-relative row" id="datepicker1">
+                                                <div class="col-3"><label class="form-label">Tài khoản yêu
+                                                        cầu</label></div>
+                                                <div class="col-9"><input type="text" class="form-control"
+                                                        data-provide="datepicker" data-date-container="#datepicker1"
+                                                        readonly value="{{formCategory.addBy.username}}"></div>
+                                            </div>
+
+                                            <!-- INPUT -->
+                                            <div class="mb-3 position-relative row" id="datepicker1">
+                                                <div class="col-3"><label class="form-label">Ngày yêu cầu</label>
+                                                </div>
+                                                <div class="col-9"><input type="text" class="form-control"
+                                                        data-provide="datepicker" data-date-container="#datepicker1"
+                                                        readonly value="{{formCategory.addDate | date:'dd-MM-yyyy'}}"></div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button ng-click="duyet(item)" type="submit" class="btn btn-success" data-bs-dismiss="modal">Duyệt</button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
+                        <!-- Block modal content -->
+                        <div id="block-modal" class="modal fade" tabindex="-1" role="dialog"
+                            aria-labelledby="delete-modalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="standard-modalLabel">Từ chối duyệt danh mục này
+                                        </h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- INPUT -->
+                                        <form action="">
+                                        	<div class="mb-3 position-relative row" id="datepicker1">
+                                            <div class="col-3"><label class="form-label">Lí do từ chối</label></div>
+                                            <div class="col-9">
+                                            	<textarea class="form-control" id="lydo" rows="5"></textarea>
+                                            	<span id="form-message" class="form-message col-md-12 " style="color: red;"></span>
+                                            </div>
+                                        	</div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                        <button type="button" ng-click="tuchoi(layid)" class="btn btn-danger">Từ chối duyệt</button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
+                        <div class="col-sm-12 col-md-7 offset-5">
+                            <div class="dataTables_paginate paging_simple_numbers" id="products-datatable_paginate">
+                                <ul class="pagination pagination-rounded">
+                                    <li class="paginate_button page-item previous disabled"
+                                        id="products-datatable_previous" ng-click="goPage(APage-1)"><a href=""
+                                            aria-controls="products-datatable" data-dt-idx="0" tabindex="0"
+                                            class="page-link"><i class="mdi mdi-chevron-left"></i></a></li>
+                                    <li class="paginate_button page-item {{pg===APage?'active':''}} " ng-repeat="pg in listButton" ng-click="goPage(pg)"><a href=""
+                                            aria-controls="products-datatable" data-dt-idx="1" tabindex="0"
+                                            class="page-link">{{pg}}</a></li>
+                                     
+                                    <li class="paginate_button page-item next" id="products-datatable_next" ng-click="goPage(APage+1)"><a
+                                            href="" aria-controls="products-datatable" data-dt-idx="3" tabindex="0"
+                                            class="page-link"><i class="mdi mdi-chevron-right"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+
+            </div>
+
+
+            <!-- container -->
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->

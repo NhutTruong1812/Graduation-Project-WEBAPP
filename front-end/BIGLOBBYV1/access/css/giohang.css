@@ -1,0 +1,167 @@
+/* border1 */
+.main__center__container1{
+    width: 1000px;
+    height: 60px;
+    background: #FFFFFF;
+    box-shadow: 3px 3px 60px rgba(19, 112, 84, 0.15);
+    border-radius: 13.8125px;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+.main__center__container1 .main__center__container1--boder{
+    width: 30px;
+    height: 30px;
+    margin-top: 30%;
+    margin-left: 20%;
+}
+
+.main__center__container1 span{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 31px;
+    color: #4B7E7D;
+    
+}
+
+.main__center__container1 .main__center__container1--text{
+    margin-top: 1%;
+}
+
+/* border2 */
+
+.main__center__container2{
+    width: 1000px;
+    height: 100%;
+    background: #FFFFFF;
+    box-shadow: 3px 3px 60px rgba(19, 112, 84, 0.15);
+    border-radius: 13.8125px;
+    margin-top: 3%;
+    margin-left: 3%;
+    padding-bottom: 2%;
+}
+
+.main__center__container2 .main__center__container1--boder{
+    width: 30px;
+    height: 30px;
+    margin-top: 30%;
+    margin-left: 20%;
+}
+
+.main__center__container2--boder{
+    width: 55px;
+    height: 50px;
+    border: 2px solid rgba(54, 161, 160, 0.5);
+    border-radius: 10px;
+    position: absolute;
+}
+
+.main__center__container2--boder .product__img{
+    position: relative;
+    width: 51.5px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+.main__center__container2 .main__center__container2--text{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 31px;
+    color: #4B7E7D;
+    margin-top: 4%;
+}
+
+.main__center__container2 .main__center__container1--text{
+    margin-top: 1%;
+}
+
+.main__center__container2 .main__center--text{
+    margin-top: 2%;
+    font-size: 16px;
+    line-height: 31px;
+    color: #62686D;
+    font-weight: 500;
+}
+
+.main__center__container2 .main__center--text input{
+    box-sizing: border-box;
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    background: #F9F9F9;
+    border: 2px solid #CFCFCF;
+    border-radius: 10px;
+}
+
+.main__center__container2 .main__center--text a{
+    font-size: 19px;
+    line-height: 31px;
+    color: #ff0000;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 20%;
+}
+
+.main__center__container1--text .main__center--text--color{
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 31px;
+    display: flex;
+    align-items: flex-end;
+    color: #111111;
+    text-shadow: -1.17714px 2.35429px 9.41714px rgba(34, 240, 141, 0.3);
+    margin-top: 3%;
+}
+
+.main__center__container2__avatar--boder{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background: #D9D9D9;
+    border: 5px solid rgba(54, 161, 160, 0.5);
+    margin-left: 93%;
+}
+
+.main__center--text .container2__avatar--margin{
+    position: absolute;
+    margin-top: 5%;
+}
+
+.main__center--text .avatar__img{
+    width: 41px;
+    height: 41px;
+    border-radius: 50px;
+}
+
+
+/* Tổng tiền */
+.main__price{
+    margin-left: 70%;
+    margin-top: 2%;
+}
+
+.main__price span{
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 34px;
+    color: #62686D;
+}
+
+.main__price .main__price--text{
+    margin-left: 10%;
+}
+
+.main__form__button{
+    margin-top: 3%;
+    margin-left: 15%;
+    width: 150px;
+    height: 30px;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}

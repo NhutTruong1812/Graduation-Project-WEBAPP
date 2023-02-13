@@ -1,0 +1,74 @@
+<div class="row d-flex align-items-center">
+    <div class="container ">
+        <div class="main__center__Display">
+            <a  href="" data-target="#list-tab" data-toggle="tab" ng-click="tab(1)">
+                <span>Danh sách đối tác</span>
+            </a>
+        </div>
+
+        <!-- Bài đăng -->
+        <div class="col-md-12">
+            <div class="main__center__panel">
+                <div class="main__center__container">
+                    
+                    <table id="customers">
+                        <tr >
+                          <th>Id</th>
+                          <th>Tài khoản</th>
+                          <th>Họ tên</th>
+                          <th>Email</th>
+                          <th>Ngày tạo</th>
+                          <th>Trạng thái</th>
+                          <th>Thao tác</th>
+                        </tr>
+                           <tr ng-repeat="item in listBanner">
+                                <td>{{item.id}}</td> 
+                                <td>{{item.username}}</td> 
+                                <td>{{item.fullname}}</td> 
+                                <td>{{item.email}}</td> 
+                                <td>{{item.addDate}}</td> 
+                                <td>{{item.status}}</td>  
+                                <td>
+                                   <a class="customers__table__btn__sua" href="" ng-click="edit(item)">Xem</a>
+                                    <a class="customers__table__btn__sua text-danger" href="" data-bs-toggle="modal" data-bs-target="#deleteModal">Khôi phục</a>
+                                    <!-- Modal -->
+	                                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	                                    <div class="modal-dialog modal-dialog-centered">
+	                                        <div class="modal-content">
+	                                            <div class="modal-body">
+	                                                <h5>Bạn có chắc muốn khôi phục?</h5>
+	                                               <!--  <p>Bạn sẽ không thể khôi phục dữ liệu này nếu xóa</p> -->
+	                                            </div>
+	                                            <div class="modal-footer">
+	                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+	                                                <button type="button" class="btn btn-danger" ng-click="khoiphuc()">Đồng ý,
+	                                                    Xác nhận khôi phục!</button>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+                                </td>
+                                
+                            </tr> 
+                      </table>
+                </div>
+            </div>
+
+            <div class="row mt-2 pagenavigation">
+                <nav class="col-md-12" aria-label="Page navigation example">
+                    <ul class="pagination pagination__right">
+                        <li><a href=""><i class="fa-sharp fa-solid fa-caret-left icon__page"></i></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link--active" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li><a href=""><i class="fa-sharp fa-solid fa-caret-right icon__page"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+        </div>
+
+    </div>
+</div>

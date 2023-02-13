@@ -1,0 +1,70 @@
+form h2{
+    text-align: center;
+}
+.inp-grp{
+    padding: 10px;
+}
+.inp-grp label{
+    display: block;
+}
+.inp-grp input, .inp-grp select, .inp-grp textarea{
+    width: 100%;
+    height: 30px;
+}
+.btn-cvr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.qrdiv{
+    text-align: center;
+}
+.a-btn{
+    display: inline-block;
+    border: 2px solid gray;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
+.a-btn:hover{
+    box-shadow: 0 0 1px black;
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+.rdo-grp{
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+}
+.wrapfull-cvr{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.full-cvr{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.1;
+    z-index: 1000;
+}
+.onfull-cvr{
+    background-color: white;
+    z-index: 1001;
+}
+    .d-rdo-grp {
+      display: flex;
+      justify-content: space-between;
+      font-size: 30px;
+    }

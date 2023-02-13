@@ -1,0 +1,435 @@
+<div id="message" style="position: fixed; right:0; z-index: 5000;">
+	<div class="alert alert-{{ResponseModel.ResponseType}}" alert-dismissible ng-show="ResponseModel.ResponseAlert">
+		<a href="" class="close" ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+		<strong> {{ResponseModel.ResponseMessage}} </strong>
+	</div>
+</div>
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+	<!-- Container START -->
+	<div class="container">
+		<div class="row g-4">
+			<!-- Sidenav START -->
+			<div class="col-lg-3">
+				<div ng-include="'/layout/user/left/_menu_left_viewpost.html'"></div>
+			</div>
+			<!-- Sidenav END -->
+
+			<!-- Main content START -->
+			<div class="col-md-8 col-lg-9 vstack gap-4">
+
+				<div class="tab-content pt-0 pb-0 mb-0">
+
+					<!-- Gruop Feed tab START -->
+					<div class="tab-pane show active fade" id="group-tab-1">
+						<div class="row g-4">
+							<div class="col-lg-8 vstack gap-4">
+
+								<!-- Card feed item START -->
+								<div class="card" ng-repeat="post in listPost">
+									<!-- Card header START -->
+									<div class="card-header border-0 pb-0">
+										<div class="d-flex align-items-center justify-content-between">
+											<div class="d-flex align-items-center">
+												<!-- Avatar -->
+												<div class="avatar avatar-story me-2">
+													<a href=""> <img class="avatar-img rounded-circle"
+															src="{{'../'+post.card.user.avatar}}" alt=""> </a>
+												</div>
+												<!-- Info -->
+												<div>
+													<div class="nav nav-divider">
+														<h6 class="nav-item card-title mb-0"> <a
+																href="">{{post.card.user.fullname}}</a>
+														</h6>
+													</div>
+													<p class="mb-0 small">NgÃ y Ä‘Äƒng: {{post.card.postAt | date:
+														'dd/MM/yyyy'}}</p>
+												</div>
+											</div>
+											<!-- Card feed action dropdown START -->
+											<div class="dropdown">
+												<a href="#"
+													class="text-secondary btn btn-secondary-soft-hover py-1 px-2"
+													id="cardFeedAction" data-bs-toggle="dropdown" aria-expanded="false">
+													<i class="bi bi-three-dots" ng-click="getPost(post.id)"></i>
+												</a>
+												<!-- Card feed action dropdown menu -->
+												<ul class="dropdown-menu dropdown-menu-end"
+													aria-labelledby="cardFeedAction">
+													<li><a class="dropdown-item" href="" data-bs-toggle="modal"
+															data-bs-target="#hidePostModal"> <i
+																class="bi bi-x-circle fa-fw pe-2"></i>áº¨n bÃ i Ä‘Äƒng</a>
+													</li>
+													<li>
+														<a class="dropdown-item" href="" data-bs-toggle="modal"
+															data-bs-target="#reportCard"> <i
+																class="bi bi-exclamation-circle fa-fw pe-2"></i>BÃ¡o cÃ¡o
+															bÃ i Ä‘Äƒng</a>
+													</li>
+												</ul>
+											</div>
+											<!-- Card feed action dropdown END -->
+										</div>
+									</div>
+									<!-- Card header END -->
+									<!-- Card body START -->
+									<div class="card-body">
+										<h6>{{post.title}}</h6>
+										<p>{{post.content}}</p>
+										<!-- Card img -->
+										<img class="card-img" ng-if="post.banner != null && post.banner != ''"
+											ng-src="{{'../'+post.banner}}">
+										<!-- Feed react START -->
+										<ul class="nav nav-stack py-3 small">
+											<li class="nav-item btnlike" ng-model="likes[post.card.id].length" ng-click="likeAction($event, post.card.id)">
+												<a class="likeActive {{post.card.liked==true ? 'active':''}}" href="" > 
+													<i class="bi bi-hand-thumbs-up-fill pe-1"></i>Thích ( <span ng-bind="post.card.like.count"></span> ) 
+												</a> 
+											</li>
+											<li class="nav-item btncomment" ng-model="comments[post.card.id]" ng-click="loadMoreComment(post.card.id)">
+												<a href=""> <i class="bi bi-chat-fill pe-1"></i>Bình luận ( <span ng-bind="post.card.comment.count"></span> ) </a>
+											</li>
+											<!-- Card share action START -->
+											<li class="nav-item dropdown ms-sm-auto">
+												<a class="nav-link mb-0" href="" id="cardShareAction"
+													data-bs-toggle="modal" data-bs-target="#modalCreateFeed"
+													ng-click="getPost(post.id)">
+													<i class="bi bi-reply-fill flip-horizontal ps-1"
+														data-bs-toggle="modal"
+														data-bs-target="#modalCreateFeed"></i>Chia sáº» (3)
+												</a>
+											</li>
+											<!-- Card share action END -->
+										</ul>
+										<!-- Feed react END -->
+
+										<!-- share -->
+										<div class="modal fade" id="modalCreateFeed" tabindex="-1"
+											aria-labelledby="modalLabelCreateFeed" aria-hidden="true">
+											<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+												<div class="modal-content">
+													<!-- Modal feed header START -->
+													<div class="modal-header">
+														<h5 class="modal-title" id="modalLabelCreateFeed">Chia sáº» bÃ i
+															Ä‘Äƒng</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="modal"
+															aria-label="Close"></button>
+													</div>
+													<!-- Modal feed header END -->
+
+													<!-- Modal feed body START -->
+													<div class="modal-body">
+														<!-- Add Feed -->
+														<div class="d-flex mb-3">
+															<!-- Avatar -->
+															<div class="avatar avatar-xs me-2">
+																<img class="avatar-img rounded-circle"
+																	src="{{'../'+userLogin.avatar}}" alt="">
+															</div>
+															<!-- Feed box  -->
+															<form class="w-100">
+																<textarea id="share_content"
+																	class="form-control pe-4 fs-3 lh-1 border-0"
+																	rows="4" placeholder="HÃ£y viáº¿t gÃ¬ Ä‘Ã³..."
+																	autofocus></textarea>
+															</form>
+														</div>
+													</div>
+													<!-- Modal feed body END -->
+
+													<!-- Modal feed footer -->
+													<div class="modal-footer row justify-content-between">
+														<!-- Select -->
+														<div class="col-lg-5">
+															<select class="form-select" id="share_hidden"
+																rules="required">
+																<option value="false">CÃ´ng khai</option>
+																<option value="true">KhÃ´ng cÃ´ng khai</option>
+															</select>
+														</div>
+														<!-- Button -->
+														<div class="col-lg-6 text-sm-end">
+															<button type="button" id="close_sharePost"
+																data-bs-dismiss="modal" aria-label="Close"
+																class="btn btn-danger-soft me-2">
+																Há»§y</button>
+															<button type="button" class="btn btn-success-soft"
+																ng-click="shareCard(post)">Chia sáº»</button>
+														</div>
+													</div>
+													<!-- Modal feed footer -->
+
+												</div>
+											</div>
+										</div>
+										<!--end share-->
+
+										<!-- Add comment -->
+										<div class="d-flex mb-3">
+												<!-- Avatar -->
+												<div class="avatar avatar-xs me-2">
+													<a href=""> <img class="avatar-img rounded-circle" src="{{'../'+currentUser.avatar}}"
+															alt=""> </a>
+												</div>
+												<!-- Comment box  -->
+												<form class="w-100">
+													<input data-autoresize class="form-control pe-4 bg-light" id="comment--text"
+														placeholder="Viết bình luận..." type="text" ng-keypress="$event.keyCode == 13 && addComment($event, post.card.id)">
+												</form>
+											</div>
+										<!-- Comment wrap START -->
+										<ul class="comment-wrap list-unstyled list__comment">
+											<!-- Comment item START -->
+											<li class="comment-item" ng-show="post.card.comment.show==true" ng-hide="post.card.comment.show==false" ng-repeat="comment in comments[post.card.id]">
+												<div class="d-flex position-relative">
+													<!-- Avatar -->
+													<div class="avatar avatar-xs">
+														<a href="#!"><img class="avatar-img rounded-circle"
+																src="{{'../'+comment.user.avatar}}" alt=""></a>
+													</div>
+													<div class="ms-2">
+														<!-- Comment by -->
+														<div class="bg-light rounded-start-top-0 p-3 rounded">
+															<div class="d-flex justify-content-between">
+																<h6 class="mb-1"> <a href="#!"> {{comment.user.fullname}} </a></h6>
+																<small class="ms-2">{{comment.commentDate | date:'dd-MM-yyyy'}}</small>
+															</div>
+															<p class="small mb-0">
+																{{comment.content}}
+															</p>
+															
+															<div class="d-flex mt-3 repcmtzz">
+																<!-- Avatar -->
+																<div class="avatar avatar-xs me-2">
+																	<a href="#!"> <img class="avatar-img rounded-circle" src="{{'../'+currentUser.avatar}}"
+																			alt=""> </a>
+																</div>
+																<!-- Comment box  -->
+																<div class="w-100" >
+																	<input data-autoresize class="form-control pe-4 bg-light"
+																			placeholder="Viết bình luận..." type="text" ng-keydown="$event.keyCode == 13 && addReply($event, comment.id)">
+																</div>
+															</div>
+														</div>
+														<!-- Comment react -->
+														<ul class="nav nav-divider py-2 small">
+														</ul>
+														
+														<div class="card-footer border-0 pt-0">
+															<!-- Load more comments -->
+															<a href="#!" role="button" class="btn btn-link btn-link-loader btn-sm text-secondary d-flex align-items-center" ng-hide="replys[comment.id].length == 0"
+																data-bs-toggle="button" aria-pressed="true" ng-click="showReply(post.card.id, comment.id)">
+																<div class="spinner-dots me-2">
+																	<span class="spinner-dot"></span>
+																	<span class="spinner-dot"></span>
+																	<span class="spinner-dot"></span>
+																</div>
+																Xem thêm bình luận (<span ng-bind="replys[comment.id].length"></span>)
+															</a>
+														</div>
+													</div>
+												</div>
+				
+												<!-- Comment item nested START -->
+												<ul class="comment-item-nested list-unstyled" ng-show="comment.showReply==true" ng-repeat="reply in replys[comment.id]">
+													<!-- Comment item START -->
+													<li class="comment-item">
+														<div class="d-flex">
+															<!-- Avatar -->
+															<div class="avatar avatar-xs">
+																<a href="#!"><img class="avatar-img rounded-circle"
+																		src="{{'../'+reply.user.avatar}}" alt=""></a>
+															</div>
+															<!-- Comment by -->
+															<div class="ms-2">
+																<div class="bg-light p-3 rounded">
+																	<div class="d-flex justify-content-between">
+																		<h6 class="mb-1"> <a href="#!"> {{reply.user.fullname}} </a> </h6>
+																		<small class="ms-2">{{reply.commentDate | date:'dd-MM-yyyy'}}</small>
+																	</div>
+																	<p class="small mb-0">
+																		{{reply.content}}
+																	</p>
+																		
+																<div class="d-flex mt-3">
+																	<!-- Avatar -->
+																	<div class="avatar avatar-xs me-2">
+																		<a href="#!"> <img class="avatar-img rounded-circle" src="{{'../'+reply.user.avatar}}"
+																				alt=""> </a>
+																	</div>
+																	<!-- Comment box  -->
+																	<form class="w-100">
+																		<input data-autoresize class="form-control pe-4 bg-light"
+														placeholder="Viết bình luận..." type="text" ng-keypress="$event.keyCode == 13 && addComment($event, post.card.id)">
+																	</form>
+																</div>
+																</div>
+																<!-- Comment react -->
+																<ul class="nav nav-divider py-2 small">
+																</ul>
+															</div>
+														</div>
+													</li>
+													<!-- Comment item END -->
+												</ul>
+											</li>
+											<!-- Comment item END -->
+										</ul>
+										<!-- Comment wrap END -->
+									</div>
+									<!-- Card body END -->
+									<!-- Card footer START -->
+									<div class="card-footer border-0 pt-0">
+										<!-- Load more comments -->
+										<a href="#!" role="button" class="btn btn-link btn-link-loader btn-sm text-secondary d-flex align-items-center" ng-model="comments[post.card.id]" ng-click="loadMoreComment(post.card.id)"
+											data-bs-toggle="button" aria-pressed="true">
+											<div class="spinner-dots me-2">
+												<span class="spinner-dot"></span>
+												<span class="spinner-dot"></span>
+												<span class="spinner-dot"></span>
+											</div>
+											Xem thêm bình luận
+										</a>
+									</div>
+									<!-- Card footer END -->
+								</div>
+								<!-- Card feed item END -->
+
+							</div>
+
+							<div class="col-lg-4">
+								<!-- Sidenav START -->
+								<div ng-include="'/layout/user/right/_menu_right_profile.html'"></div>
+								<!-- Sidenav END -->
+							</div>
+						</div>
+					</div>
+					<!-- Gruop Feed tab END -->
+
+
+				</div>
+
+			</div>
+		</div> <!-- Row END -->
+	</div>
+	<!-- Container END -->
+
+	<!-- Report Card Modal -->
+	<div class="modal fade" id="reportCard" tabindex="-1" aria-labelledby="modalLabelCreateFeed" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<!-- Modal feed header START -->
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalLabelCreateFeed">BÃ¡o cÃ¡o vi pháº¡m</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<!-- Modal feed header END -->
+
+				<!-- Modal feed body START -->
+				<div class="modal-body">
+					<div class="report__content">
+						<span>HÃ£y chá»�n váº¥n Ä‘á»�</span>
+						<p>Náº¿u báº¡n nháº­n tháº¥y vi pháº¡m tiÃªu chuáº©n, Ä‘á»«ng cháº§n chá»« mÃ  hÃ£y gá»­i ngay bÃ¡o cÃ¡o tá»›i BigLobby.</p>
+
+					</div>
+					<div class="report__option">
+						<div class="row">
+							<div class="col-md-1"><input type="radio" class="report__checkbox" name="report_content"
+									value="1"></div>
+							<div class="col-md-11"><span>Lá»«a Ä‘áº£o</span></div>
+						</div>
+					</div>
+					<div class="report__option">
+						<div class="row">
+							<div class="col-md-1"><input type="radio" class="report__checkbox" name="report_content"
+									value="2"></div>
+							<div class="col-md-11"><span>KhiÃªu dÃ¢m</span></div>
+						</div>
+					</div>
+					<div class="report__option">
+						<div class="row">
+							<div class="col-md-1"><input type="radio" class="report__checkbox" name="report_content"
+									value="3"></div>
+							<div class="col-md-11"><span>Báº¡o lá»±c</span></div>
+						</div>
+					</div>
+					<div class="report__option">
+						<div class="row">
+							<div class="col-md-1"><input type="radio" class="report__checkbox" name="report_content"
+									value="4"></div>
+							<div class="col-md-11"><span>Quáº¥y rá»‘i</span></div>
+						</div>
+					</div>
+					<div class="report__option">
+						<div class="row">
+							<div class="col-md-1"><input type="radio" class="report__checkbox" name="report_content"
+									value="5"></div>
+							<div class="col-md-11"><span>Tá»‡ náº¡n</span></div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal feed body END -->
+
+				<!-- Modal feed footer -->
+				<div class="modal-footer row justify-content-between">
+					<div class="col-lg-5">
+					</div>
+					<!-- Button -->
+					<div class="col-lg-6 text-sm-end">
+						<button type="button" id="close_reportModal" data-bs-dismiss="modal" aria-label="Close"
+							class="btn btn-secondary-soft me-2">
+							Há»§y</button>
+						<button type="button" class="btn btn-danger-soft" ng-click="reportCard()">Gá»­i bÃ¡o cÃ¡o</button>
+					</div>
+				</div>
+				<!-- Modal feed footer -->
+
+			</div>
+		</div>
+	</div>
+	<!-- Report Card Modal -->
+
+	<!-- Confirm Hide Post Modal -->
+	<div class="modal fade" id="hidePostModal" tabindex="-1" aria-labelledby="modalLabelCreateFeed" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<!-- Modal feed header START -->
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalLabelCreateFeed">áº¨n bÃ i Ä‘Äƒng
+					</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<!-- Modal feed header END -->
+
+				<!-- Modal feed body START -->
+				<div class="modal-body">
+					<h5 class="text-danger">Báº¡n cÃ³ cháº¯c muá»‘n áº©n bÃ i Ä‘Äƒng nÃ y?</h5>
+					<p>BÃ i Ä‘Äƒng sau khi áº©n sáº½ khÃ´ng xuáº¥t hiá»‡n á»Ÿ báº£ng tin cá»§a báº¡n ná»¯a, Báº¡n cÃ³ thá»ƒ khÃ´i phá»¥c á»Ÿ pháº§n "BÃ i
+						Ä‘Äƒng bá»‹ áº©n"!</p>
+				</div>
+				<!-- Modal feed body END -->
+
+				<!-- Modal feed footer -->
+				<div class="modal-footer row justify-content-between">
+					<div class="col-lg-5">
+					</div>
+					<!-- Button -->
+					<div class="col-lg-6 text-sm-end">
+						<button type="button" id="btn_hideCard_confirm" data-bs-dismiss="modal" aria-label="Close"
+							class="btn btn-secondary-soft me-2">
+							Há»§y</button>
+						<button type="button" class="btn btn-danger-soft" ng-click="hiddenCard()">áº¨n bÃ i Ä‘Äƒng
+						</button>
+					</div>
+				</div>
+				<!-- Modal feed footer -->
+
+			</div>
+		</div>
+	</div>
+	<!-- Confirm Hide Post Modal -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->

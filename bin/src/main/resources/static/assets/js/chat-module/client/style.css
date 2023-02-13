@@ -1,0 +1,16 @@
+#messages {
+    border: 1px solid black;
+    width: 500px;
+    height: 200px;
+}
+
+#message {
+    margin-top: 20px;
+}
+
+#noti {
+    margin-left: 20px;
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+}

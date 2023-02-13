@@ -1,0 +1,29 @@
+ 
+    <!-- begin main -->
+    <div class="main">
+        <div class="row no-gutters">
+             <!-- left -->
+             <div class="col-md-3 main__left__admin_he" id="main__center__scrollbar">
+                <div class="row main__left">
+                    <div ng-include="'../layout/admin/__menu__left__1.html'"></div> 
+                </div>
+
+            </div>
+
+            <!-- center -->
+            <div class="col-md-9 main__center tab-content" id="main__center__scrollbar"> 
+                <div id="message">
+                <div class="alert alert-{{ResponseModel.ResponseType}}" alert-dismissible ng-show="ResponseModel.ResponseAlert">
+                    <a href="" class="close" ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+                    <strong> {{ResponseModel.ResponseMessage}} </strong>
+                </div>
+            </div>
+              
+            <div id="list-tab" class="tab-pane {{Atab==1?'active show':''}}" ng-include="'../admin/hethong/thongtinnhantien/__thongtinnhantien.html'"></div>
+            <div id="form-tab" class="tab-pane {{Atab==2?'active show':''}}" ng-include="'../admin/hethong/thongtinnhantien/__form__thongtinnhantien.html'"></div>
+            </div>
+        </div>
+    </div>
+    <!-- end main -->
+
+ 

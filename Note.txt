@@ -1,0 +1,58 @@
+Admin
+	BUGS:	
+		Lỗi hiển thị hình ảnh trên form quản lý bài viết, quản lý bài viết vi phạm
+		Lỗi khuất một phần chân trang các form quản lý bài viết, quản lý bài viết vi phạm
+	Chưa làm:
+		I.Hệ thống
+			1.Giao diện hệ thống
+			2.Thông tin nhận tiền
+			3.Lịch sử nhận tiền
+		II.Thông báo
+			1.Quản lý thông báo
+			2.Thông báo mới
+		III.Dịch vụ
+			1.Quản lý dịch vụ
+			2.Lịch sử mua dịch vụ
+		IV.Danh mục
+			1.Quản lý danh mục
+			2.Duyệt danh mục
+		V.Sản phẩm
+			1.Quản lý sản phẩm
+			2.Duyệt sản phẩm
+		VI.Bài viết
+			1.Quản lý bài viết
+			2.Bài viết vi phạm
+		VII.Đối tác
+			1.Quản lý đối tác
+			2.Đối tác vi phạm
+		VIII.Đơn hàng
+			1.Quản lý đơn hàng
+User
+	Thống kê
+	Quản lý sản phẩm
+	Sản phẩm yêu thích
+	Chi tiết sản phẩm
+	Xem bài đăng của cửa hàng khác
+	Xem sản phẩm của cửa hàng khác
+	Nhắn tin
+	Thông báo
+	Hỗ trợ
+	Cửa hàng
+	Trang chủ
+	Thanh toán
+	Quét mã QR
+
+
+
+
+haotn
+Chưa có logic chạy nút phân trang 
+Vấn đề load trang (bị delay khi load, có thể sử dụng web worker để chia nhỏ công việc ra, đang nghiên cứu)
+Vấn đề về thời gian thực, comment, like, share bài viết (Đang nghiên cứu)
+Nhắn tin, đăng ký phòng với người dùng khác, gửi tin nhắn tới một phòng nhất định, gửi yêu cầu kết nối tới chat server khi người dùng đăng nhập để đảm bảo nhận được tin nhắn khi người dùng khác nhắn tới
+Thông báo (notification) theo thời gian thực (Đang nghiên cứu)
+Phân quyền người dùng
+Bảo mật (đăng nhập, redirect tới url sau khi đăng nhập thành công)
+Căn chỉnh CSS (bể giao diện), chưa có responsive
+
+

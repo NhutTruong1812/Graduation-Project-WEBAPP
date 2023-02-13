@@ -1,0 +1,239 @@
+<main>
+
+	<!-- Container START -->
+	<div class="container-fluid">
+
+		<!-- Sidenav START -->
+		<div class="navbar navbar-vertical navbar-light">
+			<div class="offcanvas offcanvas-start custom-scrollbar rounded pt-3 os-host os-theme-dark os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition"
+				tabindex="-1" id="navbarVerticaloffcanvas">
+				<div class="os-resize-observer-host observed">
+					<div class="os-resize-observer" style="left: 0px; right: auto;"></div>
+				</div>
+				<div class="os-size-auto-observer observed" style="height: calc(100% + 1px); float: left;">
+					<div class="os-resize-observer"></div>
+				</div>
+				<div class="os-content-glue" style="margin: -16px 0px 0px; height: 594px; width: 299px;"></div>
+				<div class="os-padding">
+					<div class="os-viewport os-viewport-native-scrollbars-invisible os-viewport-native-scrollbars-overlaid"
+						tabindex="-1" style="overflow-y: scroll;">
+						<div class="os-content" style="padding: 16px 0px 0px; height: auto; width: 100%;">
+							<div class="offcanvas-body pt-5 pt-lg-0">
+								<!-- Cover image -->
+								<div class="h-50px"
+									style="background-image:url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+								</div>
+								<!-- Card body START -->
+								<div class="card-body pt-0">
+									<div class="text-center">
+										<!-- Avatar -->
+										<div class="avatar avatar-lg mt-n5 mb-3">
+											<a href=""><img class="avatar-img rounded border border-white border-3"
+													src="assets/images/avatar/07.jpg" alt=""></a>
+										</div>
+										<!-- Info -->
+										<h5 class="mb-0" ng-click="showShopDetail(shop.user.id)"> <a href="">
+												{{shop.user.fullname}}</a> </h5>
+										<small>{{shop.intro}}</small>
+									</div>
+
+									<!-- Divider -->
+									<hr>
+
+								</div>
+								<!-- Card body END -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden">
+					<div class="os-scrollbar-track os-scrollbar-track-off">
+						<div class="os-scrollbar-handle" style="width: 100%; transform: translate(0px, 0px);"></div>
+					</div>
+				</div>
+				<div class="os-scrollbar os-scrollbar-vertical os-scrollbar-auto-hidden">
+					<div class="os-scrollbar-track os-scrollbar-track-off">
+						<div class="os-scrollbar-handle" style="height: 24.7475%; transform: translate(0px, 0px);">
+						</div>
+					</div>
+				</div>
+				<div class="os-scrollbar-corner"></div>
+			</div>
+		</div>
+		<!-- Sidenav END -->
+
+		<!-- Main content START -->
+		<div class="page-content">
+			<!-- Official trailer START -->
+			<div class="row g-0 mb-4">
+				<div class="col-xl-10 col-xxl-11">
+					<div id="message" style="position: fixed; right:0; z-index: 5000;">
+						<div class="alert alert-{{ResponseModel.ResponseType}}" alert-dismissible
+							ng-show="ResponseModel.ResponseAlert">
+							<a href="" class="close" ng-click="ResponseModel.ResponseAlert = false"
+								aria-label="close">&times;</a>
+							<strong> {{ResponseModel.ResponseMessage}} </strong>
+						</div>
+					</div>
+					<!-- Video START -->
+					<div class="card card-body p-0 rounded-end-lg-0 position-relative">
+						<div class="col-sm-6 col-lg-12">
+							<div class="card">
+								<!-- Card header START -->
+								<div class="card-header d-sm-flex justify-content-between border-0">
+									<h5 class="card-title">Ảnh sản phẩm</h5>
+								</div>
+								<!-- Card header END -->
+								<!-- Card body START -->
+								<div class="card-body position-relative pt-0">
+									<div class="row g-2">
+										<!-- Photos item -->
+										<div class="col-4">
+
+											<img class="rounded img-fluid" src="/{{sanpham.banner}}" alt="">
+										</div>
+										<!-- Photos item -->
+									</div>
+								</div>
+								<!-- Card body END -->
+							</div>
+						</div>
+						<!-- Video info -->
+						<div class="card-body">
+							<div class="d-xxl-flex justify-content-between mb-3">
+								<div class="mb-2 mb-xxl-0">
+									<!-- Video title  -->
+									<h4> {{sanpham.product}} </h4>
+									<div class="d-flex mt-3 align-items-center">
+										<h5>Danh mục: <span>{{sanpham.category.category}}</span></h5>
+									</div>
+									<div class="align-items-center">
+										<h5>Số lượng: <input type="number" ng-model="formproduct"
+												ng-keyup="changeQuantity(sanpham)" ng-mouseup="changeQuantity(sanpham)">
+										</h5>
+									</div>
+								</div>
+								<!-- Interested button -->
+								<div class="d-flex align-items-start">
+									<div class="dropdown">
+										<a class="nav-link mb-0" href="#" id="cardShareAction" data-bs-toggle="dropdown"
+											aria-expanded="false">
+											<h5><i class="bi bi-currency-exchange"></i> Giá:
+												<span>{{sanpham.price.toLocaleString('vi-VN', {style : 'currency',
+													currency : 'VND'})}}</span>
+											</h5>
+											<h5>Còn lại: <span>{{sanpham.available}}</span></h5>
+										</a>
+									</div>
+
+								</div>
+							</div>
+							<h5>Mô tả:</h5>
+							<p>{{sanpham.description}}</p>
+							<!-- Button -->
+							<div class="dropdown">
+								<button type="submit" class="btn btn-lg btn-success-soft" ng-click="createCart()">Thêm
+									vài giỏ hàng </button>
+								<button type="submit" class="btn btn-lg btn-success-soft"
+									ng-click="fromproductcheckout()">Mua</button>
+
+								<button type="submit" class="btn btn-lg btn-success-soft" id="cardFeedAction"
+									data-bs-toggle="dropdown" aria-expanded="false">Khác <i
+										class="bi bi-three-dots"></i></button>
+								<!-- Card feed action dropdown START -->
+								<!-- Card feed action dropdown menu -->
+								<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cardFeedAction">
+									<li ng-click="hidenProduct(sanpham)"><a class="dropdown-item"> <i
+												class="bi bi-x-circle fa-fw pe-2"></i>Ẩn sản phẩm</a></li>
+									<li>
+										<hr class="dropdown-divider">
+									</li>
+									<li><a class="dropdown-item" data-bs-toggle="modal"
+											data-bs-target="#exampleModalReport"> <i
+												class="bi bi-flag fa-fw pe-2"></i>Báo cáo vi phạm</a></li>
+
+								</ul>
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModalReport" tabindex="-1"
+								aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-sm">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Báo cáo lý do vi phạm</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal"
+												aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<div class="row text-left justify-content-center"
+												ng-repeat="problem in listProblem">
+												<div class="col-md-1">
+													<input type="checkbox" ng-model="selectproblem"
+														ng-checked="existProblem(problem)"
+														ng-click="selectCheckProblem(problem)" class="report__checkbox">
+												</div>
+												<div class="col-md-11">
+													<span>{{problem.description}}</span>
+												</div>
+											</div>
+
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary-soft"
+												data-bs-dismiss="modal">Đóng</button>
+											<button type="button" class="btn btn-warning-soft" data-bs-dismiss="modal"
+												ng-click="reportProduct(sanpham)">Báo cáo</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--  -->
+							<!-- Card feed action dropdown END -->
+						</div>
+						<!--  -->
+
+						<!--  -->
+					</div>
+					<!-- Video END -->
+
+					<!--  -->
+				</div>
+
+			</div>
+			<!-- Official trailer END -->
+
+			<!-- More related video START -->
+			<div class="row g-3 mb-4">
+				<div class="col-12 mt-4">
+					<h5>Sản phẩm khác của cửa hàng </h5>
+				</div>
+				<div class="col-sm-6 col-md-4 col-xl-3 col-xxl-2" ng-repeat="it in listProductShop">
+					<!-- Video START -->
+					<div class="card p-0 position-relative h-100">
+						<!-- Video image -->
+						<div class="card-image">
+							<div class="ratio ratio-16x9 oveflow-hidden">
+								<img class="img-fluid rounded-top"
+									src="https://cdn.vuahanghieu.com/unsafe/0x0/left/top/smart/filters:quality(90)/https://admin.vuahanghieu.com/upload/news/content/2021/09/mau-giay-nike-nu-moi-nhat-4-jpg-1632297065-22092021145105.jpg"
+									alt="">
+							</div>
+						</div>
+						<!-- Video info -->
+						<div class="card-body">
+							<!-- Video title  -->
+							<h6> <a href="video-details.html"> {{it.product.product}}</a> </h6>
+							<span class="small">{{it.product.category.category}}</span>
+						</div>
+					</div>
+					<!-- Video END -->
+				</div>
+
+			</div>
+			<!-- More related video END -->
+		</div>
+		<!-- Main content END -->
+
+	</div>
+	<!-- Container END -->
+
+</main>

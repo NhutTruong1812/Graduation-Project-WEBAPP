@@ -1,0 +1,227 @@
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+	<!-- Container START -->
+	<div class="container">
+		<div class="row gx-0">
+			<!-- Sidebar START -->
+			<div class="col-lg-4 col-xxl-3" id="chatTabs" role="tablist">
+
+				<!-- Divider -->
+				<div class="d-flex align-items-center mb-4 d-lg-none">
+					<button class="border-0 bg-transparent" type="button"
+						data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+						aria-controls="offcanvasNavbar">
+						<i class="btn btn-primary fw-bold fa-solid fa-sliders"></i> <span
+							class="h6 mb-0 fw-bold d-lg-none ms-2">Danh sách phòng
+							chat</span>
+					</button>
+				</div>
+				<!-- Advanced filter responsive toggler END -->
+				<div
+					class="card card-body border-end-0 border-bottom-0 rounded-bottom-0">
+					<div class=" d-flex justify-content-between align-items-center">
+						<h1 class="h5 mb-0">
+							Tin nhắn <span
+								class="badge bg-success bg-opacity-10 text-success">{{pageData.totalElements}}</span>
+						</h1>
+					</div>
+				</div>
+
+				<nav class="navbar navbar-light navbar-expand-lg mx-0">
+					<div class="offcanvas offcanvas-start" tabindex="-1"
+						id="offcanvasNavbar">
+						<!-- Offcanvas header -->
+						<div class="offcanvas-header">
+							<button type="button" class="btn-close text-reset ms-auto"
+								data-bs-dismiss="offcanvas"></button>
+						</div>
+
+						<!-- Offcanvas body -->
+						<div class="offcanvas-body p-0">
+							<div
+								class="card card-chat-list rounded-end-lg-0 card-body border-end-lg-0 rounded-top-0">
+
+								<!-- Search chat START -->
+								<form class="position-relative">
+									<input class="form-control py-2" type="search"
+										placeholder="Search for chats" aria-label="Search">
+									<button
+										class="btn bg-transparent text-secondary px-2 py-0 position-absolute top-50 end-0 translate-middle-y"
+										type="submit">
+										<i class="bi bi-search fs-5"></i>
+									</button>
+								</form>
+								<!-- Search chat END -->
+								<!-- Chat list tab START -->
+								<div class="mt-4 h-100">
+									<div class="chat-tab-list custom-scrollbar"
+										style="overflow-y: auto;" id="listRoom">
+										<ul class="nav flex-column nav-pills nav-pills-soft">
+											<li data-bs-dismiss="offcanvas" ng-repeat="userchat in rooms">
+												<!-- Chat user tab item --> <a
+												ng-click="goRoom(userchat.id)" href=""
+												class="nav-link {{userchat.id == roomChatActive.id?'active':''}} text-start"
+												id="chat-1-tab" data-bs-toggle="pill" role="tab">
+													<div class="d-flex">
+														<div class="flex-shrink-0 avatar avatar-story me-2 ">
+															<img class="avatar-img rounded-circle"
+																src="/{{receiverchat.avatar}}" alt="">
+														</div>
+														<div class="flex-grow-1 d-block">
+															<h6 class="mb-0 mt-1">{{userchat.partner.fullname}}</h6>
+															<div class="small text-secondary">
+																<span
+																	ng-if="userchat.messages[userchat.messages.length-1].sender == sender.username">Bạn:
+																	{{userchat.messages[userchat.messages.length-1].message.substr(0, 15)}}{{userchat.messages[userchat.messages.length-1].message.length >= 10?'...':''}}</span>
+																<span
+																	ng-if="userchat.messages[userchat.messages.length-1].sender != sender.username">
+																	{{userchat.messages[userchat.messages.length-1].message.substr(0, 15)}}{{userchat.messages[userchat.messages.length-1].message.length >= 10?'...':''}} </span>
+															</div>
+														</div>
+													</div>
+											</a>
+											</li>
+											<!-- Chat user tab item -->
+											<!-- <li data-bs-dismiss="offcanvas"><a href="#chat-3"
+												class="nav-link text-start" id="chat-3-tab"
+												data-bs-toggle="pill" role="tab">
+													<div class="d-flex">
+														<div class="flex-shrink-0 avatar avatar-story me-2">
+															<img class="avatar-img rounded-circle"
+																src="assets/images/avatar/12.jpg" alt="">
+														</div>
+														<div class="flex-grow-1 d-block">
+															<h6 class="mb-0 mt-1">Billy Vasquez</h6>
+															<div class="small text-secondary">Day sweetness 😊</div>
+														</div>
+													</div>
+											</a></li> -->
+										</ul>
+									</div>
+								</div>
+								<!-- Chat list tab END -->
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+			<!-- Sidebar START -->
+
+			<!-- Chat conversation START -->
+			<div class="col-lg-8 col-xxl-9">
+				<div ng-if="receiver.id != null"
+					class="card card-chat rounded-start-lg-0 border-start-lg-0">
+					<div class="card-body h-100">
+						<div class="tab-content py-0 mb-0 h-100" id="chatTabsContent">
+							<!-- Conversation item START -->
+							<div class="fade tab-pane show active h-100" id="chat-1"
+								role="tabpanel" aria-labelledby="chat-1-tab">
+								<!-- Top avatar and status START -->
+								<div
+									class="d-sm-flex justify-content-between align-items-center">
+									<div class="d-flex mb-2 mb-sm-0">
+										<div class="flex-shrink-0 avatar me-2">
+											<img class="avatar-img rounded-circle"
+												src="/{{receiver.avatar}" alt="">
+										</div>
+										<div class="d-block flex-grow-1">
+											<h6 class="mb-0 mt-1">{{receiver.fullname}}</h6>
+											<div class="small text-secondary">
+												<i class="fa-solid fa-circle text-success me-1"></i>Đối tác
+												nhắn tin
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Top avatar and status END -->
+								<hr>
+								<!-- Chat conversation START -->
+								<div class="chat-conversation-content custom-scrollbar" id="chatFrame" style="overflow-y: auto;">
+									<!-- Chat time -->
+									<!-- <div class="text-center small my-2">Jul 16, 2022, 06:15 am</div> -->
+									<!--  --> 
+										<div ng-repeat="messagechat in  roomChatActive.messages">
+											<!-- Chat message left -->
+											<div ng-if="messagechat.sender != sender.username"
+												class="d-flex mb-1">
+												<div class="flex-shrink-0 avatar avatar-xs me-2">
+													<img class="avatar-img rounded-circle"
+														src="{{receiver.avatar}}" alt="">
+												</div>
+												<div class="flex-grow-1">
+													<div class="w-100">
+														<div class="d-flex flex-column align-items-start">
+															<div class="bg-light text-secondary p-2 px-3 rounded-2">{{messagechat.message}}</div>
+															<div class="small my-2">{{messagechat.createAt |
+																date:'mediumTime':'undefined':'en-US'}}</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- Chat message right -->
+											<div ng-if="messagechat.sender == sender.username"
+												class="d-flex justify-content-end text-end mb-1">
+												<div class="w-100">
+													<div class="d-flex flex-column align-items-end">
+														<div class="bg-primary text-white p-2 px-3 rounded-2">{{messagechat.message}}</div>
+														<!-- Images -->
+														<div class="d-flex my-2">
+															<div class="small text-secondary">{{messagechat.createAt
+																| date:'mediumTime':'undefined':'en-US'}}</div>
+															<div class="small ms-2">
+																<i class="fa-solid fa-check"></i>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									 
+								</div>
+							</div>
+							<!-- Conversation item END -->
+
+						</div>
+					</div>
+					<div class="card-footer">
+						<div class="d-sm-flex align-items-end">
+							<textarea class="form-control mb-sm-0 mb-3"
+								ng-keyup="changeValueMessage()" ng-model="messageContent.value"
+								ng-value="messageContent.value" data-autoresize
+								placeholder="Tin nhắn..." rows="1"></textarea>
+							<!-- <button class="btn btn-sm btn-danger-soft ms-sm-2">
+								<i class="fa-solid fa-face-smile fs-6"></i>
+							</button>
+							<button class="btn btn-sm btn-secondary-soft ms-2">
+								<i class="fa-solid fa-paperclip fs-6"></i>
+							</button> -->
+							<button ng-if="canSend == true" ng-click="goSend()"
+								class="btn btn-sm btn-primary ms-2">
+								<i class="fa-solid fa-paper-plane fs-6"></i>
+							</button>
+							<button ng-if="canSend == false"
+								class="btn btn-sm btn-secondary ms-2">
+								<i class="fa-solid fa-paper-plane fs-6"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div ng-if="receiver.id==null"
+					class="card card-chat rounded-start-lg-0 border-start-lg-0">
+					<div class="card-body h-100">
+						<div class="" id="chatTabsContent"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Chat conversation END -->
+
+		</div>
+		<!-- Row END -->
+		<!-- =======================  Chat END -->
+
+	</div>
+	<!-- Container END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->

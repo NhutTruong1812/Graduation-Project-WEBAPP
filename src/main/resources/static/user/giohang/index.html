@@ -1,0 +1,140 @@
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+  
+  <!-- Container START -->
+  <div class="container">
+    <div class="row g-4">
+
+       <!-- Sidenav START -->
+       <div class="col-lg-3">
+        <div ng-include="'/layout/user/left/_menu_left_index.html'"></div>
+         </div>
+         <!-- Sidenav END -->
+
+      <!-- Main content START -->
+      <div class="col-md-8 col-lg-6 vstack gap-4">
+      <div id="message">
+				<div class="alert alert-{{ResponseModel.ResponseType}}"
+					alert-dismissible ng-show="ResponseModel.ResponseAlert">
+					<a href="" class="close"
+						ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+					<strong> {{ResponseModel.ResponseMessage}} </strong>
+				</div>
+			</div>
+        <!-- Card START -->
+        <div class="card">
+          <!-- Card header START -->
+          <div class="card-header d-sm-flex align-items-center justify-content-between border-0 pb-0">
+            <h1 class="h4 card-title">Giỏ hàng của bạn</h1>
+          </div>
+          <!-- Card header START -->
+          <!-- Card body START -->
+          <div class="card-body">
+
+            <div class="tab-content mb-0 pb-0">
+              <div class="duc-row-head d-none d-md-block d-xl-block mb-3">
+                <div class="row">
+                  <div class="d-none d-md-block d-xl-block col-md-2 col-xl-2">
+                    <input type="checkbox" ng-model="selectallcart" ng-click="checkallcart()" id="checkboxCartAll" > 
+                    Chọn tất cả
+                  </div>
+                  <div class="d-none d-md-block d-xl-block col-md-2 col-xl-2"> Sản phẩm </div>
+                  <div class="d-none d-md-block d-xl-block col-md-2 col-xl-2"> Loại hàng </div>
+                  <div class="d-none d-md-block d-xl-block col-md-2 col-xl-2"> Giá bán </div>
+                  <div class="d-none d-md-block d-xl-block col-md-2 col-xl-2"> Số lượng </div>
+                  <div class="d-none d-md-block d-xl-block col-md-2 col-xl-2"> Thao tác </div>
+                </div>
+              </div>
+              <div ng-repeat="item in listshop">
+              	<div class="duc-row-body mb-3" ng-repeat="sanpham in item.product">
+                <div class="row">
+                  <div class="col-sm-12 col-md-2 col-xl-2">
+                    <input type="checkbox" ng-model="listSelected" ng-checked="exist(sanpham)" id="checkboxCart{{sanpham.id}}" ng-click="selectCheckCart(sanpham)" >   
+                  </div>
+                  <div class="col-sm-12 col-md-2 col-xl-2">
+                    <span>{{sanpham.product.product}}</span> <br>
+                    <img src="/{{sanpham.product.banner}}" alt="" width="50%"> 
+                  </div>
+                  <div class="col-sm-12 col-md-2 col-xl-2">
+                    <span class="d-md-none d-xl-none">
+                      Danh mục: 
+                    </span>
+                    <span>
+                      {{sanpham.product.category.category}}
+                    </span>
+                  </div>
+                  <div class="col-sm-6 col-md-2 col-xl-2">
+                    <span class="d-md-none d-xl-none">
+                      Giá bán:
+                    </span>
+                    <span>
+                    {{sanpham.product.price.toLocaleString('vi-VN', {style : 'currency', currency : 'VND'})}}
+                    </span>
+                  </div>
+                  <div class="col-sm-6 col-md-2 col-xl-2">
+                    <span class="d-md-none d-xl-none">
+                      SL:
+                    </span>
+                    <span> 
+                      <input class="form-control inp__ls__cart d-inline-block mb-2" type="number"  id="quantity{{sanpham.id}}" style="text-align: center;" ng-blur="changeQuantity(sanpham)" ng-model="sanpham.quantity">
+                    </span>
+                  </div>
+                  <div class="col-sm-12 col-md-2 col-xl-2">
+                    <button class="btn btn-danger-soft btn__delete__cart mb-2" ng-click="deleteCart(sanpham)">Xóa </button>
+                  </div>
+                </div>  
+              </div>
+                 
+                <div class="duc-row-more">
+                <div class="row">
+                  <div class="col-12 col-md-3 col-xl-8">
+                    <input type="checkbox" ng-model="selectallshopcart" ng-value="true"  ng-click="selectCheckAllShopCart(item)" id="selectallshopcart{{item.id}}"  type="checkbox" >  
+						Chọn tất cả sản phẩm cửa hàng
+                  </div>
+                   
+                  <div class="col-4 col-md-1 col-xl-1">
+                    <img src="/{{item.user.avatar}}" alt="">
+                  </div>
+                  <div class="col-8 col-md-3 col-xl-3">
+                   {{item.user.fullname}}
+                  </div>
+                </div>
+              
+              </div>
+              	 <hr>
+              </div>
+            
+              <!-- main -->
+              <div class="tab-pane fade show active" id="tab-1">
+                <!-- tổng tiền -->
+                <div class="row g-3">
+                  <div class="p-4 sumCart m-0">
+                    <!-- Form START -->
+                    <form class="row align-items-end g-4">
+                      <!-- Time -->
+                      <div class="col-sm-12 col-lg-12">
+                        <label class="form-label sumcart__text text-success">Tổng tiền: {{sumPrice.toLocaleString('vi-VN', {style : 'currency', currency : 'VND'})}}</label>
+                        <button ng-if="listshop.length != 0"  type="submit" class="btn btn-success-soft btn__sumcart" ng-click="fromcartcheckout()">Đặt hàng</button>
+                      </div>
+                    </form>
+                    <!-- Form END -->
+                  </div>
+                </div>
+                <!-- end shop -->
+              </div>
+              <!-- Home tab END -->
+
+            </div>
+          </div>
+          <!-- Card body END -->
+        </div>
+        <!-- Card END -->
+      </div>
+      <!-- Main content END -->
+
+    </div> <!-- Row END -->
+  </div>
+  <!-- Container END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->

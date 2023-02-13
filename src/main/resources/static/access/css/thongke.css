@@ -1,0 +1,120 @@
+.text__title__thongke {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: -0.02em;
+    color: #EC4E4E;
+}
+
+.main__center__container__input__date {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.text__date {
+    outline: var(--color__text--gray);
+    width: 258px;
+    background: #F9F9F9;
+    border: 2px solid #E9E9E9;
+    border-radius: 8px;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.main__center__title {
+    padding: 1%;
+    border-radius: 13px;
+}
+
+.btn__title {
+    display: block;
+    text-align: center;
+    color: white;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    border-radius: 300px !important;
+    width: 100% !important;
+    height: 80% !important;
+}
+
+.header__cart {
+    border: none !important;
+    background-color: white !important;
+}
+
+.text__green__date {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 31px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.02em;
+    color: #4B7E7D;
+}
+
+.amount__number {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: -0.732051px 1.4641px 5.85641px rgba(34, 240, 141, 0.3);
+}
+
+.card__body__ {
+    padding: 0px !important;
+}
+
+.btn__detail {
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #EC4E4E;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    margin-right: 10%;
+}
+
+.card__container {
+    border-radius: 100px !important;
+}
+
+.card__20 {
+    width: 19%;
+    margin: 0.5%;
+}
+
+.card__20>.card {
+    height: 131px;
+    padding: 5px;
+    border-radius: 10px !important;
+}
+
+.btn__title__thongke {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    border-radius: 30px;
+}
+
+.container__thongke {
+    padding: 10px;
+}

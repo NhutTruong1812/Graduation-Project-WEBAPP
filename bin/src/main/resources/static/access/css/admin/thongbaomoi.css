@@ -1,0 +1,104 @@
+.frames__text__infor{
+    margin-left: 5%;
+}
+
+.main__center__time{
+    margin-top: 3%;
+    margin-left: 6%;
+    margin-bottom: 3%;
+}
+
+.main__center__time span{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+    align-items: flex-end;
+    letter-spacing: -0.02em;
+    color: #4B7E7D;
+} 
+
+.main__center__time_input{
+    top: 10.5%;
+    left: 15%;
+    position: absolute;
+    width: 100%;
+}
+
+.main__center__time{
+    position: relative;
+}
+
+.main__center__time_input label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: right;
+    color: #62686D;
+    margin-left: 5%;
+}
+
+.main__center__time_input input{
+    width: 300px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 2px solid #E9E9E9;
+    border-radius: 15px;
+
+}
+
+
+
+.frames__text__infor h2{
+    position: absolute;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 42px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+}
+
+.frames__text__infor p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 33px;
+    letter-spacing: -0.02em;
+    color: #4B7E7D;
+}
+
+.frames__button__infor span{
+    position: absolute;
+    margin-left: 20%;
+    margin-top: 10%;
+    font-weight: 400;
+    font-size: 23px;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+}
+
+.frames__button__infor .button__infor{
+    margin-top: 20%;
+    margin-left: 20%;
+    width: 130px;
+    height: 40px;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 18x;
+}

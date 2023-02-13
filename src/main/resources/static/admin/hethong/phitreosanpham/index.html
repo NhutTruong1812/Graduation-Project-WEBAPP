@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<div id="message">
+	<div class="alert alert-{{ResponseModel.ResponseType}}" alert-dismissible ng-show="ResponseModel.ResponseAlert">
+		<a href="" class="close" ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+		<strong> {{ResponseModel.ResponseMessage}} </strong>
+	</div>
+</div>
+<div class="content tab-content" ng-init="initialize()">
+	<div id="list-tab" class="tab-pane {{currentTab==1?'active show':''}}">
+		<!-- Start Content-->
+		<div class="row">
+			<div class="col-12">
+				<div class="page-title-box">
+					<div class="page-title-right">
+						<ol class="breadcrumb m-0">
+							<li class="breadcrumb-item"><a href="javascript: void(0);">Hệ thống</a></li>
+							<li class="breadcrumb-item active">Phí treo sản phẩm</li>
+						</ol>
+					</div>
+					<h4 class="page-title">Phí treo sản phẩm</h4>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="row mb-2">
+							<div class="col-xl-8">
+								<form
+									class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+									<div class="col-auto">
+										<label for="inputPassword2" class="visually-hidden">Search</label>
+										<input type="search" class="form-control" id="inputPassword2"
+											placeholder="Tìm kiếm...">
+									</div>
+								</form>
+							</div>
+							<div class="col-xl-4">
+								<div class="text-xl-end mt-xl-0 mt-2">
+									<a href="" type="button" class="btn btn-success mb-2 me-2" a-target="#form-tab"
+										data-toggle="tab" ng-click="tab(2)"><i class="mdi mdi-plus-box me-1"></i> Thêm
+										phí treo sản phẩm</a>
+								</div>
+							</div><!-- end col-->
+						</div>
+
+						<div class="table-responsive">
+							<table class="table table-centered table-nowrap mb-0">
+								<thead class="table-light">
+									<tr>
+										<th>ID</th>
+										<th>Giá bắt đầu</th>
+										<th>Giá kết thúc</th>
+										<th>Phí cố định</th>
+										<th>Phần trăm</th>
+										<th>Thao tác</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="item in pageData.content">
+										<td><a href="" class="text-body fw-bold">{{item.id}}</a> </td>
+										<td ng-init="priceFrom = currencyFormat(item.priceFrom)">
+											{{priceFrom}}
+										</td>
+										<td ng-init="priceTo = currencyFormat(item.priceTo)">
+											{{priceTo}}
+										</td>
+										<td ng-init="fixedFee = currencyFormat(item.fixedFee)">
+											{{fixedFee}}
+										</td>
+										<td>
+											{{item.percentFee}}%
+										</td>
+										<td>
+											<a ng-click="edit(item)" href="javascript:void(0);" class="action-icon"
+												data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Sửa">
+												<i class="mdi mdi-square-edit-outline" data-bs-toggle="modal"
+													data-bs-target="#edit-modal"></i>
+											</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</div> <!-- end card-body-->
+
+
+
+					<div class="col-sm-12 col-md-7 offset-5">
+						<div class="dataTables_paginate paging_simple_numbers" id="products-datatable_paginate">
+							<ul class="pagination pagination-rounded">
+								<li class="paginate_button page-item {{currentPage == pages.p1 ? 'active':''}}">
+									<a href="" aria-controls="products-datatable" data-dt-idx="1" tabindex="0"
+										class="page-link"
+										ng-bind="pages.p1" id="btnP1"></a>
+								</li>
+								<li class="paginate_button page-item  {{currentPage == pages.p2 ? 'active':''}}">
+									<a href="" aria-controls="products-datatable" data-dt-idx="1" tabindex="0"
+										class="page-link "
+										ng-show="pageData.totalPages > 1" ng-bind="pages.p2" id="btnP2"></a>
+								</li>
+								<li class="paginate_button page-item  {{currentPage == pages.p3 ? 'active':''}}">
+									<a href="" aria-controls="products-datatable" data-dt-idx="1" tabindex="0"
+										class="page-link"
+										ng-show="pageData.totalPages > 2" ng-bind="pages.p3" id="btnP3"></a>
+								</li>
+								<li class="paginate_button page-item  {{currentPage == pages.p4 ? 'active':''}}">
+									<a href="" aria-controls="products-datatable" data-dt-idx="1" tabindex="0"
+										class="page-link"
+										ng-show="pageData.totalPages >3" ng-bind="pages.p4" id="btnP4"></a>
+								</li>
+								<li class="paginate_button page-item  {{currentPage == pages.p5 ? 'active':''}}">
+									<a href="" aria-controls="products-datatable" data-dt-idx="1" tabindex="0"
+										class="page-link"
+										ng-show="pageData.totalPages >4" ng-bind="pages.p5" id="btnP5"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+
+				</div> <!-- end card-->
+			</div> <!-- end col -->
+
+		</div>
+	</div>
+
+
+	<div id="form-tab" class="row tab-pane {{currentTab==2?'active show':''}}">
+		<div class="row">
+			<div class="col-12">
+				<div class="page-title-box">
+					<div class="page-title-right">
+						<ol class="breadcrumb m-0" data-target="#list-tab" data-toggle="tab" ng-click="tab(1)">
+							<li class="breadcrumb-item"><a href="javascript: void(0);">Hệ thống</a></li>
+							<li class="breadcrumb-item"><a href="javascript: void(0);">Phí treo sản phẩm</a>
+							</li>
+							<li class="breadcrumb-item active">Thêm phí treo sản phẩm</li>
+						</ol>
+					</div>
+					<h4 class="page-title">Thêm phí treo sản phẩm</h4>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-body">
+						<form action="" id="formDisplayservice">
+
+							<div class="form-group">
+								<div class="mb-3 position-relative row" id="datepicker1">
+									<div class="col-3"><label class="form-label">Id</label></div>
+									<div class="col-9">
+										<input type="text" id="id" name="id" class="form-control"
+											data-provide="datepicker" data-date-container="#datepicker1" readonly>
+									</div>
+									<span class="form-message col-md-8 offset-4"
+										style="color: red; margin-left: 25%;"></span>
+								</div>
+							</div>
+
+							<!-- INPUT -->
+							<div class="form-group">
+								<div class="mb-3 position-relative row" id="datepicker1">
+									<div class="col-3"><label class="form-label">Giá bắt đầu</label></div>
+									<div class="col-9">
+										<input type="text" id="priceFrom" name="priceFrom" class="form-control"
+											data-provide="datepicker" data-date-container="#datepicker1">
+									</div>
+									<span class="form-message col-md-8 offset-4"
+										style="color: red; margin-left: 25%;"></span>
+								</div>
+							</div>
+
+
+							<!-- INPUT -->
+							<div class="form-group">
+								<div class="mb-3 position-relative row" id="datepicker1">
+									<div class="col-3"><label class="form-label">Giá kết thúc</label></div>
+									<div class="col-9">
+										<input type="text" id="priceTo" name="priceTo" class="form-control"
+											data-provide="datepicker" data-date-container="#datepicker1">
+									</div>
+									<span class="form-message col-md-8 offset-4"
+										style="color: red; margin-left: 25%;"></span>
+								</div>
+							</div>
+
+
+							<!-- INPUT -->
+							<div class="row form-group">
+								<div class="mb-3 position-relative row" id="datepicker1">
+									<div class="col-3"><label class="form-label">Phí cố định</label></div>
+									<div class="col-9">
+										<input type="text" id="FixedFee" name="fixedFee" class="form-control"
+											data-provide="datepicker" data-date-container="#datepicker1">
+									</div>
+									<span class="form-message col-md-8 offset-4"
+										style="color: red; margin-left: 25%;"></span>
+								</div>
+							</div>
+
+
+							<!-- INPUT -->
+							<div class="row form-group">
+								<div class="mb-3 position-relative row" id="datepicker1">
+									<div class="col-3"><label class="form-label">Phí theo %</label></div>
+									<div class="col-9">
+										<input type="text" id="percentFee" name="percentFee" class="form-control"
+											data-provide="datepicker" data-date-container="#datepicker1">
+									</div>
+									<span class="form-message col-md-8 offset-4"
+										style="color: red; margin-left: 25%;"></span>
+								</div>
+							</div>
+
+
+							<div class="row form-group">
+								<div class="mb-3 position-relative row" id="datepicker1">
+									<div class="col-3"><label class="form-label">Mô tả</label></div>
+									<div class="col-9">
+										<textarea class="form-control" id="description" name="description"
+											rows="5"></textarea>
+									</div>
+									<span class="form-message col-md-8 offset-4"
+										style="color: red; margin-left: 25%;"></span>
+								</div>
+							</div>
+
+
+
+							<button class="btn btn-primary" type="submit">Thêm</button>
+							<button class="btn btn-secondary" type="reset" ng-click="reset()">Làm mới</button>
+							<button class="btn btn-danger" type="button" data-bs-toggle="modal"
+								data-bs-target="#delete-modal">Xóa</button>
+
+							<!-- Delete modal content -->
+							<div id="delete-modal" class="modal fade" tabindex="-1" role="dialog"
+								aria-labelledby="delete-modalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title" id="standard-modalLabel">Bạn có chắc muốn xóa phí
+												treo sản phẩm này?</h4>
+											<button type="button" class="btn-close" data-bs-dismiss="modal"
+												aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<span>Dữ liệu sau khi xóa sẽ không thể khôi phục!</span>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+												data-bs-dismiss="modal">Hủy</button>
+											<button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+												id="btnDelete">Xác nhận xóa</button>
+										</div>
+									</div><!-- /.modal-content -->
+								</div><!-- /.modal-dialog -->
+							</div><!-- /.modal -->
+						</form>
+					</div> <!-- end card-body-->
+				</div> <!-- end card-->
+			</div> <!-- end col -->
+
+		</div>
+	</div>
+
+
+
+
+	<!-- container -->
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->

@@ -1,0 +1,52 @@
+ 
+    <!-- begin main -->
+    <div class="main" ng-controller="thongbao-ctrl">
+        <div class="row no-gutters">
+             <!-- left -->
+             <div class="col-md-3 main__left__admin_he">
+                <div class="row main__left">
+                    <div ng-include="'../layout/admin/__menu__left__1.html'"></div> 
+                </div>
+
+            </div>
+
+            <!-- center -->
+            <div class="col-md-9 main__center">
+                <div class="row d-flex align-items-center">
+                    <div class="container" id="main__center__scrollbar">
+                        <div class="main__center__Display">
+                            <a href="#">
+                                <span>Thông báo mới</span>
+                            </a>
+                        </div>
+
+                        <!-- Bài đăng -->
+                        <div class="col-md-12">  
+                            <div class="main__center__panel" ng-repeat="item in listMessage">
+                                <div class="main__center__container">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="frames__text__infor">
+                                                <h2>{{item.title}}</h2>
+                                                <br><br>
+                                                <p>{{item.message}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 frames__button__infor">
+                                            <span>{{item.addDate}}</span><br>
+                                            <button type="button" class="button__infor">Tiến hành</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end main -->

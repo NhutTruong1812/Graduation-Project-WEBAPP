@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+
+    <!-- Link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- Link Style -->
+    <link rel="stylesheet" href="../access/css/style.css">
+    <link rel="stylesheet" href="../access/css/pagenavigation.css">
+    <link rel="stylesheet" href="../access/css/table.css">
+    <link rel="stylesheet" href="../access/css/tabpane.css">
+    <link rel="stylesheet" href="../access/css/thongke.css">
+    <link rel="stylesheet" href="../access/css/chitietsanpham.css">
+    <link rel="stylesheet" href="../access/css/chat.css">
+    <!-- Link jquery -->
+    <!-- Thư viện hỗ trợ java script -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <!--Link bootstrap  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!--
+       * Quy tắc đặt tên : C C C (B E M)
+        Cha__Con--Cá tính
+       *
+
+    -->
+    <!-- Quy tắc phân vùng -->
+    <!--begin  ttt -->
+    <!-- Code -->
+    <!--end  ttt -->
+
+</head>
+
+<body class="container-fluid">
+
+    <!-- begin header -->
+    <div class="header row mt-1 no-gutters d-flex align-items-center">
+        <!--Left  -->
+        <div class="col-md-3 ">
+            <div class="row d-flex align-items-center">
+
+                <!-- Logo Bigluppy -->
+                <div class="col-md-3 offset-md-1">
+                    <img class="header__logo" src="/access/images/Logo-B.png" alt="">
+                </div>
+
+                <!-- search -->
+                <div class="col-md-8">
+                    <div class="row header__search--bgwhite">
+
+                        <div class="col-md-9 header__search">
+                            <input placeholder="Tìm kiếm Biglobby..."
+                                class="header__search__input header__search__input--bgwhite" type="text" name="search"
+                                id="search">
+                        </div>
+
+                        <div class="col-md-2 offset-md-1 header__search__icon">
+                            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- center -->
+        <div class="col-md-6">
+            <div class="row no-gutters header__menu d-flex align-items-center">
+
+                <!-- Trang Chủ -->
+                <div class="col-md-2 offset-1">
+                    <a class="header__menu__a" href="">
+                        <div class="row no-gutters">
+                            <div class="col-md-2 ">
+                                <i class="fa-sharp fa-solid fa-house"></i>
+                            </div>
+                            <div class="col-md-10 header__menu__label">
+                                <label for="">Trang Chủ</label>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Cửa Hàng -->
+                <div class="col-md-2">
+                    <a class="header__menu__a" href="">
+                        <div class="row no-gutters">
+                            <div class="col-md-2 ">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                            <div class="col-md-10 header__menu__label">
+                                <label for="">Cửa Hàng</label>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Dịch Vụ -->
+                <div class="col-md-2">
+                    <a class="header__menu__a" href="">
+                        <div class="row no-gutters">
+                            <div class="col-md-2 ">
+                                <i class="fa-brands fa-servicestack"></i>
+                            </div>
+                            <div class="col-md-10 header__menu__label">
+                                <label for="">Dịch Vụ</label>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Nạp Tiền -->
+                <div class="col-md-2">
+                    <a class="header__menu__a" href="">
+                        <div class="row no-gutters">
+                            <div class="col-md-2 ">
+                                <i class="fa-solid fa-wallet"></i>
+                            </div>
+                            <div class="col-md-10 header__menu__label">
+                                <label for="">Nạp Tiền</label>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Chúng Tôi -->
+                <div class="col-md-2">
+                    <a class="header__menu__a" href="">
+                        <div class="row no-gutters">
+                            <div class="col-md-2 ">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="col-md-10 header__menu__label">
+                                <label for="">Chúng Tôi</label>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--  right-->
+        <!--  -->
+        <div class="col-md-3">
+            <!-- Tài khoản-->
+            <div class="row">
+
+                <div class="col-md-2">
+                    <div class="dropdown">
+                        <div class="row" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="col-md-12">
+                                <i class="fa-solid fa-paper-plane header__right__icon"></i>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu container__box__chat mt-3 mr-5" aria-labelledby="dropdownMenuButton">
+                            <div class="box__mess__chat">
+                                <div class="dropdown-item">
+                                    <span class="text__title__chat">Tin nhắn của bạn</span>
+                                    <ul class="row nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                        <li class="nav-item ml-3" role="presentation">
+                                            <a class="text__checkbox"> <input type="checkbox" name="" id=""> Tất cả</a>
+                                        </li>
+                                        <li class="nav-item ml-3" role="presentation">
+                                            <a class="text__checkbox"> <input type="checkbox" name="" id=""> Mua bán</a>
+                                        </li>
+                                        <li class="nav-item ml-3" role="presentation">
+                                            <a class="text__checkbox"> <input type="checkbox" name="" id="">Bạn hàng</a>
+                                        </li>
+                                        <li class="nav-item ml-3" role="presentation">
+                                            <a class="text__checkbox"> <input type="checkbox" name="" id=""> Người
+                                                Lạ</a>
+                                        </li>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-item ">
+                                    <div class="col-md-12 box__scroll" id="main__center__scrollbar">
+                                        <div class="row item__chat">
+                                            <div class="col-md-12 chat">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="../access/images/Logo-B.png" width="40px" alt="">
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <span class="name__text"> Nguyễn Văn An</span>
+                                                        <br>
+                                                        <span class="mess__text">bạn có giảm giá không?</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row item__chat">
+                                            <div class="col-md-12 chat">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="../access/images/Logo-B.png" width="40px" alt="">
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <span class="name__text"> Nguyễn Văn An</span>
+                                                        <br>
+                                                        <span class="mess__text">bạn có giảm giá không?</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row item__chat">
+                                            <div class="col-md-12 chat">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="../access/images/Logo-B.png" width="40px" alt="">
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <span class="name__text"> Nguyễn Văn An</span>
+                                                        <br>
+                                                        <span class="mess__text">bạn có giảm giá không?</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row item__chat">
+                                            <div class="col-md-12 chat">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="../access/images/Logo-B.png" width="40px" alt="">
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <span class="name__text"> Nguyễn Văn An</span>
+                                                        <br>
+                                                        <span class="mess__text">bạn có giảm giá không?</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row item__chat">
+                                            <div class="col-md-12 chat">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="../access/images/Logo-B.png" width="40px" alt="">
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <span class="name__text"> Nguyễn Văn An</span>
+                                                        <br>
+                                                        <span class="mess__text">bạn có giảm giá không?</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row item__chat">
+                                            <div class="col-md-12 chat">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="../access/images/Logo-B.png" width="40px" alt="">
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <span class="name__text"> Nguyễn Văn An</span>
+                                                        <br>
+                                                        <span class="mess__text">bạn có giảm giá không?</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item text-center">
+                                    <a href="" class="a__showall">Xem tất cả tin nhắn</a>
+                                </div>
+                            </div>
+
+                            <div class="box__mess__rep">
+                                <div class="col-md-12 chat">
+                                    <div class="row d-flex justify-content-between align-content-between">
+                                        <div class="col-md-1 mt-2">
+                                            <a class="a__showall" href="">
+                                                <i class="fa-sharp fa-solid fa-chevron-left"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <img src="../access/images/Logo-B.png" width="40px" alt="">
+                                        </div>
+                                        <div class="col-md-9">
+                                            <span class="name__text"> Nguyễn Văn An</span>
+                                            <br>
+                                            <span class="mess__text">bạn có giảm giá không?</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mesgs">
+                                    <div class="msg_history">
+                                        <div class="incoming_msg">
+                                            <div class="incoming_msg_img"> <img
+                                                    src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                                            </div>
+                                            <div class="received_msg">
+                                                <div class="received_withd_msg">
+                                                    <p>Test which is a new approach to have all
+                                                        solutions</p>
+                                                    <span class="time_date"> 11:01 AM | June 9</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="outgoing_msg">
+                                            <div class="sent_msg">
+                                                <p>Test which is a new approach to have all
+                                                    solutions</p>
+                                                <span class="time_date"> 11:01 AM | June 9</span>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                    <div class="type_msg">
+                                        <div class=" ">
+                                            <input type="text" class="write_msg" placeholder="Type a message" />
+                                            <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o"
+                                                    aria-hidden="true"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="dropdown">
+                        <div class="row" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="col-md-12">
+                                <i class="fa-sharp fa-solid fa-bell header__right__icon"></i>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu container__box__chat mt-3 mr-5" aria-labelledby="dropdownMenuButton"
+                            id="main__center__scrollbar">
+                            <div class="dropdown-item">
+                                <span class="text__title__chat">THÔNG BÁO</span>
+                                <ul class="row nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item ml-3" role="presentation">
+                                        <a class="tab__button active" data-bs-toggle="pill" data-bs-target="#pills-tab1"
+                                            type="button" role="tab" aria-controls="pills-home" aria-selected="true">Tất
+                                            cả</a>
+                                    </li>
+                                    <li class="nav-item ml-3" role="presentation">
+                                        <a class=" tab__button" data-bs-toggle="pill" data-bs-target="#pills-tab2"
+                                            type="button" role="tab" aria-controls="pills-home"
+                                            aria-selected="true">Chưa đọc</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-item ">
+                                <div class="fade show active col-md-12" id="pills-tab1">
+
+                                    <div class="row item__chat">
+                                        <div class="col-md-12">
+                                            <img src="../access/images/Logo-B.png" width="30px" alt="">
+                                            <span class="name__text"> Nguyễn Văn An <span class="mess__text">Đã thích
+                                                    bài viết của bạn</span></span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="date__text">19:07 10/09/2022</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row item__chat">
+                                        <div class="col-md-12">
+                                            <img src="../access/images/Logo-B.png" width="30px" alt="">
+                                            <span class="name__text"> Nguyễn Văn An <span class="mess__text">Đã thích
+                                                    bài viết của bạn</span></span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="date__text">19:07 10/09/2022</span>
+                                        </div>
+                                    </div>
+                                    <div class="row item__chat">
+                                        <div class="col-md-12">
+                                            <img src="../access/images/Logo-B.png" width="30px" alt="">
+                                            <span class="name__text"> Nguyễn Văn An <span class="mess__text">Đã thích
+                                                    bài viết của bạn</span></span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="date__text">19:07 10/09/2022</span>
+                                        </div>
+                                    </div>
+                                    <div class="row item__chat">
+                                        <div class="col-md-12">
+                                            <img src="../access/images/Logo-B.png" width="30px" alt="">
+                                            <span class="name__text"> Nguyễn Văn An <span class="mess__text">Đã thích
+                                                    bài viết của bạn</span></span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="date__text">19:07 10/09/2022</span>
+                                        </div>
+                                    </div>
+                                    <div class="row item__chat">
+                                        <div class="col-md-12">
+                                            <img src="../access/images/Logo-B.png" width="30px" alt="">
+                                            <span class="name__text"> Nguyễn Văn An <span class="mess__text">Đã thích
+                                                    bài viết của bạn</span></span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="date__text">19:07 10/09/2022</span>
+                                        </div>
+                                    </div>
+                                    <div class="row item__chat">
+                                        <div class="col-md-12">
+                                            <img src="../access/images/Logo-B.png" width="30px" alt="">
+                                            <span class="name__text"> Nguyễn Văn An <span class="mess__text">Đã thích
+                                                    bài viết của bạn</span></span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="date__text">19:07 10/09/2022</span>
+                                        </div>
+                                    </div>
+                                    <div class="row item__chat">
+                                        <div class="col-md-12">
+                                            <img src="../access/images/Logo-B.png" width="30px" alt="">
+                                            <span class="name__text"> Nguyễn Văn An <span class="mess__text">Đã thích
+                                                    bài viết của bạn</span></span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="date__text">19:07 10/09/2022</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <!-- Tài khoản-->
+                    <div class="dropdown">
+                        <div class="row" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="col-md-2">
+                                <img class="header__logo" src="/access/images/Logo-B.png" alt="">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row col-md-12 header__menu__label">
+                                    <span class=" dropdown-toggle"> Nguyễn Văn An </span>
+                                </div>
+                                <div class="row col-md-12 header__menu__label">
+                                    <span>2000 B </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Tài khoản của tôi</a>
+                            <a class="dropdown-item" href="#">Trang quản trị</a>
+                            <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="#">Bài đăng</a>
+                            <a class="dropdown-item" href="#">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header -->
+
+
+    <!-- begin javascript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+    <!-- end javascript -->
+</body>
+
+</html>

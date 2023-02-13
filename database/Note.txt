@@ -1,0 +1,2 @@
+Các bảng chứa khóa chính là lớp: Post, Product, MyBCoin, MyShop theo db cũ là lấy idUser hoặc idCard, trong cấu hình spring boot thì thay thế khóa ngoài bằng đối tượng (User, Card), mà nếu để class làm khóa chính thì phải có thuộc tính IdClass([Class].class), điều này dẫn đến việc đối tượng xuất hiện trong các lớp khác cũng bị buộc phải gắn làm khóa chính
+=> khắc phục bằng cách thêm thuộc tính id cho các lớp Post, Product,... và cho thuộc tính idUser là UNIQUE.

@@ -1,0 +1,165 @@
+/* Form */
+.main__center--height{
+    background-color: rgb(242, 242, 242);
+    height: 650px;
+}
+
+.form-select {
+    width: 27% !important;
+    display: inline !important;
+}
+
+.main__center__form h1{
+    margin-top: 10%;
+    font-style: normal;
+    font-weight: 700;
+    color: #38A3A2;
+    text-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+}
+
+.main__center__form span{
+    color: #62686D;
+    font-weight: 500;
+}
+
+.main__center__form form{
+    margin-left: 5%;
+    margin-top: 5%;
+    
+}
+
+.main__center__form .main__form__lable{
+    color: #62686D;
+    font-weight: 600;
+    margin-top: 15%;
+    width: 100%;
+    text-align: right;
+}
+
+.main__center__form .main__form__lable__sdt{
+    color: #62686D;
+    font-weight: 600;
+    margin-top: 15%;
+    width: 100%;
+    text-align: right;
+}
+
+.main__center__form input[type=text]{
+  width: 83%;
+  height: 35px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.main__center__form input[type=radio]{
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    background: #FFFFFF;
+    border: 2px solid #99A0B6;
+    border-radius: 10px;
+    margin-top: 4%;
+    margin-left: 4%;
+    
+}
+
+.main__center__form .form-select{
+    box-sizing: border-box;
+    width: 98px;
+    height: 40px;
+    background: #F9F9F9;
+    border: 2px solid #E9E9E9;
+    border-radius: 10px;
+}
+
+.main__center__form .main__form__gioithieu{
+    margin-top: 3%;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 310px;
+    height: 100px;
+}
+
+.main__form__button{
+    margin-top: 3%;
+    margin-left: 26%;
+    width: 150px;
+    height: 40px;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/* Avatar */
+.main_avatar--boder{
+    width: 220px;
+    height: 220px;
+    left: 1429px;
+    top: 261px;
+    background: #D9D9D9;
+    border: 10px solid rgba(54, 161, 160, 0.5);
+    border-radius: 120px;
+    margin-left: 5%;
+    margin-top: 17%;
+}
+
+.avatar__logo{
+    width: 202px;
+    height: 201px;
+}
+
+/* .main_avatar__btn{
+    box-sizing: border-box;
+    width: 170px;
+    height: 40px;
+    background: #F9F9F9;
+    border: 2px solid #99A0B6;
+    border-radius: 50px;
+    margin-left: 11%;
+    margin-top: 3%;
+    color: #99A0B6;
+} */
+
+.main_avatar--text{
+    margin-top: 3%;
+}
+
+.main_avatar--text span{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #99A0B6;
+    margin-left: 12%;
+}
+
+.btn_upload_file {
+    background: #FFFFFF;
+    border: 2px solid #99A0B6;
+    border-radius: 13.6913px;
+    width: 170px;
+    height: 40px;
+    margin-top: 2%;
+    margin-left: 11%;
+    text-align: center;
+    color: var(--color__text--green);
+    position: relative;
+
+}
+
+.input_file_image_post {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}

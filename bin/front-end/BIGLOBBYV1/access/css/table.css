@@ -1,0 +1,37 @@
+/*  */
+.col__green{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px; 
+    letter-spacing: -0.02em;
+    color: var(--color__text--green) !important;
+}
+
+.row__text, .row__button{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    color: var(--color__text--gray)
+
+}
+
+.row__button .btn__view, .row__button .btn__cancel{
+    font-style: normal;
+    font-weight: 600; 
+    line-height: 26px;
+    letter-spacing: -0.02em;
+}
+
+.row__button .btn__view{
+    color: #4B7E7D;
+}
+
+.row__button .btn__cancel{  
+    color: #F84B4B;;
+}
+
+.main__center__tabpane .nav-item--margin{
+    margin-left: 9%;
+}

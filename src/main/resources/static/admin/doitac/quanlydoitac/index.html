@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+<div id="message">
+ <div class="alert alert-{{ResponseModel.ResponseType}}" alert-dismissible ng-show="ResponseModel.ResponseAlert">
+	<a href="" class="close" ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+	<strong> {{ResponseModel.ResponseMessage}} </strong>
+ </div>
+</div> 
+<div class="content tab-content">
+		<div  id="list-tab" class="tab-pane {{Atab==1?'active show':''}}">
+			 <!-- Start Content-->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Đơn hàng</a></li>
+                                <li class="breadcrumb-item active">Quản lý đơn hàng</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Quản lý đơn hàng</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="row mb-2">
+                                <div class="col-xl-8">
+                                    <form
+                                        class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+                                        <div class="col-auto">
+                                            <label for="inputPassword2" class="visually-hidden">Search</label>
+                                            <input type="text" class="form-control" aria-describedby="emailHelp" aria-label="Search" placeholder="Tìm kiếm" type="search" id="keywords" onkeypress="angular.element(this).scope().goSearchA(this)">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+
+
+                            <div class="table-responsive">
+                                <table class="table table-centered table-nowrap mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                           <th>Id</th>
+				                          <th>Tài khoản</th>
+				                          <th>Họ tên</th>
+				                          <th>Email</th>
+				                          <th>Ngày tạo</th>
+				                          <th>Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody> 
+                                        <tr ng-repeat="item in listBanner">
+                                            <td><a href="apps-ecommerce-orders-details.html"
+                                                    class="text-body fw-bold">#{{item.id}}</a> </td>
+                                            <td>
+                                                {{item.username}}
+                                            </td>
+                                            <td>
+                                                {{item.fullname}}
+                                            </td>
+                                            <td>
+                                                {{item.email}}
+                                            </td>
+                                            <td>
+                                                {{item.lastLogin | date:'dd-MM-yyyy'}}
+                                            </td>
+                                            <td>
+                                                <a ng-if="item.id != sessionUser" ng-click="edit(item); initializeHistory()" href="javascript:void(0);" class="action-icon"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    data-bs-title="Xem"> <i class="mdi mdi-eye"
+                                                        data-target="#form-tab" data-toggle="tab" ng-click="tab(2)"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> <!-- end card-body-->
+
+                        <div class="col-sm-12 col-md-7 offset-5">
+                            <div class="dataTables_paginate paging_simple_numbers" id="products-datatable_paginate">
+                                <ul class="pagination pagination-rounded">
+                                    <li class="paginate_button page-item previous disabled"
+                                        id="products-datatable_previous" ng-click="goPage(APage-1)"><a href=""
+                                            aria-controls="products-datatable" data-dt-idx="0" tabindex="0"
+                                            class="page-link"><i class="mdi mdi-chevron-left"></i></a></li>
+                                    <li class="paginate_button page-item {{pg===APage?'active':''}} " ng-repeat="pg in listButton" ng-click="goPage(pg)"><a href=""
+                                            aria-controls="products-datatable" data-dt-idx="1" tabindex="0"
+                                            class="page-link">{{pg}}</a></li>
+                                     
+                                    <li class="paginate_button page-item next" id="products-datatable_next" ng-click="goPage(APage+1)"><a
+                                            href="" aria-controls="products-datatable" data-dt-idx="3" tabindex="0"
+                                            class="page-link"><i class="mdi mdi-chevron-right"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+
+            </div>
+		</div>
+           
+            
+            <div id="form-tab" class="row tab-pane {{Atab==2?'active show':''}}">
+			<div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0" data-target="#list-tab" data-toggle="tab" ng-click="tab(1)">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Danh mục</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Quản lý danh mục</a></li>
+                                    </li>
+                                    <li class="breadcrumb-item active">Thêm danh mục</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Thêm danh mục</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+									<form action="" id="formbanner">
+
+                                                    <!-- INPUT -->
+                                                    <div class="row mt-3 form-group">
+                                                    	<div class="mb-3 position-relative row" id="datepicker1">
+	                                                        <div class="col-3"><label class="form-label">Họ tên</label>
+	                                                        </div>
+	                                                        <div class="col-9">
+	                                                        <input type="text" id="fullname" ng-model="formBanner.fullname" class="form-control" data-provide="datepicker" data-date-container="#datepicker1" ></div>
+	                                                    	<span class="form-message col-md-8 offset-4" style="color: red; margin-left: 25%;"></span> 
+	                                                    </div>
+                                                    </div>
+                                                    
+    
+                                                    <!-- INPUT -->
+                                                    <div class="row mt-3 form-group">
+                                                    	<div class="mb-3 position-relative row" id="datepicker1">
+	                                                        <div class="col-3"><label class="form-label">Tên tài khoản</label>
+	                                                        </div>
+	                                                        <div class="col-9">
+	                                                        <input id="username" rules="required" ng-model="formBanner.username"  type="text" class="form-control" data-provide="datepicker" data-date-container="#datepicker1"></div>
+	                                                    	<span class="form-message col-md-8 offset-4" style="color: red; margin-left: 25%;"></span> 
+	                                                    </div>
+                                                    </div>
+                                                    
+    
+                                                    <!-- INPUT -->
+                                                    <div class="row mt-3 form-group">
+                                                    	<div class="mb-3 position-relative row" id="datepicker1">
+	                                                        <div class="col-3"><label class="form-label">Email:</label>
+	                                                        </div>
+	                                                        <div class="col-9">
+	                                                        <input id="email" rules="required" ng-model="formBanner.email" type="text" class="form-control" data-provide="datepicker" data-date-container="#datepicker1"></div>
+	                                                    	<span class="form-message col-md-8 offset-4" style="color: red; margin-left: 25%;"></span> 
+	                                                    </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="row mt-3 form-group">
+						                                <div class="col-md-4 text-right">
+						                                    <span class="name__span">Giới Tính:</span>
+						                                </div>
+						                                <div class="col-md-8">
+						                                    <input type="radio" id="gender" ng-model="formBanner.gender" ng-value="true" name="gender"> Nam
+						                                    <input type="radio" id="gender" ng-model="formBanner.gender" ng-value="false" name="gender"> Nữ
+						                                </div>
+						                                <span class="form-message col-md-8 offset-4" style="color: red;"></span> 
+						                            </div>
+    
+                                                    <!-- INPUT -->
+                                                    <div class="row mt-3 form-group">
+                                                    	<div class="mb-3 position-relative row" id="datepicker1">
+	                                                        <div class="col-3"><label class="form-label">Số điện thoại:</label></div>
+	                                                        <div class="col-9">
+	                                                        <input id="phonenum" name="phonenum" rules="required" ng-model="formBanner.phonenum" type="text" class="form-control" data-provide="datepicker" data-date-container="#datepicker1"></div>
+	                                                    	<span class="form-message col-md-8 offset-4" style="color: red; margin-left: 25%;"></span>
+	                                                    </div>
+                                                    </div>
+                                                    
+     
+                                     <button class="btn btn-primary" ng-click="save()" type="submit">Lưu</button>
+                                    <button class="btn btn-danger {{formeditBanner.id==null?'d-none':''}}" ng-click="delete(formBanner)" type="submit">Khóa</button>    
+                                </form>
+                                <br>
+                                <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <ul class="nav nav-tabs nav-bordered mb-3">
+                                <li class="nav-item">
+                                    <a href="#" data-bs-toggle="tab" aria-expanded="true" class="nav-link active" ng-click="initializeHistory(); showList(0)">
+                                        <span class="d-none d-md-block">Dịch vụ</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" data-bs-toggle="tab" aria-expanded="false" class="nav-link" ng-click="initializeProduct() ; showList(1)">
+                                        <span class="d-none d-md-block">Sản phẩm</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" data-bs-toggle="tab" aria-expanded="false" class="nav-link" ng-click="initializePost(); showList(2)">
+                                        <span class="d-none d-md-block">Bài viết</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" data-bs-toggle="tab" aria-expanded="false" class="nav-link" ng-click="initializeOrder(); showList(3)">
+                                        <span class="d-none d-md-block">Đơn hàng</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" data-bs-toggle="tab" aria-expanded="false" class="nav-link" ng-click="initializeLoveCard(); showList(4)">
+                                        <span class="d-none d-md-block">Tương tác</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="row mb-2">
+                                <div class="col-xl-8">
+                                    <form
+                                        class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+                                        <div class="col-auto" ng-if="nameSearch == 'search0'">
+                                            <label for="inputPassword2" class="visually-hidden">Search</label>
+                                            <input type="text" class="form-control" aria-describedby="emailHelp" aria-label="Search" placeholder="Tìm kiếm" type="search" id="{{nameSearch}}" onkeypress="angular.element(this).scope().goSearchAHistory(this)">
+                                        </div>
+                                        
+                                        <div class="col-auto" ng-if="nameSearch == 'search1'">
+                                            <label for="inputPassword2" class="visually-hidden">Search</label>
+                                            <input type="text" class="form-control" aria-describedby="emailHelp" aria-label="Search" placeholder="Tìm kiếm" type="search" id="{{nameSearch}}" onkeypress="angular.element(this).scope().goSearchAProduct(this)">
+                                        </div>
+                                        
+                                        <div class="col-auto" ng-if="nameSearch == 'search2'">
+                                            <label for="inputPassword2" class="visually-hidden">Search</label>
+                                            <input type="text" class="form-control" aria-describedby="emailHelp" aria-label="Search" placeholder="Tìm kiếm" type="search" id="{{nameSearch}}" onkeypress="angular.element(this).scope().goSearchAPost(this)">
+                                        </div>
+                                        
+                                        <div class="col-auto" ng-if="nameSearch == 'search3'">
+                                            <label for="inputPassword2" class="visually-hidden">Search</label>
+                                            <input type="text" class="form-control" aria-describedby="emailHelp" aria-label="Search" placeholder="Tìm kiếm" type="search" id="{{nameSearch}}" onkeypress="angular.element(this).scope().goSearchAOrder(this)">
+                                        </div>
+                                        
+                                        <div class="col-auto" ng-if="nameSearch == 'search4'">
+                                            <label for="inputPassword2" class="visually-hidden">Search</label>
+                                            <input type="text" class="form-control" aria-describedby="emailHelp" aria-label="Search" placeholder="Tìm kiếm" type="search" id="{{nameSearch}}" onkeypress="angular.element(this).scope().goSearchALoveCard(this)">
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="table-responsive">
+                                <table class="table table-centered table-nowrap mb-0">
+                                    <thead class="table-light">
+                                         <tr >
+                                                <th>{{listtitleShow.id}}</th>
+                                                <th>{{listtitleShow.title1}}</th>
+                                                <th>{{listtitleShow.title2}}</th>
+                                                <th>{{listtitleShow.title3}}</th>
+                                                <th>{{listtitleShow.title4}}</th>
+                                                <th>{{listtitleShow.title5}}</th>
+                                                <th>{{listtitleShow.title6}}</th>
+                                            </tr>
+                                    </thead>
+                                    <tbody> 
+                                        <tr ng-show="listtitleShow == listTitle[0]" ng-repeat="item in listHistory">
+                                                <td>{{item.id}}</td>
+                                                <td>{{item.bservice.bservice}}</td>
+                                                <td>{{item.actBy.fullname}}</td>
+                                                <td>{{item.user.fullname}}</td>
+                                                <td>{{item.actDate | date:'dd-MM-yyyy'}}</td>
+                                                <td class="text-danger">{{item.useDays}}</td>
+                                                <td class="text-danger">{{item.action.description}}</td>
+                                            </tr>
+                                            
+                                            <tr ng-show="listtitleShow == listTitle[1]" ng-repeat="item in listHistory">
+                                                <td>{{item.product.id}}</td>
+                                                <td>{{item.product.product}}</td>
+                                                <td>{{item.order.saler.fullname}}</td>
+                                                <td>{{item.order.buyer.fullname}}</td>
+                                                <td class="row__text" ng-init="x = currencyFormat(item.product.price)">{{x}}</td>
+                                                <td>{{item.product.category.category}}</td>
+                                                <td class="text-danger">{{item.product.available}}</td>
+                                            </tr>
+                                            
+                                            <tr ng-show="listtitleShow == listTitle[2]" ng-repeat="item in listHistory">
+                                            	<td>{{item.id}}</td>
+                                                <td>{{item.title}}</td>
+                                                <td>{{item.card.user.fullname}}</td>
+                                                <td class="row__text text-primary" ng-if="item.card.isProduct == true">Bán hàng</td>
+                                                <td class="row__text text-primary" ng-if="item.card.isProduct == false">Bài viết</td>
+                                                <td class="row__text text-warning" ng-if="item.card.hidden == true">Chỉ mình tôi</td>
+                                                <td class="row__text text-warning" ng-if="item.card.hidden == false">Công khai</td>
+                                                <td class="row__text text-success">{{item.card.status.status}}</td>
+                                                <td>{{item.card.postAt | date:'dd-MM-yyyy'}}</td>
+                                            </tr>
+                                            
+                                            
+                                            <tr ng-show="listtitleShow == listTitle[3]" ng-repeat="item in listOrder">
+                                                <td>{{item.order.id}}</td>
+                                                <td>{{item.order.fullname}}</td>
+                                                <td>{{item.order.saler.fullname}}</td>
+                                                <td>{{item.order.buyer.fullname}}</td>
+                                                <td class="row__text" ng-init="x = currencyFormat(item.sumPrice)">{{x}}</td>
+                                                <td>{{item.order.addDate | date:'dd-MM-yyyy'}}</td>
+                                                <td ng-if="item.order.status.status == 'THANHCONG'" class="row__text text-success">Thành công</td>
+                                                <td ng-if="item.order.status.status == 'DANGXACNHAN'" class="row__text text-success">Chờ xác nhận</td>
+                                                <td ng-if="item.order.status.status == 'DONGYGIAODICH'" class="row__text text-success">Đang giao dịch</td>
+                                                <td ng-if="item.order.status.status == 'HUYBAN' || item.order.status.status == 'HUYMUA'" class="row__text text-success">Đã hủy</td>
+                                            </tr>
+                                            
+                                            <tr ng-show="listtitleShow == listTitle[4]" ng-repeat="item in listHistory">
+                                            	<td>{{item.id}}</td>
+                                                <td>{{item.user.fullname}}</td>
+                                                <td>{{item.card.user.fullname}}</td>
+                                                <td class="row__text text-primary" ng-if="item.card.isProduct == true">Bán hàng</td>
+                                                <td class="row__text text-primary" ng-if="item.card.isProduct == false">Bài viết</td>
+                                                <td class="row__text text-warning" ng-if="item.card.hidden == true">Chỉ mình tôi</td>
+                                                <td class="row__text text-warning" ng-if="item.card.hidden == false">Công khai</td>
+                                                <td class="row__text text-success">{{item.card.status.status}}</td>
+                                                <td>{{item.loveDate | date:'dd-MM-yyyy'}}</td>
+                                            </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> <!-- end card-body-->
+
+                        <div class="col-sm-12 col-md-7 offset-5">
+                            <div class="dataTables_paginate paging_simple_numbers" id="products-datatable_paginate">
+                                <ul class="pagination pagination-rounded">
+                                    <li class="paginate_button page-item previous disabled"
+                                        id="products-datatable_previous"ng-click="goPageHistory(APages-1)"><a href=""
+                                            aria-controls="products-datatable" data-dt-idx="0" tabindex="0"
+                                            class="page-link"><i class="mdi mdi-chevron-left"></i></a></li>
+                                    <li class="paginate_button page-item {{pg===APage?'active':''}} " ng-repeat="pg in listButtons" ng-click="goPageHistory(pg)"><a href=""
+                                            aria-controls="products-datatable" data-dt-idx="1" tabindex="0"
+                                            class="page-link">{{pg}}</a></li>
+                                     
+                                    <li class="paginate_button page-item next" id="products-datatable_next" ng-click="goPageHistory(APages+1)"><a
+                                            href="" aria-controls="products-datatable" data-dt-idx="3" tabindex="0"
+                                            class="page-link"><i class="mdi mdi-chevron-right"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+
+            </div>
+                            </div> <!-- end card-body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+
+                </div>
+		</div>
+
+
+            <!-- container -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->

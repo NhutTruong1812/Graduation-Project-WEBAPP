@@ -1,0 +1,212 @@
+/* Menu */
+/* Logo */ 
+.header__logo_admin{
+    width: 150px;
+    height: 60px;
+    text-align: end;
+    margin-left: 50%;
+}
+
+.header__cover_admin{
+    height: 60px;
+}
+
+.header__admin__search--bgwhite{
+    border-radius: 100px; 
+    color: var(--color__text__search--gray);
+    background-color: var(--color__bg__search--gray);
+    
+}
+/* 
+.header__menu{
+    position: absolute;
+    left: 1%;
+} */
+
+.message__header__admin{
+    margin-left: 30%;
+}
+/* 
+.dropdown-menu{
+    left: 20% !important;
+} */
+
+.border__header__admin{
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50px;
+    background: #D9D9D9;
+    border: 2px solid #3CBBBA;
+    bottom: -26px;
+    right: -10%;
+}
+
+.header__admin__avatar{
+    position: absolute;
+    width: 44px;
+    height: 45px;
+    text-align: end;
+    bottom: 0px;
+    right: 0.07px;
+}
+
+/* main left */
+.main__left__admin{
+    width: 90%;
+    list-style: none;
+    top: 6%;
+    font-size: 20px;
+    font-weight: 1000;
+    
+}
+
+.boder__main__left__admin li a{
+    text-decoration: none;
+}
+
+.main__left__admin span{
+    width: 340px;
+    margin-top: 5%;
+    font-weight: 800;
+    font-size: 23px;
+    line-height: 27px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+}
+
+.boder__main__left__admin{
+    width: 340px;
+    height: 50px;
+    background: linear-gradient(90deg, #43df82 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 50px 0px 0px 50px;
+}
+
+.main__left__list__dropdown{
+    width: 253px;
+    list-style: none;
+}
+
+.main__left__list__dropdown li a{
+    text-decoration: none;
+    display: block;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    align-items: flex-end;
+    letter-spacing: -0.02em;
+    color: #9F9F9F;
+}
+
+.main__left__list__dropdown .main__left__list__post__text{
+    color: #198783;
+}
+
+.main__left__list__dropdown .dropdown{
+    padding-top: 4%;
+}
+
+.main__left__list__post__text .fa-solid{
+    font-size: 15px;
+    position: absolute;
+    right: 97%;
+    top: 24%;
+}
+
+.main__left__list__dropdown .main__left__list__admin__text{
+    font-weight: 800;
+    font-size: 23px;
+    line-height: 27px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+}
+
+.main__left__list__dropdown .main__left__list__admin__text span{
+    margin-left: 10%;
+}
+
+/* main center */
+.main__center__Display a:hover{
+    text-decoration: none;
+}
+
+.main__center__Display span{
+    margin-top: 2%;
+    margin-left: 1%;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.02em;
+    text-decoration-line: underline;
+    color: #4B7E7D;
+}
+
+.main__center__container .frames__img{
+    width: 300px;
+    height: 220px;
+    background: #D9D9D9;
+    border-radius: 15px;
+    margin-left: 2%;
+}
+
+.img__frames{
+    width: 300px;
+    height: 220px;
+    background: #D9D9D9;
+    border-radius: 15px;
+}
+
+.frames__text h2{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 42px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+}
+
+.frames__text p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 33px;
+    letter-spacing: -0.02em;
+    color: #4B7E7D;
+}
+
+.frames__button{
+    margin-top: 5%;
+    width: 130px;
+    height: 40px;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 18x;
+}

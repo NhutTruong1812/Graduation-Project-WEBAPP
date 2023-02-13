@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from social.webestica.com/albums.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Nov 2022 05:50:02 GMT -->
+
+<head>
+  <title>NẠP XU</title>
+
+  <!-- Meta Tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Webestica.com">
+  <meta name="description" content="Bootstrap based News, Magazine and Blog Theme">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/logo/Logo-B.png">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap">
+
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/glightbox-master/dist/css/glightbox.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/choices.js/public/assets/styles/choices.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/dropzone/dist/min/dropzone.min.css" />
+
+  <!-- Theme CSS -->
+  <link id="style-switch" rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <style>
+        html{
+            background-color: whitesmoke;
+            height: 90%;
+        }
+        body{
+            height: 100%;
+        }
+        .d-xu-wrap{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .d-xu-board{
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding: 1% 2% 2% 2%;
+            box-sizing: border-box;
+            box-shadow: 0 0 5px gray;
+            background-color: white;
+        }
+        .d-xu-board h3, .d-xu-board h2{
+            text-align: center;
+        }
+        .d-xu-board .d-xu-line-content{
+            font-weight: bold;
+            font-size: larger;
+        }
+  </style>
+</head>
+
+<body>
+
+<div class="container" style="height: 100%;">
+    <div class="d-xu-wrap">
+        <div class="d-xu-board" id="vnpay-ketqua">
+        </div>
+    </div>
+</div>
+
+  <!-- =======================
+JS libraries, plugins and custom scripts -->
+
+  <!-- Bootstrap JS -->
+  <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Vendors -->
+  <script src="assets/vendor/glightbox-master/dist/js/glightbox.min.js"></script>
+  <script src="assets/vendor/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script src="assets/vendor/dropzone/dist/min/dropzone.min.js"></script>
+
+  <!-- Template Functions -->
+  <script src="assets/js/functions.js"></script>
+  	<script type="text/javascript">
+	var ketqua = document.getElementById('vnpay-ketqua');
+	if(ketqua != undefined){
+		const urlParams = new URLSearchParams(window.location.search);
+		const vnp_TransactionStatus = urlParams.get('vnp_TransactionStatus');
+		let innerResult = '';
+		if(vnp_TransactionStatus == 00){
+			innerResult = `
+	            <h3>
+                KẾT QUẢ NẠP XU
+            </h3>
+            <div class="d-xu-info">
+                <h2 style="color: limegreen;">THÀNH CÔNG!</h2>
+                <div class="d-xu-line">
+                    <span class="d-xu-line-title">
+                        SỐ XU
+                    </span>
+                    <span class="d-xu-line-content">
+                    ${urlParams.get('vnp_Amount')/1000/100}
+                    </span>
+                </div>
+                <div class="d-xu-line">
+                    <div class="d-xu-line-title">
+                        NỘI DUNG
+                    </div>
+                    <div class="d-xu-line-content">
+                    ${urlParams.get('vnp_OrderInfo')}
+                    </div>
+                </div>
+            </div>
+            <a href="/user/index.html#!/biglobby/naptien" class="btn btn-success">OK</a>			
+			`;
+		}else{
+			innerResult = `
+	            <h3>
+                KẾT QUẢ NẠP XU
+            </h3>
+            <div class="d-xu-info">
+                <h2 style="color: RED;">THẤT BẠI!</h2>
+            </div>
+            <a href="/user/index.html#!/biglobby/naptien" class="btn btn-success">OK</a>			
+			`;
+		}
+		ketqua.innerHTML = innerResult;
+	}
+	</script>
+
+</body>
+
+<!-- Mirrored from social.webestica.com/albums.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Nov 2022 05:50:03 GMT -->
+
+</html>

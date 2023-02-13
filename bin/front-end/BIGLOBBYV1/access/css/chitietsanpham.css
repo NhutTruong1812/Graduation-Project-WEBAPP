@@ -1,0 +1,178 @@
+.text__title_chitiet {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 42px;
+    /* identical to box height */
+    display: flex;
+    align-items: flex-end;
+    color: #62686D;
+}
+
+.icon__more {
+    font-size: 30px;
+    color: #A5B4CB;
+}
+
+.name__product {
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 52px;
+    /* identical to box height */
+    display: flex;
+    align-items: flex-end;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+}
+
+.hagtag {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 23px;
+    /* identical to box height */
+    float: left;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #62686D;
+}
+
+.name__price {
+    height: 45px;
+    line-height: 45px;
+    font-weight: 800;
+    font-size: 35px;
+    line-height: 47px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.01em;
+    color: #4B7E7D;
+}
+
+.text__name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    height: 45px;
+    line-height: 45px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    color: #62686D;
+    float: left;
+}
+
+.name__tag {
+    height: 45px;
+    line-height: 45px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    background: #F9F9F9;
+    border: 2px solid #CFCFCF;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #62686D;
+}
+
+.input__amout {
+    text-align: center;
+    width: 80px;
+    height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 0 !important;
+    background: #F9F9F9;
+    border: 2px solid #CFCFCF;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.btn__button {
+    float: right;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-left: 1%;
+    margin-right: 1%;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -1.17714px 2.35429px 9.41714px rgba(34, 240, 141, 0.3);
+    border-radius: 35.3143px;
+}
+
+.list__conment {
+    list-style: none;
+    height: 410px;
+}
+
+.avatar__comment {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+
+.list__rep__comment {
+    list-style: none;
+    list-style-position: outside;
+    list-style-image: url('fa-thin fa-arrow-turn-down-right');
+}
+
+.container__content__commnet {
+    position: absolute;
+    top: 0;
+}
+
+.container__comment {
+    position: relative;
+    height: 722px !important;
+}
+
+.footer__comment {
+    position: relative;
+    display: block;
+    bottom: 0 !important;
+}
+
+.text__contact {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    margin-left: 2%;
+    margin-right: 2%;
+    color: #AAAFC2;
+}
+
+.text__button,
+.text__button:hover {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 130.5%;
+    text-align: justify;
+    color: #62686D;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.input__comment {
+    width: 100%;
+    border-radius: 100px !important;
+}
+
+.avt__comment {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: 5px solid rgba(54, 161, 160, 0.5);
+}

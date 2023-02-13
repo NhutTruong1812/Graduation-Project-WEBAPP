@@ -1,0 +1,282 @@
+        <!-- Main content START -->
+        <div class="col-md-8 col-lg-6 vstack gap-4">
+          <!-- Card START -->
+          <div class="card">
+            <a href="#!" role="button" class="btn btn-sm btn-loader btn-primary-soft m-1" data-bs-toggle="button"
+              aria-pressed="true" style="width: fit-content;">
+              <span class="load-text"> Nạp xu </span>
+              <div class="load-icon">
+                <div class="spinner-grow spinner-grow-sm" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- Card END -->
+
+          <!-- Card START -->
+          <div class="card">
+            <div class="card-header border-0 pb-0">
+              <h5 class="card-title"> Quản lý quảng cáo </h5>
+            </div>
+
+            <!-- Card body START -->
+            <div class="card-body pt-0">
+              <!-- Album Tab content START -->
+              <div class="tab-content mb-0 pt-0 pb-0">
+                <!-- Card Connections START -->
+                <div class="card">
+                  <div class="card-header border-0 pb-0">
+                    <h5 class="card-title"> Sản phẩm được quảng cáo | 5/10 </h5>
+                    <p>Sản phẩm quảng cáo của bạn sẽ thường xuyên xuất hiện trên trang chủ website BLB</p>
+                  </div>
+
+                  <!-- Card body START -->
+                  <div class="card-body pt-0">
+                    <div class="nav-item w-100 mt-0">
+                      <form class="rounded position-relative">
+                        <input class="form-control ps-5 bg-light" type="search" placeholder="Search..." aria-label="Search">
+                        <button class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
+                          type="submit"><i class="bi bi-search fs-5"> </i></button>
+                      </form>
+                    </div>
+                    <div class="table-responsive-md border-0">
+                        <!-- Table START -->
+                        <table class="table align-middle p-4 mb-0">
+                        <!-- Table head -->
+                        <thead class="border-0">
+                          <tr class="border-top-0 table-border-color">
+                            <th scope="col"> STT </th>
+                            <th scope="col"> ID </th>
+                            <th scope="col"> Tên SP </th>
+                            <th scope="col"> GIÁ x </th>
+                            <th scope="col"> Số lượng </th>
+                            <th scope="col"> Danh mục </th>
+                            <th scope="col"> Mô tả </th>
+                            <th scope="col"> Thao tác </th>
+                        </thead>
+                        <!-- Table body START -->
+                        <tbody class="border-top-0">
+                          <!-- Table item -->
+                          <tr>
+                            <td> <span class="text-body"> 1 </span> </td>
+                            <td> <span class="text-body"> SP1 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm	 </span> </td>
+                            <td> <span class="text-body"> 500000 </span> </td>
+                            <td> <span class="text-body"> 10 </span> </td>
+                            <td> <span class="text-body"> Đồ điện gia dụng	 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm này nấu được cả cháo...	 </span> </td>
+                            <td> <span class="text-body">
+                              <div class="me-3 mb-3 mb-md-0">
+                                <div class="ms-md-auto d-flex">
+                                  <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Hủy </button>
+                                </div>
+                              </div>
+                            </span> </td>
+                          </tr>
+                          <tr>
+                            <td> <span class="text-body"> 1 </span> </td>
+                            <td> <span class="text-body"> SP1 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm	 </span> </td>
+                            <td> <span class="text-body"> 500000 </span> </td>
+                            <td> <span class="text-body"> 10 </span> </td>
+                            <td> <span class="text-body"> Đồ điện gia dụng	 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm này nấu được cả cháo...	 </span> </td>
+                            <td> <span class="text-body">
+                              <div class="me-3 mb-3 mb-md-0">
+                                <div class="ms-md-auto d-flex">
+                                  <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Hủy </button>
+                                </div>
+                              </div>
+                            </span> </td>
+                          </tr>
+                          <tr>
+                            <td> <span class="text-body"> 1 </span> </td>
+                            <td> <span class="text-body"> SP1 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm	 </span> </td>
+                            <td> <span class="text-body"> 500000 </span> </td>
+                            <td> <span class="text-body"> 10 </span> </td>
+                            <td> <span class="text-body"> Đồ điện gia dụng	 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm này nấu được cả cháo...	 </span> </td>
+                            <td> <span class="text-body">
+                              <div class="me-3 mb-3 mb-md-0">
+                                <div class="ms-md-auto d-flex">
+                                  <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Hủy </button>
+                                </div>
+                              </div>
+                            </span> </td>
+                          </tr>
+                          <tr>
+                            <td> <span class="text-body"> 1 </span> </td>
+                            <td> <span class="text-body"> SP1 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm	 </span> </td>
+                            <td> <span class="text-body"> 500000 </span> </td>
+                            <td> <span class="text-body"> 10 </span> </td>
+                            <td> <span class="text-body"> Đồ điện gia dụng	 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm này nấu được cả cháo...	 </span> </td>
+                            <td> <span class="text-body">
+                              <div class="me-3 mb-3 mb-md-0">
+                                <div class="ms-md-auto d-flex">
+                                  <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Hủy </button>
+                                </div>
+                              </div>
+                            </span> </td>
+                          </tr> 
+                          <tr>
+                            <td> <span class="text-body"> 1 </span> </td>
+                            <td> <span class="text-body"> SP1 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm	 </span> </td>
+                            <td> <span class="text-body"> 500000 </span> </td>
+                            <td> <span class="text-body"> 10 </span> </td>
+                            <td> <span class="text-body"> Đồ điện gia dụng	 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm này nấu được cả cháo...	 </span> </td>
+                            <td> <span class="text-body">
+                              <div class="me-3 mb-3 mb-md-0">
+                                <div class="ms-md-auto d-flex">
+                                  <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Hủy </button>
+                                </div>
+                              </div>
+                            </span> </td>
+                          </tr>
+
+                        </tbody>
+                        <!-- Table body END -->
+                        </table>
+                        <!-- Table END -->
+                    </div>
+                  </div>
+                  <!-- Card body END -->
+                </div>
+                <!-- Card Connections END -->
+
+                <!-- Card Connections START -->
+                <div class="card mt-4">
+                  <div class="card-header border-0 pb-0">
+                    <h5 class="card-title"> Danh sách sản phẩm </h5>
+                  </div>
+
+                  <!-- Card body START -->
+                  <div class="card-body pt-0">
+                    <div class="nav-item w-100 mt-0">
+                      <form class="rounded position-relative">
+                        <input class="form-control ps-5 bg-light" type="search" placeholder="Search..." aria-label="Search">
+                        <button class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
+                          type="submit"><i class="bi bi-search fs-5"> </i></button>
+                      </form>
+                    </div>
+                    <div class="table-responsive-md border-0">
+                        <!-- Table START -->
+                        <table class="table align-middle p-4 mb-0">
+                        <!-- Table head -->
+                        <thead class="border-0">
+                          <tr class="border-top-0 table-border-color">
+                            <th scope="col"> STT </th>
+                            <th scope="col"> ID </th>
+                            <th scope="col"> Tên SP </th>
+                            <th scope="col"> GIÁ x </th>
+                            <th scope="col"> Số lượng </th>
+                            <th scope="col"> Danh mục </th>
+                            <th scope="col"> Mô tả </th>
+                            <th scope="col"> Thao tác </th>
+                        </thead>
+                        <!-- Table body START -->
+                        <tbody class="border-top-0">
+                          <!-- Table item -->
+                          <tr>
+                            <td> <span class="text-body"> 1 </span> </td>
+                            <td> <span class="text-body"> SP1 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm	 </span> </td>
+                            <td> <span class="text-body"> 500000 </span> </td>
+                            <td> <span class="text-body"> 10 </span> </td>
+                            <td> <span class="text-body"> Đồ điện gia dụng	 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm này nấu được cả cháo...	 </span> </td>
+                            <td> <span class="text-body">
+                              <div class="me-3 mb-3 mb-md-0">
+                                <div class="ms-md-auto d-flex">
+                                  <button class="btn btn-success-soft btn-sm mb-0 me-2"> Quảng cáo </button>
+                                </div>
+                              </div>
+                            </span> </td>
+                          </tr>
+                          <tr>
+                            <td> <span class="text-body"> 1 </span> </td>
+                            <td> <span class="text-body"> SP1 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm	 </span> </td>
+                            <td> <span class="text-body"> 500000 </span> </td>
+                            <td> <span class="text-body"> 10 </span> </td>
+                            <td> <span class="text-body"> Đồ điện gia dụng	 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm này nấu được cả cháo...	 </span> </td>
+                            <td> <span class="text-body">
+                              <div class="me-3 mb-3 mb-md-0">
+                                <div class="ms-md-auto d-flex">
+                                  <button class="btn btn-success-soft btn-sm mb-0 me-2"> Quảng cáo </button>
+                                </div>
+                              </div>
+                            </span> </td>
+                          </tr>
+                          <tr>
+                            <td> <span class="text-body"> 1 </span> </td>
+                            <td> <span class="text-body"> SP1 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm	 </span> </td>
+                            <td> <span class="text-body"> 500000 </span> </td>
+                            <td> <span class="text-body"> 10 </span> </td>
+                            <td> <span class="text-body"> Đồ điện gia dụng	 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm này nấu được cả cháo...	 </span> </td>
+                            <td> <span class="text-body">
+                              <div class="me-3 mb-3 mb-md-0">
+                                <div class="ms-md-auto d-flex">
+                                  <button class="btn btn-success-soft btn-sm mb-0 me-2"> Quảng cáo </button>
+                                </div>
+                              </div>
+                            </span> </td>
+                          </tr>
+                          <tr>
+                            <td> <span class="text-body"> 1 </span> </td>
+                            <td> <span class="text-body"> SP1 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm	 </span> </td>
+                            <td> <span class="text-body"> 500000 </span> </td>
+                            <td> <span class="text-body"> 10 </span> </td>
+                            <td> <span class="text-body"> Đồ điện gia dụng	 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm này nấu được cả cháo...	 </span> </td>
+                            <td> <span class="text-body">
+                              <div class="me-3 mb-3 mb-md-0">
+                                <div class="ms-md-auto d-flex">
+                                  <button class="btn btn-success-soft btn-sm mb-0 me-2"> Quảng cáo </button>
+                                </div>
+                              </div>
+                            </span> </td>
+                          </tr> 
+                          <tr>
+                            <td> <span class="text-body"> 1 </span> </td>
+                            <td> <span class="text-body"> SP1 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm	 </span> </td>
+                            <td> <span class="text-body"> 500000 </span> </td>
+                            <td> <span class="text-body"> 10 </span> </td>
+                            <td> <span class="text-body"> Đồ điện gia dụng	 </span> </td>
+                            <td> <span class="text-body"> Nồi cơm này nấu được cả cháo...	 </span> </td>
+                            <td> <span class="text-body">
+                              <div class="me-3 mb-3 mb-md-0">
+                                <div class="ms-md-auto d-flex">
+                                  <button class="btn btn-success-soft btn-sm mb-0 me-2"> Quảng cáo </button>
+                                </div>
+                              </div>
+                            </span> </td>
+                          </tr>
+
+                        </tbody>
+                        <!-- Table body END -->
+                        </table>
+                        <!-- Table END -->
+                    </div>
+                  </div>
+                  <!-- Card body END -->
+                </div>
+                <!-- Card Connections END -->
+              </div>
+
+              <!-- Album Tab content END -->
+            </div>
+            <!-- Card body END -->
+          </div>
+          <!-- Card END -->
+        </div>

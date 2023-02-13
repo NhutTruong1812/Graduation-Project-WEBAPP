@@ -1,0 +1,154 @@
+  <div id="message" style="position: fixed; right:0; z-index: 5000;">
+	<div class="alert alert-{{ResponseModel.ResponseType}}" alert-dismissible ng-show="ResponseModel.ResponseAlert">
+		<a href="" class="close" ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+		<strong> {{ResponseModel.ResponseMessage}} </strong>
+	</div>
+</div>
+  <!-- **************** MAIN CONTENT START **************** -->
+  <main>
+    <!-- Container START -->
+    <div class="container">
+      <div class="row g-4">
+
+          <!-- Sidenav START -->
+          <div class="col-lg-3">
+ 				<div ng-include="'/layout/user/left/_menu_left_index.html'"></div>
+          </div>
+          <!-- Sidenav END -->
+
+        <!-- Main content START -->
+        <div class="col-md-8 col-lg-6 vstack gap-4">
+          <!-- Card START -->
+          <div class="card">
+            <!-- Card body START -->
+            <div   class="card-body">
+              <div class="card-header border-0 pb-0">
+                <h5 class="card-title">Quản lý đơn mua</h5>
+              </div>
+              <!-- Tab nav line START -->
+              <ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+                <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1" ng-click="changeTabPanelLink(8)"> Tất cả </a> </li>
+                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2" ng-click="changeTabPanelLink(11)"> Thành công </a> </li>
+                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-3" ng-click="changeTabPanelLink(10)"> Đang giao dịch </a> </li>
+                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-4" ng-click="changeTabPanelLink(9)"> Chờ xác nhận </a> </li>
+                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-5" ng-click="changeTabPanelLink(12)"> Đã hủy </a> </li>
+              </ul>
+              <!-- Tab nav line START -->
+
+              <div class="nav-item w-100 mt-4">
+                <form class="rounded position-relative">
+                  <input class="form-control ps-5 bg-light" type="search" placeholder="Tìm kiếm theo tên người mua..." aria-label="Search" id="keywords"
+									ng-keypress="$event.keyCode == 13 && goSearchA($event)">
+                  <button class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
+                    type="submit"><i class="bi bi-search fs-5"> </i></button>
+                </form>
+              </div>
+
+              <!-- Album Tab content START -->
+              <div class="tab-content mb-0 pb-0">
+                <!-- Card Connections START -->
+                <div class="card">
+                  <!-- Card body START -->
+                  <div class="card-body">
+
+                    <div class="table-responsive-md border-0">
+                      <!-- Table START -->
+                      <table class="table align-middle p-4 mb-0">
+                        <!-- Table head -->
+                        <thead class="border-0">
+                          <tr class="border-top-0 table-border-color">
+                            <th scope="col" class="col__green">HD</th>
+                            <th scope="col" class="col__green">Ngày tạo</th>
+                            <th scope="col" class="col__green">Tổng tiền</th>
+                            <th scope="col" class="col__green">Cửa hàng</th>
+                            <th scope="col" class="col__green">Trạng thái</th>
+                            <th scope="col" class="col__green">Thao tác</th>
+                          </tr>
+                        </thead>
+                        <!-- Table body START -->
+                        <tbody class="border-top-0">
+                          <!-- Table item -->
+                          <tr ng-repeat="item in historybuy" class="qrmua">
+                            <!-- Table data -->
+                            <td class="row__text qrmua2" qrdata="{{item.order.id}}">{{item.order.id}}</td>
+                            <td class="row__text qrmua3" qrdata="{{item.order.buyer.id}}">{{item.order.addDate| date:'dd-MM-yyyy'}}</td>
+                            <td class="row__text" ng-init="x = currencyFormat(item.sumPrice)">{{x}}</td>
+                            <td class="row__text">{{item.order.saler.fullname}}</td>
+                            <td ng-if="item.order.status.status == 'THANHCONG'" class="row__text text-success qrmua4">Thành công</td>
+                            <td ng-if="item.order.status.status == 'DANGXACNHAN'" class="row__text text-warning qrmua4">Chờ xác nhận</td>
+                            <td ng-if="item.order.status.status == 'DONGYGIAODICH'" class="row__text text-primary qrmua4">Đang giao dịch</td>
+                            <td ng-if="item.order.status.status == 'HUYBAN' || item.order.status.status == 'HUYMUA'" class="row__text text-danger qrmua4">Đã hủy</td>
+                            <td> <span class="text-body">
+                              <div class="me-3 mb-3 mb-md-0">
+                                <div class="ms-md-auto d-flex">
+                                 <a href="#!biglobby/chitietdonhang"><button ng-click="showorderdetail(item)" class="btn btn-primary-soft btn-sm mb-0 me-2"> xem </button></a> 
+                                 <button ng-if="item.order.status.id == 5" ng-click="updateStatus(item)" class="btn btn-danger-soft btn-sm mb-0 "> Hủy </button>
+                                 
+                                <button title="QUÉT QR XÁC NHẬN..." ng-if="item.order.status.status == 'DONGYGIAODICH'" hreftemp="/demo/xacnhanqr?qrdata=" class="qrapi btn btn-primary" onclick="createSCAN(this, 'full-cvr')">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
+  <path d="M2 2h2v2H2V2Z"/>
+  <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>
+  <path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z"/>
+  <path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"/>
+  <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"/>
+</svg>
+								</button>
+                                </div>
+                              </div>
+                            </span> </td>
+                          </tr>
+
+                        </tbody>
+                        <!-- Table body END -->
+                      </table>
+                      <!-- Table END -->
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-4">
+                      <!-- Load more button START -->
+                      <a href="#!" ng-click="goPage(APage-1)" role="button" class="btn btn-sm btn-loader btn-primary-soft m-1"
+                        data-bs-toggle="button" aria-pressed="true" style="width: fit-content;">
+                        <i class="fa-sharp fa-solid fa-caret-left icon__page"></i>
+                      </a>
+                      <span ng-repeat="pg in listButton">
+                      	<a href="#!" role="button" class="btn btn-sm btn-loader btn-primary-soft m-1 {{pg===APage?'activePage':''}} {{pg}}"
+	                        data-bs-toggle="button" aria-pressed="true" style="width: fit-content;" ng-click="goPage(pg)">
+	                        {{pg}}
+	                      </a>
+                      </span>
+                      
+                      <a href="#!" ng-click="goPage(APage+1)" role="button" class="btn btn-sm btn-loader btn-primary-soft m-1"
+                        data-bs-toggle="button" aria-pressed="true" style="width: fit-content;">
+                        <i class="fa-sharp fa-solid fa-caret-right icon__page"></i>
+                      </a>
+                      <!-- Load more button END -->
+                    </div>
+                  </div>
+                  <!-- Card body END -->
+                </div>
+                <!-- Card Connections END -->
+              </div>
+
+              <!-- Album Tab content END -->
+            </div>
+            <!-- Card body END -->
+          </div>
+          <!-- Card END -->
+        </div>
+      </div> <!-- Row END -->
+    </div>
+    <!-- Container END -->
+        <div class="wrapfull-cvr" style="display: none;">
+            <div class="onfull-cvr">
+                <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;" class="p-4">
+                    <h3>QUÉT QR XÁC NHẬN</h3>
+                    <div class="p-4">
+                        <span id="demo" apitemp=""></span>
+                    </div>
+                    <div style="width: 500px" id="reader"></div>
+                </div>
+            </div>
+            <div class="full-cvr full-cvr2" onclick="hiddenFullcver(this)"> </div>
+        </div>
+  </main>
+  <!-- **************** MAIN CONTENT END **************** -->

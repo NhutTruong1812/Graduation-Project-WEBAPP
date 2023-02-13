@@ -1,0 +1,159 @@
+<div id="message" style="position: fixed; right:0; z-index: 5000;">
+	<div class="alert alert-{{ResponseModel.ResponseType}}" alert-dismissible ng-show="ResponseModel.ResponseAlert">
+		<a href="" class="close" ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+		<strong> {{ResponseModel.ResponseMessage}} </strong>
+	</div>
+</div>
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+	<!-- Container START -->
+	<div class="container">
+		<div class="row g-4">
+
+			<!-- Sidenav START -->
+			<div class="col-lg-3">
+				<div ng-include="'/layout/user/left/_menu_left_index.html'"></div>
+			</div>
+			<!-- Sidenav END -->
+
+	<!-- Main content START -->
+			<div class="col-md-8 col-lg-6 vstack gap-4">
+				<!-- Card START -->
+				<div class="card">
+					<a href="#!/biglobby/lichsumua" role="button" class="btn btn-sm btn-primary-soft m-1"
+						style="width: fit-content;">
+						<span class="load-text">Trở lại trang Lịch sử mua</span>
+					</a>
+				</div>
+				<!-- Card END -->
+
+				<!-- Card START -->
+				<div class="card">
+					<div class="card-header border-0 pb-0">
+						<h5 class="card-title">Chi tiết đơn hàng mua</h5>
+					</div>
+
+					<!-- Card body START -->
+					<div class="card-body pt-0 pb-0">
+						<div class="table-responsive-md border-0">
+							<!-- Table START -->
+							<table class="table align-middle p-4 mb-0">
+
+								<!-- Table body START -->
+								<tbody class="border-top-0">
+									<!-- Table item -->
+									<tr>
+										<!-- Table data -->
+										<td> <span class="text-body"> Mã hóa đơn: </span> </td>
+										<td> <span class="text-body"> {{form.order.id}} </span> </td>
+										<td> <span class="text-body"> Địa chỉ nhận hàng: </span> </td>
+										<td> <span class="text-body"> {{form.order.address}} </span> </td>
+									</tr>
+									<tr>
+										<!-- Table data -->
+										<td> <span class="text-body"> Người Nhận: </span> </td>
+										<td> <span class="text-body"> {{form.order.buyer.fullname}} </span> </td>
+										<td> <span class="text-body"> Ghi chú: </span> </td>
+										<td> <span class="text-body"> {{form.order.noteBuyer}} </span> </td>
+									</tr>
+									<tr>
+										<!-- Table data -->
+										<td> <span class="text-body"> Số điện thoại: </span> </td>
+										<td> <span class="text-body"> {{form.order.phonenum}} </span> </td>
+										<td> <span class="text-body"> Trạng thái: </span> </td>
+										<td> <span class="text-body">
+												<button ng-if="form.order.status.status == 'THANHCONG'"
+													class="btn btn-success btn-sm mb-0">Thành công</button>
+												<button ng-if="form.order.status.status == 'DONGYGIAODICH'"
+													class="btn btn-primary btn-sm mb-0">Đang giao dịch</button>
+												<button ng-if="form.order.status.status == 'DANGXACNHAN'"
+													class="btn btn-warning btn-sm mb-0">Chờ xác nhận</button>
+												<button
+													ng-if="form.order.status.status == 'HUYBAN' || form.order.status.status == 'HUYMUA'"
+													class="btn btn-danger btn-sm mb-0">Đã hủy</button>
+												<button ng-if="form.order.status.status == 'DANGXACNHAN'"
+													ng-click="updateStatus(form.order)"
+													class="btn btn-danger btn-sm mb-0">HỦY
+													ĐƠN</button></span> </td>
+						</div>
+						</span>
+						</td>
+
+						</tr>
+
+						</tbody>
+						<!-- Table body END -->
+						</table>
+						<!-- Table END -->
+					</div>
+				</div>
+				<!-- Card body END -->
+				<!-- Card body START -->
+				<div class="card-body">
+					<!-- Album Tab content START -->
+					<div class="tab-content mb-0 pt-0 pb-0">
+						<!-- Card Connections START -->
+						<div class="card">
+							<div class="card-header border-0 pb-0">
+								<h5 class="card-title"> Sản phẩm đã bán</h5>
+							</div>
+
+							<!-- Card body START -->
+							<div class="card-body pt-0">
+								<div class="table-responsive-md border-0">
+									<!-- Table START -->
+									<table class="table align-middle p-4 mb-0">
+
+										<!-- Table body START -->
+										<tbody class="border-top-0">
+											<!-- Table item -->
+											<tr ng-repeat="itemOrderdetails in items">
+												<!-- Table data -->
+												<td> <span class="text-body">
+														<div class="avatar me-3 mb-3 mb-md-0">
+															<a href="#!">
+																<img class="avatar-img rounded-circle" ng-src="{{'../'+itemOrderdetails.product.banner}}">
+															</a>
+														</div>
+													</span> </td>
+												<td> <span class="text-body"> {{itemOrderdetails.product.product}}
+													</span> </td>
+												<td> <span class="text-body">
+														{{itemOrderdetails.product.category.category}} </span> </td>
+												<td> <span class="text-body"> {{itemOrderdetails.price | currency}}
+													</span> </td>
+												<td> <span class="text-body"> Số lượng: {{itemOrderdetails.quantity}}
+													</span> </td>
+											</tr>
+											<tr>
+												<!-- Table data -->
+												<td> <span class="text-body"> </span> </td>
+												<td> <span class="text-body"> </span> </td>
+												<td> <span class="text-body"> </span> </td>
+												<td> <span class="text-body"> </span> </td>
+												<td> <span class="text-body"> Tổng: {{sumPrice}} </span> </td>
+											</tr>
+
+										</tbody>
+										<!-- Table body END -->
+									</table>
+									<!-- Table END -->
+								</div>
+							</div>
+							<!-- Card body END -->
+						</div>
+						<!-- Card Connections END -->
+					</div>
+
+					<!-- Album Tab content END -->
+				</div>
+				<!-- Card body END -->
+			</div>
+			<!-- Card END -->
+		</div>
+	</div> <!-- Row END -->
+	</div>
+	<!-- Container END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->

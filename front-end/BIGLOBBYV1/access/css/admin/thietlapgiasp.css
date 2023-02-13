@@ -1,0 +1,78 @@
+.main__center__container #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.main__center__container  #customers td, #customers th {
+    padding: 8px;
+}
+  
+
+  
+.main__center__container #customers tr:hover {
+    background-color: #ddd;
+}
+  
+.main__center__container #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: white;
+    color: #4B7E7D;
+}
+
+.main__center__container #customers td{
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #62686D;
+}
+
+.main__center__container #customers td .customers__table__btn__xem{
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 26px;
+    letter-spacing: -0.02em;
+    color: #EE884E;
+}
+
+.main__center__container .line__table{
+    position: absolute;
+    width: 1000px;
+    height: 2px;
+    top: 23%;
+    right: 8%;
+    background: linear-gradient(90deg, #FFFFFF 0%, #DBDBDB 49.1%, #FFFFFF 100%);
+    border-radius: 5px;
+}
+
+.main__center__receive a:hover{
+    text-decoration: none;
+    color: #4B7E7D;
+}
+
+.main__center__receive a{
+    margin-left: 80%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #4B7E7D;
+}
+
+.main__center__container .customers__table__btn__sua{
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 26px;
+    letter-spacing: -0.02em;
+    color: #3A94A8;
+    margin-left: 5%;
+}

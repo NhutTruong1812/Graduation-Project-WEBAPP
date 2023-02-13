@@ -1,0 +1,109 @@
+<!-- Sidenav START -->
+
+<!-- Advanced filter responsive toggler START -->
+<div class="d-flex align-items-center d-lg-none">
+	<button class="border-0 bg-transparent" type="button"
+		data-bs-toggle="offcanvas" data-bs-target="#offcanvasSideNavbar"
+		aria-controls="offcanvasSideNavbar">
+		<i class="btn btn-primary fw-bold fa-solid fa-sliders-h"></i> <span
+			class="h6 mb-0 fw-bold d-lg-none ms-2">My profile</span>
+	</button>
+</div>
+<!-- Advanced filter responsive toggler END -->
+
+<!-- Navbar START-->
+<nav class="navbar navbar-expand-lg mx-0">
+	<div class="offcanvas offcanvas-start" tabindex="-1"
+		id="offcanvasSideNavbar">
+		<!-- Offcanvas header -->
+		<div class="offcanvas-header">
+			<button type="button" class="btn-close text-reset ms-auto"
+				data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+
+		<!-- Offcanvas body -->
+		<div class="offcanvas-body d-block px-2 px-lg-0">
+			<!-- Card START -->
+			<div class="card overflow-hidden">
+				<!-- Cover image -->
+				<div class="h-50px"
+					style="background-image: url(assets/images/bg/01.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+				<!-- Card body START -->
+				<div class="card-body pt-0">
+					<div class="text-center">
+						<!-- Avatar -->
+						<div class="avatar avatar-lg mt-n5 mb-3">
+							<a href="#!"><img
+								class="avatar-img rounded border border-white border-3"
+								src="{{'../'+userLogin.avatar}}" alt=""></a>
+						</div>
+						<!-- Info -->
+						<h5 class="mb-0">
+							<a href="">{{userLogin.fullname}}</a>
+						</h5>
+						<small>Số dư: {{currencyBcoinFormat(myBcoin.coinnum)}} Bcoin</small>
+						<li class="nav-item xembaidang"><a class="nav-link"
+							href="#!biglobby/xembaidangcuahangkhac"> <span>Xem bài
+									đăng cửa hàng khác </span></a></li>
+						<li class="nav-item xembaidang"><a class="nav-link"
+							href="#!biglobby/xemsanphamcuahangkhac"> <span>Xem sản phẩm
+									cửa hàng </span></a></li>
+					</div>
+
+					<!-- Divider -->
+					<hr>
+
+					<!-- Side Nav START -->
+					<ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!biglobby/baidang"> <img class="me-2 h-20px fa-fw" src="assets/images/icon/post.png" alt=""><span>Bài
+									đăng </span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!biglobby/giohang"> <img class="me-2 h-20px fa-fw" src="assets/images/icon/carts.png" alt=""><span>Giỏ
+									hàng </span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!biglobby/lichsumua"> <img class="me-2 h-20px fa-fw" src="assets/images/icon/hirtorybuy.png" alt=""><span>Lịch
+									sử mua </span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!biglobby/sanphamyeuthich"> <img class="me-2 h-20px fa-fw" src="assets/images/icon/new-product.png" alt=""><span>Sản
+									phẩm yêu thích </span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!biglobby/quanlyhoadon"> <img class="me-2 h-20px fa-fw" src="assets/images/icon/inventory-management.png" alt=""><span>Quản
+									lý đơn </span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!biglobby/quanlysanpham"> <img class="me-2 h-20px fa-fw" src="assets/images/icon/features.png" alt=""><span>Quản
+									lý sản phẩm </span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!biglobby/quanlyquangcao"> <img class="me-2 h-20px fa-fw" src="assets/images/icon/promotion.png" alt=""><span>Quản
+									lý quảng cáo </span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!biglobby/quanlythongke"> <img class="me-2 h-20px fa-fw" src="assets/images/icon/analytics.png" alt=""><span>Thống
+									kê </span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!biglobby/hotro">
+                                <img class="me-2 h-20px fa-fw" src="assets/images/icon/technical-support.png" alt=""><span>Hỗ
+									trợ </span>
+                            </a>
+                        </li>
+                    </ul>
+					<!-- Side Nav END -->
+				</div>
+				<!-- Card body END -->
+			</div>
+			<!-- Card END -->
+
+
+		</div>
+	</div>
+</nav>
+<!-- Navbar END-->
+
+<!-- Sidenav END -->

@@ -1,0 +1,32 @@
+.cancel__btn{
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #EF6565 17.04%, #C92C2C 100%);
+    box-shadow: -1.17714px 2.35429px 9.41714px rgba(240, 34, 34, 0.3);
+    border-radius: 35.3143px;;
+}
+
+.warning__btn{
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #FFD27A 17.04%, #FFB800 100%);
+    box-shadow: -1.17714px 2.35429px 9.41714px rgba(240, 182, 34, 0.3);
+    border-radius: 35.3143px;
+}
+
+.name__label{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px; 
+    letter-spacing: -0.02em; 
+    color: #95979D;
+}
+
+.name__value{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 26px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.02em;
+
+    color: #4B7E7D;
+}

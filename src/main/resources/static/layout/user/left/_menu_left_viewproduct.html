@@ -1,0 +1,95 @@
+<!-- Sidenav START -->
+
+
+<!-- Advanced filter responsive toggler START -->
+<div class="d-flex align-items-center d-lg-none">
+    <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+		<i class="btn btn-primary fw-bold fa-solid fa-sliders-h"></i> <span
+			class="h6 mb-0 fw-bold d-lg-none ms-2">Lộc</span>
+	</button>
+</div>
+
+<div class="d-flex align-items-center d-lg-none">
+    <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSideNavbarzz" aria-controls="offcanvasSideNavbar">
+		<i class="btn btn-primary fw-bold bi bi-info-circle"></i> <span class="h6 mb-0 fw-bold d-lg-none ms-2">Thông
+			tin</span>
+	</button>
+</div>
+<!-- Advanced filter responsive toggler END -->
+
+<!-- Navbar START-->
+<nav class="navbar navbar-expand-lg mx-0">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSideNavbar">
+        <!-- Offcanvas header -->
+        <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <!-- Offcanvas body -->
+        <div class="offcanvas-body d-block px-2 px-lg-0">
+            <!-- Card START -->
+            <div class="card overflow-hidden">
+                <!-- Card body START -->
+                <div class="card-body pt-0">
+                    <div class="text-center">
+                        <!-- Info -->
+                        <h5 class="mb-0 header__title">
+                            <a href="#!biglobby/cuahang">Cửa hàng BigLobby</a>
+                        </h5>
+                        <li class="nav-item xembaidang">
+                            <a class="nav-link" href="#!biglobby/xembaidangcuahangkhac"> <span>Xem bài
+									đăng cửa hàng khác </span></a>
+                        </li>
+                        <li class="nav-item xembaidang">
+                            <a class="nav-link" href="./xemsanphamcuahangkhac"> <span>Xem sản phẩm
+									cửa hàng </span></a>
+                        </li>
+                        <div class="col-md-9 header__search">
+                            <input placeholder="Tìm kiếm Biglobby..." class="form-control ps-5" style="width: 130%;" type="text" name="search" id="search" ng-model="fr.keySearch">
+                        </div>
+                    </div>
+                    <!-- Lọc theo giá -->
+                    <li class="nav-item filter__price mb-2"><span>Lọc theo
+							giá</span>
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label">Từ</label> <input type="text" ng-model="fr.fromPrice" class="form-control">
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Đến</label> <input type="text" ng-model="fr.toPrice" class="form-control">
+                            </div>
+                        </div>
+                    </li>
+                    <button type="button" class="btn__filter" ng-click="goFilter()">Áp dụng</button>
+                    <hr>
+                    <li class="nav-item filter__price"><span>Lọc theo danh mục</span>
+                        <div class="row">
+                            <div class="col-12" ng-repeat="cate in loadCategory">
+                                <input type="checkbox" class="form-checkbox" ng-model="categoryselect" ng-checked="exist(cate.category)" ng-click="selectCheckCategory(cate)"> <label class="form-label">{{cate.category}}</label>
+                            </div>
+
+                        </div>
+                    </li>
+                    <hr>
+                    <li class="nav-item filter__price"><span>Lọc theo vị
+							trí</span>
+                        <div class="row">
+                            <div class="col-12" ng-repeat="loca in listLocation">
+                                <input type="checkbox" class="form-checkbox" ng-model="locationselect" ng-checked="existLoca(loca.name)" ng-click="selectCheckLocation(loca)"> <label class="form-label">{{loca.name}}</label>
+                            </div>
+
+                        </div>
+                    </li>
+                    <hr>
+                    <button type="button" class="btn__filter" ng-click="removeFilter()">xóa bộ lộc</button>
+                </div>
+                <!-- Card body END -->
+
+            </div>
+            <!-- Card END -->
+        </div>
+    </div>
+</nav>
+<!-- Navbar END-->
+
+<!-- Sidenav END -->

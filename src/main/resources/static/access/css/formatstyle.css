@@ -1,0 +1,254 @@
+/*  */
+
+.text {
+    color: var(--color__text--gray);
+}
+
+.text__medium {
+    font-size: 18px;
+}
+
+.text__small {
+    font-size: 7px;
+}
+
+.text__title {
+    font-weight: bolder;
+    color: var(--color__text--green);
+    font-size: 20px;
+}
+
+.text__big {
+    font-size: 25px;
+}
+
+.text__interactive {
+    font-size: 12px;
+    margin: 10%;
+}
+
+.main__center__panel__icon {
+    font-size: 18px;
+    line-height: 60px;
+    color: var(--color__text--gray);
+}
+
+.active {
+    color: var(--color__text--green);
+}
+
+.main__left__profile__avatar__img {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(54, 161, 160, 0.5);
+    border-radius: 100%;
+}
+
+.text__green {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: flex-end;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+}
+
+.text__gray--small {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    /* identical to box height */
+    letter-spacing: -0.01em;
+    color: var(--color__text--gray);
+}
+
+.text__gray--large {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.02em;
+    color: var(--color__text--gray);
+}
+
+.list__post__list {
+    list-style: none;
+    width: 100% !important;
+}
+
+.icon__list,
+.icon__page {
+    margin-right: 2%;
+}
+
+.item__list__post__list {
+    width: 100% !important;
+}
+
+
+/*  */
+
+.main__center__product {
+    width: 240px !important;
+    height: 280px;
+    border-radius: 15px !important;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.main__center__product__image {
+    position: absolute;
+    border-radius: 15px !important;
+    height: 150px !important;
+    margin-top: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    z-index: 1;
+}
+
+.main__center__product__title {
+    position: absolute;
+    bottom: 24%;
+    left: 16%;
+    text-align: center;
+    height: 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-shadow: -0.732051px 1.4641px 5.85641px rgba(34, 240, 141, 0.3);
+}
+
+.main__center__product__price {
+    position: absolute;
+    bottom: 16%;
+    left: 29%;
+    height: 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    background: var(--color__text--green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: -0.732051px 1.4641px 5.85641px rgba(34, 240, 141, 0.3);
+}
+
+.container__button__product {
+    position: absolute;
+    bottom: 5%;
+    left: 22%;
+}
+
+.container__product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__center__product__more {
+    position: absolute;
+    right: 20%;
+}
+
+.main__center__product__location {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    /* identical to box height, or 125% */
+    position: absolute;
+    bottom: 7%;
+    left: 26%;
+    text-align: center;
+    color: var(--color__text--gray)
+}
+
+.main__center__product__button {
+    font-size: 22px;
+    color: var(--color__text--gray);
+}
+
+.main__center__product__button a {
+    color: var(--color__text--gray);
+}
+
+.main__center__product__container__image {
+    position: relative;
+    width: 225px;
+    height: 160px;
+}
+
+.button__buy {
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    z-index: 2;
+}
+
+.button__buy a {
+    padding: 1%;
+    position: absolute;
+    width: 50%;
+    bottom: -6%;
+    left: 25%;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    box-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+    border-radius: 30px;
+}
+
+.button__buy a:hover {
+    text-decoration: none;
+    color: white;
+    text-shadow: -1px 2px 8px white;
+}
+
+.start__align {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+/* Xem cửa hàng khác */
+
+.main__left__btn {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    width: 380px !important;
+}
+
+.input__price {
+    width: 60%;
+    background: #F9F9F9;
+    border: 2px solid #E9E9E9;
+    border-radius: 10px;
+}
+
+
+/* chiteiets sp */
+
+.text__gray {
+    color: #62686D !important;
+    font-size: 30px;
+    font-weight: bolder;
+}

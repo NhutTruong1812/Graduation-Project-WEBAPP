@@ -1,0 +1,181 @@
+/* Main left*/
+.main__left__user{
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 253px;
+    list-style: none;
+}
+
+.main__left--height{
+    height: 80px;
+}
+
+.main__left__user li a{
+    text-decoration: none;
+    display: block;
+    line-height: 30px;
+    color: gray;
+    font-weight: bold;
+}
+
+.main__left__user__text{
+    text-align: left;
+}
+
+.main__left__user__text span{ 
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+    background: radial-gradient(113.94% 113.94% at 50.06% -13.94%, #38A3A2 17.04%, #198783 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+text-shadow: -1px 2px 8px rgba(34, 240, 141, 0.3);
+}
+
+.main__left__user__text p{
+    font-size: 12px;
+    color: #B6B6BC;
+}
+
+/* Avatar */
+.main_left--boder{
+    position: absolute;
+    width: 55px;
+    height: 56px;
+    border-radius: 50px;
+    background: #D9D9D9;
+    border: 2px solid rgba(54, 161, 160, 0.5);
+}
+
+.main_left--boder .avatar__logo{
+    width: 51px;
+    height: 53px;
+    text-align: center;
+}
+
+
+.line{ 
+    height: 3px;
+    background: linear-gradient(90deg, #FFFFFF 0%, #DBDBDB 49.1%, #FFFFFF 100%);
+    border-radius: 5px;
+}
+
+/* icon */
+.main__left__user .fa-sharp{
+    font-size: 35px;
+}
+
+.main__left__list__post__text{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.main__left__list--size i{
+    font-size: 22px;
+}
+
+/* main center*/
+.location--color span{
+    color: red;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21px;
+    margin-left: 18%;
+}
+
+.main__center--top{
+    margin-top: 3%;
+}
+
+.money-color span{
+    color: #38A3A2;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21px;
+    margin-left: 50%;
+}
+
+/* main right */
+.main__right__avatar{
+    width: 120px;
+    height: 120px;
+    border-radius: 70px;
+    background: #D9D9D9;
+    border: 5px solid rgba(54, 161, 160, 0.5);
+    margin-bottom: 2%;
+    margin-left: 40%;
+}
+
+.main__right__color{
+    color: #38A3A2;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+    margin-left: 35%;
+}
+
+.main__right__avatar .avatar__logo{
+    width: 110px;
+    height: 110px;
+    text-align: center;
+}
+
+.main__right__follow .fa-sharp{
+    margin-left: 21%;
+}
+
+.main__right__follow .follow--color{
+    color: #38A3A2;
+}
+
+.main__right__follow .message--color{
+    color: #99A0B6;
+}
+
+.main__right__introduce{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 10%;
+}
+
+.main__right__introduce .introduce--color{
+    color: #95979D;
+}
+
+.main__right__introduce a:hover{
+    text-decoration: none;
+    color: #38A3A2;
+}
+
+.main__right__introduce a{
+    color: #000;
+}
+
+.main__right__list{
+    width: 253px;
+    list-style: none;
+    display: block;
+    width: 100%;
+}
+
+.main__right__list li a{
+    text-decoration: none;
+    display: block;
+    line-height: 30px;
+    font-weight: bold;
+    color: #95979D;
+}
+
+.main__right__list li a i{
+    color: #38A3A2;
+    margin-right: 3%;
+}
+
+ 

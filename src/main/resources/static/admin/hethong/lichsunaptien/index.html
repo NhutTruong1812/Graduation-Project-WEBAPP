@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Hệ thống</a></li>
+                                <li class="breadcrumb-item active">Lịch sử nạp tiền</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Lịch sử nạp tiền</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col-xl-8">
+                                    <form
+                                        class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+                                        <div class="col-auto">
+                                            <label for="inputPassword2" class="visually-hidden">Search</label>
+                                            <input type="text" class="form-control" aria-describedby="emailHelp" aria-label="Search" placeholder="Tìm kiếm" type="search" id="keywords" onkeypress="angular.element(this).scope().goSearchA(this)">
+                                        </div>
+                                    </form>
+                                </div><!-- end col-->
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-centered table-nowrap mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Họ tên người nạp</th>
+                                            <th>Số tiền nạp</th>
+                                            <th>Ngày nạp</th>
+                                            <th>Trạng thái</th>
+                                            <th>Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in listBCoinHistory">
+                                            <td><a href="apps-ecommerce-orders-details.html"
+                                                    class="text-body fw-bold">#{{item.id}}</a> </td>
+                                            <td>
+                                                {{item.user.fullname}}
+                                            </td>
+                                            <td>
+                                                <h5><span class="badge badge-info-lighten" ng-init="x = currencyFormat(item.quantity)">{{x}}</span></h5>
+                                            </td>
+                                            <td>
+                                                {{item.coinDate | date:'dd-MM-yyyy'}}
+                                            </td>
+                                            <td>
+                                                <h5><span class="badge badge-success-lighten">{{item.action.action}}</span></h5>
+                                            </td>
+                                            <td>
+                                                <a ng-click="showDetail(item)" href="" data-bs-toggle="modal" data-bs-target="#standard-modal" class="action-icon"> <i
+                                                        class="mdi mdi-eye"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Xem"></i></a>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> <!-- end card-body-->
+                         <!-- Standard modal content -->
+                         <div id="standard-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="standard-modalLabel">Chi tiết lịch sử nạp #1</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="">
+
+                                            <!-- INPUT -->
+                                            <div class="mb-3 position-relative row" id="datepicker1">
+                                                <div class="col-3"><label class="form-label">Họ và tên</label></div>
+                                                <div class="col-9"><input type="text" class="form-control"
+                                                        data-provide="datepicker" data-date-container="#datepicker1" readonly value="{{formBCoinHistory.user.fullname}}"></div>
+                                            </div>
+        
+                                            <!-- INPUT -->
+                                            <div class="mb-3 position-relative row" id="datepicker1">
+                                                <div class="col-3"><label class="form-label">Số tiền nạp</label></div>
+                                                <div class="col-9"><input type="text" class="form-control"
+                                                        data-provide="datepicker" data-date-container="#datepicker1" readonly value="{{formBCoinHistory.quantity}}"></div>
+                                            </div>
+        
+                                            <!-- INPUT -->
+                                            <div class="mb-3 position-relative row" id="datepicker1">
+                                                <div class="col-3"><label class="form-label">BCoin</label></div>
+                                                <div class="col-9"><input type="text" class="form-control"
+                                                        data-provide="datepicker" data-date-container="#datepicker1" readonly value="{{formBCoinHistory.quantity}}"></div>
+                                            </div>
+        
+                                            <!-- INPUT -->
+                                            <div class="mb-3 position-relative row" id="datepicker1">
+                                                <div class="col-3"><label class="form-label">Ngày nạp</label></div>
+                                                <div class="col-9"><input type="text" class="form-control"
+                                                        data-provide="datepicker" data-date-container="#datepicker1" readonly value="{{formBCoinHistory.coinDate | date:'dd-MM-yyyy'}}"></div>
+                                            </div>
+        
+                                            <!-- INPUT -->
+                                            <div class="mb-3 position-relative row" id="datepicker1">
+                                                <div class="col-3"><label class="form-label">Trạng thái</label></div>
+                                                <div class="col-9"><input type="text" class="form-control"
+                                                        data-provide="datepicker" data-date-container="#datepicker1" readonly value="{{formBCoinHistory.action.action}}"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
+                        <div class="col-sm-12 col-md-7 offset-5">
+                            <div class="dataTables_paginate paging_simple_numbers" id="products-datatable_paginate">
+                                <ul class="pagination pagination-rounded">
+                                    <li class="paginate_button page-item previous disabled"
+                                        id="products-datatable_previous" ng-click="goPage(APage-1)"><a href=""
+                                            aria-controls="products-datatable" data-dt-idx="0" tabindex="0"
+                                            class="page-link"><i class="mdi mdi-chevron-left"></i></a></li>
+                                    <li class="paginate_button page-item {{pg===APage?'active':''}} " ng-repeat="pg in listButton" ng-click="goPage(pg)"><a href=""
+                                            aria-controls="products-datatable" data-dt-idx="1" tabindex="0"
+                                            class="page-link">{{pg}}</a></li>
+                                     
+                                    <li class="paginate_button page-item next" id="products-datatable_next" ng-click="goPage(APage+1)"><a
+                                            href="" aria-controls="products-datatable" data-dt-idx="3" tabindex="0"
+                                            class="page-link"><i class="mdi mdi-chevron-right"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+
+            </div>
+
+
+            <!-- container -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->

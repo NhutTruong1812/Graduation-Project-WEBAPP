@@ -1,0 +1,24 @@
+.left__from_input {
+    width: 80px;
+    background: #F9F9F9;
+    border: 2px solid #E9E9E9;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.left__from_text {
+    color: #99A0B6;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.left_checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.reactionHover:hover,
+.like--active,
+.like--active:hover {
+    color: #38A3A2;
+}

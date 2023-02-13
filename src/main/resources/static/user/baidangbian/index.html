@@ -1,0 +1,125 @@
+<div id="message" style="position: fixed; z-index: 5000">
+	<div class="alert alert-{{ResponseModel.ResponseType}}" alert-dismissible ng-show="ResponseModel.ResponseAlert">
+		<a href="" class="close" ng-click="ResponseModel.ResponseAlert = false" aria-label="close">&times;</a>
+		<strong> {{ResponseModel.ResponseMessage}} </strong>
+	</div>
+</div>
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+	<!-- Container START -->
+	<div class="container">
+		<div class="row g-4">
+			<!-- Main content START -->
+			<div class="col-lg-8 mx-auto">
+				<div class="bg-mode p-4">
+					<h1 class="h4 mb-4">Bài đăng đã ẩn</h1>
+					<!-- Blog item START -->
+					<div class="card bg-transparent border-0" ng-repeat="item in hidecardItems">
+						<div class="row g-3">
+							<div class="col-4">
+								<!-- Blog image -->
+								<img class="rounded" src="{{'../'+item.post.banner}}" alt="">
+							</div>
+							<div class="col-8 d-flex justify-content-between">
+								<div>
+									<!-- Blog caption -->
+									<h5><a class="btn-link text-reset fw-bold">{{item.post.title}}</a>
+									</h5>
+									<div class="d-none d-sm-inline-block">
+										<p class="mb-2">{{item.post.content}}</p>
+										<!-- BLog date -->
+										<a class="small text-secondary" href="#!"> <i
+												class="bi bi-calendar-date pe-1"></i>
+											{{item.card.postAt | date: 'dd/MM/yyyy'}}</a>
+									</div>
+								</div>
+								<div>
+									<button class="btn btn-primary" data-bs-toggle="modal"
+										data-bs-target="#confirmRestoreModal">Khôi phục</button>
+								</div>
+
+								<!-- Confirm Restore Post Modal -->
+								<div class="modal fade" id="confirmRestoreModal" tabindex="-1"
+									aria-labelledby="modalLabelCreateFeed" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+										<div class="modal-content">
+											<!-- Modal feed header START -->
+											<div class="modal-header">
+												<h5 class="modal-title" id="modalLabelCreateFeed">Khôi phục bài đăng
+												</h5>
+												<button type="button" class="btn-close" data-bs-dismiss="modal"
+													aria-label="Close"></button>
+											</div>
+											<!-- Modal feed header END -->
+
+											<!-- Modal feed body START -->
+											<div class="modal-body">
+												<h5 class="text-danger">Bạn có chắc muốn khôi phục?</h5>
+												<p>Bài đăng sau khi khôi phục trở lại sẽ có thể xuất hiện trên bảng tin
+													của bạn!</p>
+											</div>
+											<!-- Modal feed body END -->
+
+											<!-- Modal feed footer -->
+											<div class="modal-footer row justify-content-between">
+												<div class="col-lg-5">
+												</div>
+												<!-- Button -->
+												<div class="col-lg-6 text-sm-end">
+													<button type="button" id="btn_restore_close" data-bs-dismiss="modal"
+														aria-label="Close" class="btn btn-secondary-soft me-2">
+														Hủy</button>
+													<button type="button" class="btn btn-danger-soft"
+														ng-click="restorePost(item.id)">Khôi phục
+													</button>
+												</div>
+											</div>
+											<!-- Modal feed footer -->
+
+										</div>
+									</div>
+								</div>
+								<!-- Confirm Restore Post Modal -->
+
+
+							</div>
+						</div>
+						<hr class="my-4">
+					</div>
+					<!-- Blog item END -->
+
+					<div class="d-flex justify-content-center mt-4">
+						<!-- Load more button START -->
+						<a href="#!" ng-click="goPage(APage-1)" role="button"
+							class="btn btn-sm btn-loader btn-primary-soft m-1" data-bs-toggle="button"
+							aria-pressed="true" style="width: fit-content;">
+							<i class="fa-sharp fa-solid fa-caret-left icon__page"></i>
+						</a>
+						<span ng-repeat="pg in listButton">
+							<a href="#!" role="button"
+								class="btn btn-sm btn-loader btn-primary-soft m-1 {{pg===APage?'activePage':''}} {{pg}}"
+								data-bs-toggle="button" aria-pressed="true" ng-click="goPage(pg)">
+								{{pg}}
+							</a>
+						</span>
+
+						<a href="#!" ng-click="goPage(APage+1)" role="button"
+							class="btn btn-sm btn-loader btn-primary-soft m-1" data-bs-toggle="button"
+							aria-pressed="true" style="width: fit-content;">
+							<i class="fa-sharp fa-solid fa-caret-right icon__page"></i>
+						</a>
+						<!-- Load more button END -->
+					</div>
+				</div>
+			</div>
+			<!-- Main content END -->
+
+		</div>
+	</div>
+	<!-- Container END -->
+
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->

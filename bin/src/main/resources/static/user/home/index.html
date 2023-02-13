@@ -1,0 +1,488 @@
+<!-- begin main -->
+<div class="main" ng-controller="home-ctrl">
+    <div class="row no-gutters">
+        <!-- left -->
+        <div class="col-md-3 main__left" > 
+             <div ng-include="'../layout/user/__menu__left__1.html'"></div>
+        </div>
+
+        <!-- center -->
+        <div class="col-md-6 main__center">
+            <div class="row d-flex align-items-center">
+                <div class="container " id="main__center__scrollbar">
+                    <!-- Bạn đang nghĩ gì -->
+                    <div class="col-md-12">
+                        <div class="row no-gutters main__center__panel">
+                            <div class="col-md-1 main__center__panel__avatar">
+                                <img class="main__center__panel__avatar--small  "
+                                    src="https://www.facebook.com/images/fb_icon_325x325.png" alt="">
+                            </div>
+
+                            <div class="col-md-10 offset-1">
+                                <input class="main__center__panel__input" type="text"
+                                    placeholder="An! Bạn đang nghĩ gì?" data-toggle="modal" data-target="#postModel">
+
+                                <!-- Modal -->
+                                <div class="modal fade mt-5" id="postModel" tabindex="-1" role="dialog"
+                                    aria-labelledby="postModel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link active" id="pills-post-tab"
+                                                            data-bs-toggle="pill" data-bs-target="#pills-post"
+                                                            type="button" role="tab" aria-controls="pills-home"
+                                                            aria-selected="true">Bài viết</button>
+                                                    </li>
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link" id="pills-product-tab"
+                                                            data-bs-toggle="pill" data-bs-target="#pills-product"
+                                                            type="button" role="tab" aria-controls="pills-profile"
+                                                            aria-selected="false">Sản phẩm</button>
+                                                    </li>
+                                                </ul>
+
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form>
+                                                <div class="modal-body">
+                                                    <div class="tab-content" id="pills-tabContent">
+                                                        <div class="tab-pane fade show active" id="pills-post"
+                                                            role="tabpanel" aria-labelledby="pills-post-tab">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form">Quyền xem:</span>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <select class="post_form" name="" id=""
+                                                                        style="width:100%">
+                                                                        <option value="0">Công khai</option>
+                                                                        <option value="1">Không công khai</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form">Tiêu đề:</span>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input class="post_form" style="width: 100%;"
+                                                                        type="text">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form">Nội dung:</span>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <textarea class="post_form" style="width: 100%;"
+                                                                        name="" id="" cols="10" rows="5"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form"></span>
+                                                                </div>
+                                                                <div class="col-md-9 mb-3">
+                                                                    <div class="btn_upload_file text_post_form"><i
+                                                                            style="font-size: 25px;"
+                                                                            class="fa-solid fa-image mr-2"></i><span>Thêm
+                                                                            ảnh</span>
+                                                                        <input class="input_file_image_post" type="file"
+                                                                            name="" id="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="pills-product" role="tabpanel"
+                                                            aria-labelledby="pills-product-tab">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form">Quyền xem:</span>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <select class="post_form" name="" id=""
+                                                                        style="width:100%">
+                                                                        <option value="0">Công khai</option>
+                                                                        <option value="1">Không công khai</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form">Sản phẩm:</span>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input class="post_form" style="width: 100%;"
+                                                                        type="text">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form">Danh mục:</span>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <select class="post_form" name="" id=""
+                                                                        style="width:100%">
+                                                                        <option value="0">Quần áo</option>
+                                                                        <option value="1">Gia dụng</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form">Giá:</span>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input class="post_form" style="width: 100%;"
+                                                                        type="number">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form">Tình trạng:</span>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <label class="radio-inline text_post_form_2"><input
+                                                                            type="radio" name="optradio" checked>
+                                                                        Cũ</label>
+                                                                    <label class="radio-inline text_post_form_2"><input
+                                                                            class="ml-3" type="radio" name="optradio">
+                                                                        Mới 100%</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form">Số lượng:</span>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input class="post_form" style="width: 100%;"
+                                                                        type="number">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form">Mô tả:</span>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <textarea class="post_form" style="width: 100%;"
+                                                                        name="" id="" cols="10" rows="5"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form"></span>
+                                                                </div>
+                                                                <div class="col-md-9 mb-3">
+                                                                    <div class="row">
+                                                                        <div class="col-md-7">
+                                                                            <div
+                                                                                class="btn_upload_file text_post_form btn_upload_file_product">
+                                                                                <i style="font-size: 25px;"
+                                                                                    class="fa-solid fa-image mr-2"></i><span>Thêm
+                                                                                    ảnh</span>
+                                                                                <input class="input_file_image_post"
+                                                                                    type="file" name="" id="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <div
+                                                                                class="btn_upload_file text_post_form btn_upload_file_product btn_local_product">
+                                                                                <i style="font-size: 25px;"
+                                                                                    class="fa-solid fa-location-dot mr-2"></i><span>Vị
+                                                                                    trí</span>
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-md-3">
+                                                                    <span class="text_post_form">Hashtag:</span>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input class="post_form" style="width: 100%;"
+                                                                        type="text"
+                                                                        placeholder="#giaydep, #thethao, #giadung">
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn__ btn__--green">Đăng</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Bài đăng -->
+                    <div class="col-md-12">
+                        <div class="row no-gutters main__center__panel">
+                            <div class="row col-md-12 ">
+                                <div class="col-md-6 ">
+                                    <div class="row">
+                                        <div class="col-md-2 offset-1 main__center__panel__avatar">
+                                            <img class="main__center__panel__avatar--post "
+                                                src="https://www.facebook.com/images/fb_icon_325x325.png" alt="">
+                                        </div>
+                                        <div class="col-md-9 main__center__panel__post__profile">
+                                            <div class="row">
+                                                <span class="text__medium">Nguyễn Văn A</span>
+                                            </div>
+
+                                            <div class="row">
+                                                <span class="text text__small">2 phút trước</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-1 offset-1">
+                                    <div class="row col-md-12 main__center__panel__icon active">
+                                        <i class="fa-solid fa-thumbs-up"><span class="text__interactive">100</span></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="row col-md-12 main__center__panel__icon active">
+                                        <i class="fa-solid fa-comment"><span class="text__interactive">20</span></i>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="row col-md-12 main__center__panel__icon active">
+                                        <i class="fa-solid fa-paper-plane"><span class="text__interactive">20</span></i>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1 offset-1 dropdown">
+                                    <div class="row col-md-12 main__center__panel__icon main__center__panel__icon__droplist "
+                                        id="main__center__panel__dropdown" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i id="box" class="fa-solid fa-ellipsis"></i>
+                                    </div>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Báo cáo vi phạm</a>
+                                        <a class="dropdown-item" href="#">Ẩn bài viết</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row no-gutters">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-10 offset-1 main__center__panel__post__title">
+                                            <span>Giày Nike Air Jordan 1 Retro High Twist Panda replica </span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-10 offset-1 main__center__panel__post__content">
+                                            <p>Giày Nike Air Jordan 1 Retro High Twist Panda replica  </p>
+                                        </div>
+                                    </div>
+                                    <div class="row no-gutters">
+                                        <div class="col-md-10 offset-1 main__center__panel__post__image">
+                                            <img src="https://vuongconverse.com/wp-content/uploads/2021/05/z2473324005854_6e82c4e1c722d1d68709701331e7b7e2-scaled.jpg"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row col-md-12 no-gutters d-flex justify-content-center">
+                                <div class="col-md-3">
+                                    <div class="row col-md-12 main__center__panel__icon active">
+                                        <div class="col-md-2">
+                                            <i class="fa-solid fa-thumbs-up"></i>
+                                        </div>
+                                        <div class="col-md-9 ">
+                                            <span class="text__interactive">Thích</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row col-md-12 main__center__panel__icon">
+                                        <div class="col-md-3">
+                                            <i class="fa-solid fa-comment"></i>
+                                        </div>
+                                        <div class="col-md-9 ">
+                                            <span class="text__interactive">Bình luận</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row col-md-12 main__center__panel__icon">
+                                        <div class="col-md-3">
+                                            <i class=" fa-solid fa-paper-plane"></i>
+                                        </div>
+                                        <div class="col-md-9 ">
+                                            <span class="text__interactive">Chia sẻ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row no-gutters col-md-12">
+                                <div class="col-md-1 main__center__panel__avatar">
+                                    <img class="main__center__panel__avatar--small  "
+                                        src="https://www.facebook.com/images/fb_icon_325x325.png" alt="">
+                                </div>
+                                <div class="col-md-11">
+                                    <input class="main__center__panel__input" type="text" placeholder="Viết bình luận">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Bài đăng -->
+                    <div class="col-md-12">
+                        <div class="row no-gutters main__center__panel">
+                            <div class="row col-md-12 ">
+                                <div class="col-md-6 ">
+                                    <div class="row">
+                                        <div class="col-md-2 offset-1 main__center__panel__avatar">
+                                            <img class="main__center__panel__avatar--post "
+                                                src="https://www.facebook.com/images/fb_icon_325x325.png" alt="">
+                                        </div>
+                                        <div class="col-md-9 main__center__panel__post__profile">
+                                            <div class="row">
+                                                <span class="text__medium">Nguyễn Văn A</span>
+                                            </div>
+
+                                            <div class="row">
+                                                <span class="text text__small">2 phút trước</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-1 offset-1">
+                                    <div class="row col-md-12 main__center__panel__icon active">
+                                        <i class="fa-solid fa-thumbs-up"><span class="text__interactive">100</span></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="row col-md-12 main__center__panel__icon active">
+                                        <i class="fa-solid fa-comment"><span class="text__interactive">20</span></i>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="row col-md-12 main__center__panel__icon active">
+                                        <i class="fa-solid fa-paper-plane"><span class="text__interactive">20</span></i>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1 offset-1 dropdown">
+                                    <div class="row col-md-12 main__center__panel__icon main__center__panel__icon__droplist "
+                                        id="main__center__panel__dropdown" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i id="box" class="fa-solid fa-ellipsis"></i>
+                                    </div>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Báo cáo vi phạm</a>
+                                        <a class="dropdown-item" href="#">Ẩn bài viết</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row no-gutters">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-10 offset-1 main__center__panel__post__title">
+                                            <span>Tiêu Đề Post</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-10 offset-1 main__center__panel__post__content">
+                                            <p>Giày Nike Air Jordan 1 Retro High Twist Panda replica
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row no-gutters">
+                                        <div class="col-md-10 offset-1 main__center__panel__post__image">
+                                            <img src="https://vuongconverse.com/wp-content/uploads/2021/05/z2473324005854_6e82c4e1c722d1d68709701331e7b7e2-scaled.jpg"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row col-md-12 no-gutters d-flex justify-content-center">
+                                <div class="col-md-3">
+                                    <div class="row col-md-12 main__center__panel__icon active">
+                                        <div class="col-md-2">
+                                            <i class="fa-solid fa-thumbs-up"></i>
+                                        </div>
+                                        <div class="col-md-9 ">
+                                            <span class="text__interactive">Thích</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row col-md-12 main__center__panel__icon">
+                                        <div class="col-md-3">
+                                            <i class="fa-solid fa-comment"></i>
+                                        </div>
+                                        <div class="col-md-9 ">
+                                            <span class="text__interactive">Bình luận</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row col-md-12 main__center__panel__icon">
+                                        <div class="col-md-3">
+                                            <i class=" fa-solid fa-paper-plane"></i>
+                                        </div>
+                                        <div class="col-md-9 ">
+                                            <span class="text__interactive">Chia sẻ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row no-gutters col-md-12">
+                                <div class="col-md-1 main__center__panel__avatar">
+                                    <img class="main__center__panel__avatar--small  "
+                                        src="https://www.facebook.com/images/fb_icon_325x325.png" alt="">
+                                </div>
+                                <div class="col-md-11">
+                                    <input class="main__center__panel__input" type="text" placeholder="Viết bình luận">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Right -->
+        <div class="col-md-3 main__right">
+            <div ng-include="'../layout/user/__menu__right__add.html'"></div>
+        </div>
+    </div>
+</div>
+<!-- end main -->
+
+ 

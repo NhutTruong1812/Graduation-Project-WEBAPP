@@ -1,0 +1,23 @@
+5/12/2022
+pb0001: Dữ liệu mẫu (chưa có)
+pb0002: Chưa có cơ chế hiện lại sản phẩm, bài viết sau khi ẩn
+pb0003: Thông tin người dùng trên trang chủ, bài đăng chưa được thay đổi
+pb0004: Menu trái, phải chưa được fixed trên màn hình
+pb0005: Chưa gộp phần bài đăng và trang chủ (đã từng thống nhất gộp làm 1)
+pb0006: Chưa xử lý tương tác với bài đăng (chỉ mới hiển thị được bài đăng)
+pb0007: Chưa xử lý ẩn bài đăng sau khi sử dụng chức năng ẩna
+pb0008: Đăng bài đăng mới nhưng chưa được render (đã reload vẫn không render)
+pb0009: Chia sẻ bài viết nhưng chưa được render 
+pb0010: Thông tin user trên trang quản trị chưa được thay đổi
+pb0011: Menu item 'Về trang chủ' trong trang quản trị không có hành động (từ admin không có đường chuyển về trang chủ)
+pb0012: 'Tìm kiếm Biglobby' trong trang admin không có tác dụng (xóa bỏ đi?) 
+pb0013: Icon trong bảng (các mục quản lý trong trang admin) chưa có tool tip text (chả biết cái nào dùng để làm gì)
+pb0014: Chưa xử lý phần thông báo ở trang user 
+pb0015: Nhắn tin (Trường đang làm)
+pb0016: Bài đăng đã ẩn (chưa có thông báo xác nhận khôi phục), nên đặt nút khôi phục bên phải card (nhìn cái badge không hề biết là nó có tác dụng khôi phục)
+pb0017: Tăng số lượng hàng trong phần xem chi tiết sản phẩm và giỏ hàng, bỏ cái alert đi, xử lý input thôi, số lượng trong giỏ hàng: có vấn đề nhập số lượng
+pb0018: Trang quản lý quảng cáo (hình như chưa làm, nên hiện thông báo đang phát triển, ẩn thông tin trên trang đó đi)
+pb0019: Thống kê ở phần của user, hình như cũng chưa làm 
+pb0020: Hỗ trợ, phần câu hỏi thường gặp chưa có nội dung
+pb0021: Logo biglobby ở phần của user chưa có link (hiển thị white page error khi click)
+pb0022: Sản phẩm trong giỏ hàng thi thoảng render sai, bị duplicate
